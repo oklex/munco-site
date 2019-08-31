@@ -12,10 +12,10 @@ class BlogHome extends React.Component<{}, BlogHomeState> {
     }
 
     componentDidMount = async() => {
-        console.log(BlogService.getMostRecent())
-        // this.setState({
-        //     BlogPosts: BlogService.getMostRecent()
-        // })
+        const newPosts: SingleBlogPost[] = await BlogService.getMostRecent()
+        this.setState({
+            BlogPosts: newPosts
+        })
     }
 
     render() {
