@@ -1,35 +1,40 @@
-import React from 'react'
-import Interweave from 'interweave'
-import { BlogService } from '../../services/BlogService'
+import React from "react";
+import Interweave from "interweave";
+import { BlogService } from "../../services/BlogService";
 
 interface ISinglePostWrapperProps {
-    postId: number,
+  postId: number | null;
 }
 
 interface ISinglePostWrapperState {
-    content: string
+  content: string;
 }
 
-class SinglePostWrapper extends React.Component<ISinglePostWrapperProps,ISinglePostWrapperState> {
-    state = {
-        content: ''
+class SinglePostWrapper extends React.Component<
+  ISinglePostWrapperProps,
+  ISinglePostWrapperState
+> {
+  state = {
+    content: ""
+  };
+
+  componentDidUpdate = async (prevProps: ISinglePostWrapperProps) => {
+    if (this.props.postId !== prevProps.postId && this.props.postId !== null) {
+      const post = await BlogService.getPostFromID(this.props.postId);
+      const postContent = post.content.rendered;
+      this.setState({
+        content: postContent
+      });
     }
-    
-    componentWillMount = async () => {
-        const post = await BlogService.getPostFromID(this.props.postId)
-        const postContent = post.content.rendered
-        this.setState({
-            content: postContent
-        })
-    }
-    
-    render() {
-        return (
-            <div>
-                <Interweave content={this.state.content} />
-            </div>
-        )
-    }
+  };
+
+  render() {
+    return (
+      <div>
+        <Interweave content={this.state.content} />
+      </div>
+    );
+  }
 }
 
-export default SinglePostWrapper
+export default SinglePostWrapper;

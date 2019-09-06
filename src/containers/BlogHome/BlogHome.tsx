@@ -27,24 +27,27 @@ class BlogHome extends React.Component<{}, BlogHomeState> {
 
   showSinglePost = (post: SingleBlogPost, index: number) => {
     return (
-      <div>
-        <div onClick={() => this.updateCurrentPost(post.id)}><h1>{post.slug}</h1></div>
+      <div key={post.id}>
+        <h1>{post.slug}</h1>
         <p>Date: {post.date}</p>
         <p>id: {post.id}</p>
+        <button onClick={() => this.updateCurrentPost(post.id)} >see this </button>
       </div>
     );
   };
 
   updateCurrentPost = (postId: number) => {
+    console.log('updating to: ', postId)
     this.setState({
       currentPostId: postId
     });
   };
 
   renderPostIfSelected = () => {
+    console.log('state id: ', this.state.currentPostId)
     if (this.state.currentPostId) {
-      return <SinglePostWrapper postId={this.state.currentPostId} />;
-    } else return <div></div>;
+      return <SinglePostWrapper postId={this.state.currentPostId} />
+    } else return <SinglePostWrapper postId={ null } />
   };
 
   render() {
