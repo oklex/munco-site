@@ -1,21 +1,34 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Navigation from '../../components/Navigation/Navigation'
-import NavigationLinks from '../../models/NavigationLinks'
+import {INavigationTypes, LinkImportance} from '../../models/NavigationLinks'
 
-const NavLinks: NavigationLinks[] = [
+const NavLinks: INavigationTypes[] = [
   {
     link: "/",
-    title: "Home"
+    title: "Home",
+    type: LinkImportance.minor
   },
   {
     link: "/features",
-    title: "Features"
+    title: "Features",
+    type: LinkImportance.major
   },
   {
     link: "/calendar",
-    title: "Calendar"
-  }
+    title: "Calendar",
+    type: LinkImportance.major
+  },
+  {
+    link: "/about",
+    title: "About",
+    type: LinkImportance.minor
+  },
+  {
+    link: "/social",
+    title: "facebook",
+    type: LinkImportance.external
+  },
 ];
 
 class App extends React.Component<{}, {}> {
