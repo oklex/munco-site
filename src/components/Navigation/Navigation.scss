@@ -1,0 +1,29 @@
+#Navigation {
+    position: fixed;
+    z-index: 9999999999;
+    width: 100%;
+    justify-content: space-between;
+    background-color: none;
+    transition: 0.25s ease-in;
+    div,
+    ul,
+    li {
+      display: inline-block;
+    }
+    #logo {
+      height: 50px;
+    }
+    li,
+    a {
+      padding-right: 1em;
+      color: inherit;
+    }
+    a:hover {
+      text-decoration: none;
+    }
+  }
+  
+  .whiteBackground {
+    background-color: white;
+  }
+  

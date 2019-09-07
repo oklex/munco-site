@@ -3,12 +3,12 @@ import { SingleBlogPost } from "../../models/BlogPost";
 import { BlogService } from "../../services/BlogService";
 import SinglePostWrapper from "../../components/SinglePostWrapper/SinglePostWrapper";
 
-interface BlogHomeState {
+interface BlogState {
   blogPosts: SingleBlogPost[];
   currentPostId: number;
 }
 
-class BlogHome extends React.Component<{}, BlogHomeState> {
+class Blog extends React.Component<{}, BlogState> {
   state = {
     blogPosts: [],
     currentPostId: 0
@@ -56,4 +56,4 @@ class BlogHome extends React.Component<{}, BlogHomeState> {
   }
 }
 
-export default BlogHome;
+export default Blog;
