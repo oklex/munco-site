@@ -6,7 +6,6 @@ import INavigationTypes, { LinkImportance } from "../../models/NavigationLinks";
 import { Link } from "react-router-dom";
 import { SingleBlogPost } from "../../models/BlogPost";
 import { BlogService } from "../../services/BlogService";
-import Interweave from "interweave";
 
 const vancouverBg: string = '/img/cambie.jpg'
 const logo: string = '/brand/white-logo.png'
