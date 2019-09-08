@@ -28,12 +28,12 @@ const NavLinks: INavigationTypes[] = [
 
 const SocialMediaLinks: INavigationTypes[] = [
   {
-    link: 'facebook.com',
+    link: 'https://www.facebook.com/BCmunco',
     title: 'facebook',
     type: LinkImportance.external
   },
   {
-    link: 'instagram.com',
+    link: 'https://www.instagram.com/bc.munco/',
     title: 'instagram',
     type: LinkImportance.external
   },

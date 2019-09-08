@@ -66,33 +66,43 @@ class Navigation extends React.Component<INavigationProps, INavigationState> {
     switch (link.type) {
       case LinkImportance.major: {
         return (
-          <Link
-            key={index}
-            to={link.link}
-            className={this.getLinkAnimation()}
-            onClick={() => this.closeNavigation()}
-          >
-            <h4>{link.title}</h4>
-          </Link>
+          <li>
+            <Link
+              key={index}
+              to={link.link}
+              className={this.getLinkAnimation()}
+              onClick={() => this.closeNavigation()}
+            >
+              <h4>{link.title}</h4>
+            </Link>
+          </li>
         );
       }
       default: {
         return (
-          <Link
-            key={index}
-            to={link.link}
-            className={this.getLinkAnimation()}
-            onClick={() => this.closeNavigation()}
-          >
-            <h5>{link.title}</h5>
-          </Link>
+          <li>
+            <Link
+              key={index}
+              to={link.link}
+              className={this.getLinkAnimation()}
+              onClick={() => this.closeNavigation()}
+            >
+              <h5>{link.title}</h5>
+            </Link>
+          </li>
         );
       }
     }
   };
 
   returnSocialMedia = () => {
-    return <div>facebook - instagram</div>;
+    return this.props.socialMedia.map((link, index) => {
+      return (
+        <a key={index} href={link.link}>
+          {link.title}
+        </a>
+      );
+    });
   };
 
   showNavigation = () => {
@@ -117,7 +127,7 @@ class Navigation extends React.Component<INavigationProps, INavigationState> {
             </div>
           </div>
           <div className="d-flex justify-content-center">
-            <div className="social media links">
+            <div className="social-media-links">
               <ul>{this.returnSocialMedia()}</ul>
             </div>
           </div>

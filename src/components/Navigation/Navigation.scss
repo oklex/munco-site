@@ -35,14 +35,21 @@
     animation-fill-mode: forwards;
 
     .main-nav-links {
-      padding-top: calc(50vh - 3em);
+      position: absolute;
+      padding-top: 35vh;
+      z-index: 99999999;
       h1, h2, h3, h4, h5, h6 {
         display: inline-block;
         padding: 0.5em;
       }
     }
+    .social-media-links {
+      z-index: 99999;
+      position: absolute;
+      padding: 80vh;
+    }
+    
   }
-
   .slideIn {
     -webkit-animation-name: slideInDown;
     -webkit-animation-duration: 0.2s;
@@ -84,6 +91,18 @@
 
 .whiteBackground {
   background-color: white;
+}
+
+@media only screen and (max-width: 720px) {
+  ul,
+  li {
+    display: block;
+    width: 100%;
+  }
+  .main-nav-links{
+    padding-left: 2em;
+    padding-top: 25vh !important;
+  }
 }
 
 @keyframes slideInDown {
