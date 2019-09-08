@@ -12,5 +12,11 @@ export const BlogService = {
         const { data } = await API.get(`/posts/${postId}`)
         console.log('getPostFromID', data)
         return data
+    },
+
+    async getMediaFromID(mediaId: number): Promise<any> {
+        const { data } = await API.get(`/media/${mediaId}`)
+        console.log('getMediaFromID', data)
+        return data
     }
 }
