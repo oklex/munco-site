@@ -79,7 +79,7 @@ class Navigation extends React.Component<INavigationProps, INavigationState> {
       return (
         <div id="nav-content" className={this.getNavAnimation()}>
           <div className="d-flex justify-content-between">
-            <img src='Logo' alt='munco brand logo'></img>
+            <img className='logo' src={Logo} alt='munco brand logo'></img>
             <div className="btn-nav">
               <button onClick={() => this.closeNavigation()}>
                 <img
