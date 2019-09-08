@@ -42,7 +42,7 @@ const SocialMediaLinks: INavigationTypes[] = [
 
 class App extends React.Component<{}, {}> {
   showHome = () => {
-    return <Home/>;
+    return <Home links={NavLinks} socialMedia={SocialMediaLinks}/>;
   };
   showFeatures = () => {
     return <div>Features</div>;

@@ -9,6 +9,7 @@ const Logo: string = "/brand/logo.svg";
 interface INavigationProps {
   links: INavigationTypes[];
   socialMedia: INavigationTypes[];
+  hideButtons?: boolean;
 }
 
 interface INavigationState {
@@ -70,7 +71,7 @@ class Navigation extends React.Component<INavigationProps, INavigationState> {
             <Link
               key={index}
               to={link.link}
-              className={'highlight-link' + this.getLinkAnimation()}
+              className={"highlight-link" + this.getLinkAnimation()}
               onClick={() => this.closeNavigation()}
             >
               <h4>{link.title}</h4>
@@ -105,22 +106,30 @@ class Navigation extends React.Component<INavigationProps, INavigationState> {
     });
   };
 
+  showCloseButton = () => {
+    if (!this.props.hideButtons) {
+      return (
+        <div className="d-flex justify-content-between">
+          <img className="logo" src={Logo} alt="munco brand logo"></img>
+          <div className="btn-nav">
+            <button onClick={() => this.closeNavigation()}>
+              <img
+                src={closeIcon}
+                alt="close-navigation"
+                className="btn-closeNav"
+              />
+            </button>
+          </div>
+        </div>
+      );
+    } else return <div></div>
+  };
+
   showNavigation = () => {
     if (this.state.interacted) {
       return (
         <div id="nav-content" className={this.getNavAnimation()}>
-          <div className="d-flex justify-content-between">
-            <img className="logo" src={Logo} alt="munco brand logo"></img>
-            <div className="btn-nav">
-              <button onClick={() => this.closeNavigation()}>
-                <img
-                  src={closeIcon}
-                  alt="close-navigation"
-                  className="btn-closeNav"
-                />
-              </button>
-            </div>
-          </div>
+          {this.showCloseButton()}
           <div className="d-flex justify-content-center">
             <div className="main-nav-links">
               <ul>{this.returnNavOptions()}</ul>

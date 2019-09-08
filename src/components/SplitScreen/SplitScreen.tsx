@@ -2,17 +2,10 @@ import React from 'react'
 import './SplitScreen.scss'
 
 interface ISplitScreenProps {
-    wrap: SplitscreenWrapSize,
     hideOnWrap?: boolean,
-    imgBackground?: string,
     children: JSX.Element,
 }
 
-export enum SplitscreenWrapSize {
-    sm = 'sm',
-    md = 'md',
-    lg = 'lg'
-}
 
 class SplitScreen extends React.Component<ISplitScreenProps,{}> {
 
@@ -24,7 +17,7 @@ class SplitScreen extends React.Component<ISplitScreenProps,{}> {
 
     render() {
         return (
-            <div className={'split-screen ' + this.props.wrap + this.getHideOnWrap()}>
+            <div className={'col-md-6 split-screen ' + this.getHideOnWrap()}>
                 {this.props.children}
             </div>
         )

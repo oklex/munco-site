@@ -5,25 +5,24 @@ $md-wrap: calc(1000px / 2);
 $lg-wrap: calc (1920px / 2);
 
 .full-screen {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100vw;
-  min-height: 100vh;
+  padding: 0px !important;
+  margin: 0px !important;
   .split-screen {
-    position: relative;
     min-height: 100vh;
-    width: 50vw;
+    padding: 0px !important;
   }
-  .sm {
-    min-width: $sm-wrap;
-    flex-grow: 1;
+
+  @media only screen and (max-width: 720px) {
+    .hide-on-wrap {
+      visibility: hide;
+    }
   }
-  .md {
-    min-width: calc(1000px / 2);
-    flex-grow: 1;
-  }
-  .lg {
-    min-width: (1920px / 2);
-    flex-grow: 1;
+}
+
+@media only screen and (max-width: 845px) {
+  .hide-on-mobile {
+    visibility: hidden;
+    width: 0px;
+    height: 0px;
   }
 }

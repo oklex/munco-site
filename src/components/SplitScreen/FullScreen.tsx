@@ -7,9 +7,16 @@ interface IFullScreenProps {
 }
 
 class FullScreen extends React.Component<IFullScreenProps,{}>{
+
+    hideOnMobile = () => {
+        if (this.props.hideOnMobile) {
+            return ' hide-on-mobile'
+        } else return ''
+    }
+
     render() {
         return (
-            <div className='full-screen'>{this.props.children}</div>
+            <div className={'row full-screen' + this.hideOnMobile()}>{this.props.children}</div>
         )
     }
 }
