@@ -4,6 +4,7 @@ import INavigationTypes from "../../models/NavigationLinks";
 import { Link } from "react-router-dom";
 const closeIcon: string = "/icons/close.svg";
 const HamburgerIcon: string = "/icons/hamburger.svg";
+const Logo: string = '/brand/logo.svg'
 
 interface INavigationProps {
   links: INavigationTypes[];
@@ -77,7 +78,8 @@ class Navigation extends React.Component<INavigationProps, INavigationState> {
     if (this.state.interacted) {
       return (
         <div id="nav-content" className={this.getNavAnimation()}>
-          <div className="d-flex flex-row-reverse">
+          <div className="d-flex justify-content-between">
+            <img src='Logo' alt='munco brand logo'></img>
             <div className="btn-nav">
               <button onClick={() => this.closeNavigation()}>
                 <img
