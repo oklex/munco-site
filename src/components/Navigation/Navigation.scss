@@ -1,6 +1,6 @@
 #Navigation {
     position: fixed;
-    z-index: 9999999999;
+    z-index: 99999;
     width: 100%;
     justify-content: space-between;
     background-color: none;
@@ -16,14 +16,84 @@
     li,
     a {
       padding-right: 1em;
-      color: inherit;
+      color: inherit; 
+      animation-fill-mode: forwards;
     }
     a:hover {
       text-decoration: none;
+      font-weight: 600;
     }
+
+    #nav-content {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color:#F4F4F4;
+      width: 100vw;
+      height: 100vh;
+      z-index: 99999;
+      animation-fill-mode: forwards;
+
+      .main-nav-links{
+        padding-top: calc(50vh - 3em);
+      }
+    }
+
+    .slideIn {
+      -webkit-animation-name: slideInDown;
+      -webkit-animation-duration: 0.25s;
+      animation-name: slideInDown;
+      animation-duration: 0.25s;  
+    }
+    
+    .slideOut {
+      -webkit-animation-name: slideOutUp;
+      -webkit-animation-duration: 0.25s;
+      animation-name: slideOutUp;
+      animation-duration: 0.25s;  
+    }
+
+    .fadeIn {
+      -webkit-animation-name: fadeIn;
+      -webkit-animation-duration: 0.7s;
+      animation-name: fadeIn;
+      animation-duration: 0.7s; 
+    }
+
   }
   
   .whiteBackground {
     background-color: white;
   }
   
+  @keyframes slideInDown {
+    from {
+      transform: translate3d(0, -100%, 0);
+      visibility: visible;
+    }
+  
+    to {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  @keyframes slideOutUp {
+    from {
+      transform: translate3d(0, 0, 0);
+    }
+  
+    to {
+      visibility: hidden;
+      transform: translate3d(0, -100%, 0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  }

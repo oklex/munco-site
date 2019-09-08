@@ -23,13 +23,21 @@ const NavLinks: INavigationTypes[] = [
     link: "/about",
     title: "About",
     type: LinkImportance.minor
-  },
+  }
+];
+
+const SocialMediaLinks: INavigationTypes[] = [
   {
-    link: "/social",
-    title: "facebook",
+    link: 'facebook.com',
+    title: 'facebook',
     type: LinkImportance.external
   },
-];
+  {
+    link: 'instagram.com',
+    title: 'instagram',
+    type: LinkImportance.external
+  },
+]
 
 class App extends React.Component<{}, {}> {
   showHome = () => {
@@ -46,7 +54,7 @@ class App extends React.Component<{}, {}> {
     return (
       <Router>
         <div className="App">
-          <Navigation links={NavLinks}/>
+          <Navigation links={NavLinks} socialMedia={SocialMediaLinks}/>
           <Switch>
             <Route exact path="/" component={this.showHome} />
             <Route path="/features" component={this.showFeatures} />
