@@ -1,10 +1,10 @@
 import React from "react";
 import "./Navigation.scss";
-import INavigationTypes from "../../models/NavigationLinks";
+import INavigationTypes, { LinkImportance } from "../../models/NavigationLinks";
 import { Link } from "react-router-dom";
 const closeIcon: string = "/icons/close.svg";
 const HamburgerIcon: string = "/icons/hamburger.svg";
-const Logo: string = '/brand/logo.svg'
+const Logo: string = "/brand/logo.svg";
 
 interface INavigationProps {
   links: INavigationTypes[];
@@ -51,11 +51,11 @@ class Navigation extends React.Component<INavigationProps, INavigationState> {
 
   getLinkAnimation = () => {
     if (this.state.show) {
-      return ' fadeIn'
+      return " fadeIn";
     } else {
-      return ''
+      return "";
     }
-  }
+  };
 
   returnNavOptions = () => {
     // change the style of the return value based on the classification
@@ -63,11 +63,32 @@ class Navigation extends React.Component<INavigationProps, INavigationState> {
   };
 
   returnSingleNavOption = (link: INavigationTypes, index: number) => {
-    return (
-      <Link key={index} to={link.link} className={this.getLinkAnimation()} onClick={() => this.closeNavigation()}>
-        {link.title}
-      </Link>
-    );
+    switch (link.type) {
+      case LinkImportance.major: {
+        return (
+          <Link
+            key={index}
+            to={link.link}
+            className={this.getLinkAnimation()}
+            onClick={() => this.closeNavigation()}
+          >
+            <h4>{link.title}</h4>
+          </Link>
+        );
+      }
+      default: {
+        return (
+          <Link
+            key={index}
+            to={link.link}
+            className={this.getLinkAnimation()}
+            onClick={() => this.closeNavigation()}
+          >
+            <h5>{link.title}</h5>
+          </Link>
+        );
+      }
+    }
   };
 
   returnSocialMedia = () => {
@@ -79,7 +100,7 @@ class Navigation extends React.Component<INavigationProps, INavigationState> {
       return (
         <div id="nav-content" className={this.getNavAnimation()}>
           <div className="d-flex justify-content-between">
-            <img className='logo' src={Logo} alt='munco brand logo'></img>
+            <img className="logo" src={Logo} alt="munco brand logo"></img>
             <div className="btn-nav">
               <button onClick={() => this.closeNavigation()}>
                 <img
