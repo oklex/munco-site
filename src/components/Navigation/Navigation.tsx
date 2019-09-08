@@ -110,7 +110,7 @@ class Navigation extends React.Component<INavigationProps, INavigationState> {
     if (!this.props.hideButtons) {
       return (
         <div className="d-flex justify-content-between">
-          <img className="logo" src={Logo} alt="munco brand logo"></img>
+          <img className="logo" src={Logo} alt="munco brand logo" />
           <div className="btn-nav">
             <button onClick={() => this.closeNavigation()}>
               <img
@@ -122,7 +122,23 @@ class Navigation extends React.Component<INavigationProps, INavigationState> {
           </div>
         </div>
       );
-    } else return <div></div>
+    } else return <div></div>;
+  };
+
+  showOpenButton = () => {
+    return (
+      <div className="d-flex flex-row-reverse">
+        <div className="btn-nav">
+          <button onClick={() => this.openNavigation()}>
+            <img
+              src={HamburgerIcon}
+              alt="close-navigation"
+              className="btn-closeNav"
+            />
+          </button>
+        </div>
+      </div>
+    );
   };
 
   showNavigation = () => {
@@ -150,18 +166,7 @@ class Navigation extends React.Component<INavigationProps, INavigationState> {
   render() {
     return (
       <div id="Navigation">
-        <div className="d-flex flex-row-reverse">
-          <div className="btn-nav">
-            <button onClick={() => this.openNavigation()}>
-              <img
-                src={HamburgerIcon}
-                alt="close-navigation"
-                className="btn-closeNav"
-              />
-            </button>
-          </div>
-        </div>
-
+        {this.showOpenButton()}
         {this.showNavigation()}
       </div>
     );
