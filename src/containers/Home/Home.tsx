@@ -6,6 +6,7 @@ import INavigationTypes, { LinkImportance } from "../../models/NavigationLinks";
 import { Link } from "react-router-dom";
 
 const vancouverBg: string = '/img/cambie.jpg'
+const logo: string = '/brand/white-logo.png'
 
 interface IHomeProps {
   links: INavigationTypes[];
@@ -76,6 +77,7 @@ class Home extends React.Component<IHomeProps, {}> {
             <div className="hero-banner">
               <img src={vancouverBg} alt='street-view-of-cambie-and-14th-avn' className='bg-image'/>
               <div className="overlay">
+                <img src={logo} alt='white-munco-logo' className='banner-logo'/>
                 <div className='banner-title lightText'>
                    <h4>Community Starts here</h4> 
                 </div>

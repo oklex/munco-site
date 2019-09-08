@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Navigation from '../../components/Navigation/Navigation'
 import {INavigationTypes, LinkImportance} from '../../models/NavigationLinks'
 import Home from '../Home/Home'
+import Footer from "../../components/Footer/Footer";
 
 const NavLinks: INavigationTypes[] = [
   {
@@ -61,6 +62,7 @@ class App extends React.Component<{}, {}> {
             <Route path="/features" component={this.showFeatures} />
             <Route path="/calendar" component={this.showCalendar} />
           </Switch>
+          <Footer/>
         </div>
       </Router>
     );

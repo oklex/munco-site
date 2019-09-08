@@ -1,0 +1,25 @@
+@import '../../styles/colours.scss';
+
+.footer {
+    background-color: $dark-grey;
+    color: $light-grey;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    .socials {
+        margin-top: 40px;
+        button {
+            color: white;
+            border-radius: 30px;
+            margin-right: 20px;
+        }
+    }
+    a {
+        h1,h2,h3,h4,h5,h6 {
+            margin-bottom: 20px;
+        }
+        p {
+            margin: 0;
+        }
+    }
+}
+
