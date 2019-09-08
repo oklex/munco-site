@@ -1,3 +1,5 @@
+@import '../../styles/colours.scss';
+
 #Navigation {
   position: fixed;
   z-index: 99999;
@@ -16,19 +18,19 @@
   li,
   a {
     padding-right: 1em;
-    color: inherit;
+    color: $dark-grey;
     animation-fill-mode: forwards;
   }
   a:hover {
+    color: black;
     text-decoration: none;
-    font-weight: 600;
   }
 
   #nav-content {
     position: absolute;
     top: 0;
     left: 0;
-    background-color: #f4f4f4;
+    background-color: $light-grey;
     width: 100vw;
     height: 100vh;
     z-index: 99999;
@@ -72,7 +74,7 @@
   }
 
   .btn-nav {
-    background-color: #fbae18;
+    background-color: $munco-gold;
     width: 3em;
     height: 3em;
     padding-left: 0.9em;
@@ -89,50 +91,14 @@
   }
 }
 
-.whiteBackground {
-  background-color: white;
-}
-
-@media only screen and (max-width: 720px) {
+@media only screen and (max-width: 1000px) {
   ul,
   li {
     display: block;
     width: 100%;
   }
-  .main-nav-links{
+  .main-nav-links {
     padding-left: 2em;
     padding-top: 25vh !important;
-  }
-}
-
-@keyframes slideInDown {
-  from {
-    transform: translate3d(0, -100%, 0);
-    visibility: visible;
-  }
-
-  to {
-    transform: translate3d(0, 0, 0);
-  }
-}
-
-@keyframes slideOutUp {
-  from {
-    transform: translate3d(0, 0, 0);
-  }
-
-  to {
-    visibility: hidden;
-    transform: translate3d(0, -100%, 0);
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
   }
 }

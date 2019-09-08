@@ -70,7 +70,7 @@ class Navigation extends React.Component<INavigationProps, INavigationState> {
             <Link
               key={index}
               to={link.link}
-              className={this.getLinkAnimation()}
+              className={'highlight-link' + this.getLinkAnimation()}
               onClick={() => this.closeNavigation()}
             >
               <h4>{link.title}</h4>
