@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Navigation from '../../components/Navigation/Navigation'
 import {INavigationTypes, LinkImportance} from '../../models/NavigationLinks'
+import Home from '../Home/Home'
 
 const NavLinks: INavigationTypes[] = [
   {
@@ -41,7 +42,7 @@ const SocialMediaLinks: INavigationTypes[] = [
 
 class App extends React.Component<{}, {}> {
   showHome = () => {
-    return <div>Home</div>;
+    return <Home/>;
   };
   showFeatures = () => {
     return <div>Features</div>;

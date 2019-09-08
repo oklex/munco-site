@@ -1,0 +1,29 @@
+@import "../../styles/colours.scss";
+
+$sm-wrap: calc(720px / 2);
+$md-wrap: calc(1000px / 2);
+$lg-wrap: calc (1920px / 2);
+
+.full-screen {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100vw;
+  min-height: 100vh;
+  .split-screen {
+    position: relative;
+    min-height: 100vh;
+    width: 50vw;
+  }
+  .sm {
+    min-width: $sm-wrap;
+    flex-grow: 1;
+  }
+  .md {
+    min-width: calc(1000px / 2);
+    flex-grow: 1;
+  }
+  .lg {
+    min-width: (1920px / 2);
+    flex-grow: 1;
+  }
+}
