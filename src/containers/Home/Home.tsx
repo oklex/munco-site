@@ -4,6 +4,9 @@ import SplitScreen from "../../components/SplitScreen/SplitScreen";
 import "./Home.scss";
 import INavigationTypes, { LinkImportance } from "../../models/NavigationLinks";
 import { Link } from "react-router-dom";
+import { SingleBlogPost } from "../../models/BlogPost";
+import { BlogService } from "../../services/BlogService";
+import Interweave from "interweave";
 
 const vancouverBg: string = '/img/cambie.jpg'
 const logo: string = '/brand/white-logo.png'
@@ -13,7 +16,40 @@ interface IHomeProps {
   socialMedia: INavigationTypes[];
 }
 
-class Home extends React.Component<IHomeProps, {}> {
+interface IHomeState {
+  blogPosts: SingleBlogPost[],
+}
+
+class Home extends React.Component<IHomeProps, IHomeState> {
+  state = {
+    blogPosts: []
+  }
+
+  componentDidMount = async() => {
+    // load in the blog posts
+    var blogPosts: SingleBlogPost[] = await BlogService.getMostRecent()
+    this.setState({
+      blogPosts: blogPosts
+    })
+    console.log(this.state.blogPosts)
+  }
+
+  showBlogPosts = () => {
+    if (this.state.blogPosts.length > 0) {
+      return this.state.blogPosts.map((post:SingleBlogPost, index: number) => {
+        if (post.status === 'publish') return (
+          <div key={index}>
+            {//need to call wp api to get featured media
+            }
+            <h5>{post.title.rendered}</h5>
+          </div>
+        )
+      })
+    } else {
+      return <div></div>
+    }
+  }
+
   returnNavOptions = () => {
     // change the style of the return value based on the classification
     return this.props.links.map(this.returnSingleNavOption);
@@ -23,8 +59,8 @@ class Home extends React.Component<IHomeProps, {}> {
     switch (link.type) {
       case LinkImportance.major: {
         return (
-          <li>
-            <Link key={index} to={link.link}>
+          <li key={index}>
+            <Link to={link.link}>
               <h4>{link.title}</h4>
             </Link>
           </li>
@@ -32,8 +68,8 @@ class Home extends React.Component<IHomeProps, {}> {
       }
       default: {
         return (
-          <li>
-            <Link key={index} to={link.link}>
+          <li key={index}>
+            <Link to={link.link}>
               <h5>{link.title}</h5>
             </Link>
           </li>
@@ -97,7 +133,7 @@ class Home extends React.Component<IHomeProps, {}> {
         </div>
         <div className='container'>
           <h4>Student features</h4>
-          <p>list</p>
+          {this.showBlogPosts()}
         </div>
       </div>
     );

@@ -67,9 +67,8 @@ class Navigation extends React.Component<INavigationProps, INavigationState> {
     switch (link.type) {
       case LinkImportance.major: {
         return (
-          <li>
+          <li key={index}>
             <Link
-              key={index}
               to={link.link}
               className={"highlight-link" + this.getLinkAnimation()}
               onClick={() => this.closeNavigation()}
@@ -81,9 +80,8 @@ class Navigation extends React.Component<INavigationProps, INavigationState> {
       }
       default: {
         return (
-          <li>
+          <li key={index}>
             <Link
-              key={index}
               to={link.link}
               className={this.getLinkAnimation()}
               onClick={() => this.closeNavigation()}
