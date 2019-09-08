@@ -11,10 +11,12 @@ body {
   h3,
   h4,
   h5,
-  h6 {
+  h6,
+  p {
     font-style: normal;
     font-weight: normal;
     letter-spacing: 0.09em;
+    transition: 0.2s ease-out !important;
   }
 
   h1 {
@@ -44,6 +46,25 @@ body {
   h6 {
     font-size: 14px;
     line-height: 14px;
+  }
+
+  a {
+    color: inherit;
+    transition: 0.2s ease-out !important;
+  }
+
+  a:hover {
+    color: inherit;
+    text-decoration: none;
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+      letter-spacing: 0.1em;
+    }
   }
 }
 

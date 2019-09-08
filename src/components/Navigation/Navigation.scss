@@ -38,7 +38,7 @@
 
     .main-nav-links {
       position: absolute;
-      padding-top: 35vh;
+      padding-top: 30vh;
       z-index: 99999999;
       h1, h2, h3, h4, h5, h6 {
         display: inline-block;
@@ -83,7 +83,6 @@
       width: 1.3em;
     }
   }
-
   .logo {
     padding-left: 0.9em;
     padding-top: 0.6em;
@@ -99,6 +98,6 @@
   }
   .main-nav-links {
     padding-left: 2em;
-    padding-top: 25vh !important;
+    padding-top: 15vh !important;
   }
 }

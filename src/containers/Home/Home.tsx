@@ -55,12 +55,12 @@ class Home extends React.Component<IHomeProps, {}> {
   showNavigation = () => {
     return (
       <div id="nav-content">
-        <div className="d-flex justify-content-center">
+        <div className="d-flex justify-content-left">
           <div className="main-nav-links">
             <ul>{this.returnNavOptions()}</ul>
           </div>
         </div>
-        <div className="d-flex justify-content-center">
+        <div className="d-flex justify-content-left">
           <div className="social-media-links">
             <ul>{this.returnSocialMedia()}</ul>
           </div>
@@ -72,7 +72,7 @@ class Home extends React.Component<IHomeProps, {}> {
   render() {
     return (
       <div className="home-hero">
-        <FullScreen hideOnMobile={true}>
+        <FullScreen hideOnMobile={false}>
           <SplitScreen>
             <div className="hero-banner">
               <img src={vancouverBg} alt='street-view-of-cambie-and-14th-avn' className='bg-image'/>
@@ -84,7 +84,7 @@ class Home extends React.Component<IHomeProps, {}> {
               </div>
             </div>
           </SplitScreen>
-          <SplitScreen>
+          <SplitScreen hideOnWrap={true}>
             <div className='side-nav'>
                 {this.showNavigation()}
             </div>

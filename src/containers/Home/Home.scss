@@ -63,11 +63,11 @@ $lg-wrap: calc(1920px / 2);
     height: 100%;
     z-index: 99999;
     animation-fill-mode: forwards;
-
     .main-nav-links {
       position: absolute;
       padding-top: 35vh;
       z-index: 9999999;
+      padding-left: 15%;
       h1,
       h2,
       h3,
@@ -83,7 +83,8 @@ $lg-wrap: calc(1920px / 2);
       position: absolute;
       width: 100%;
       padding-top: 80vh;
-      text-align: center;
+      text-align: left;
+      padding-left: 20%;
     }
   }
 }

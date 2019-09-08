@@ -8,7 +8,7 @@ $lg-wrap: calc (1920px / 2);
   padding: 0px !important;
   margin: 0px !important;
   .split-screen {
-    min-height: 100vh;
+    min-height: 98vh;
     padding: 0px !important;
   }
 
@@ -20,9 +20,9 @@ $lg-wrap: calc (1920px / 2);
 }
 
 @media only screen and (max-width: 845px) {
-  .hide-on-mobile {
-    visibility: hidden;
-    width: 0px;
-    height: 0px;
+  .hide-on-wrap {
+    visibility: hidden !important;
+    width: 0px !important;
+    height: 0px !important;
   }
 }
