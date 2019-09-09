@@ -14,7 +14,7 @@ interface IBlogPostProps extends RouteComponentProps {}
 interface IBlogPostState {
   post: SingleBlogPost | null;
   mediaUrl: string | null;
-  mediaAlt: string | null
+  mediaAlt: string | null;
 }
 
 /*
@@ -46,25 +46,34 @@ class BlogPost extends React.Component<IBlogPostProps, IBlogPostState> {
   };
 
   getFeaturedImg = () => {
-    const src = this.state.mediaUrl
-    const alt = this.state.mediaAlt
+    const src = this.state.mediaUrl;
+    const alt = this.state.mediaAlt;
     if (src) {
-      return <div className='featured-img'><img src={src} alt={''}/></div>
+      return (
+        <div className="featured-img">
+          <img src={src} alt={""} />
+          {/* <div className="more-posts d-flex flex-wrap">
+            <div className="post-btn">left</div> <div className='post-btn'>right</div>
+          </div> */}
+        </div>
+      );
     }
-  }
+  };
 
   getBlogContent = () => {
-    const postData:any = this.state.post
-    var content: any
-    var title: any
+    const postData: any = this.state.post;
+    var content: any;
+    var title: any;
     if (postData) {
-     content = BlogPostProcessor.getPostContent(postData)
-     title = BlogPostProcessor.getPostTitle(postData)
+      content = BlogPostProcessor.getPostContent(postData);
+      title = BlogPostProcessor.getPostTitle(postData);
     }
     if (content && title) {
       return (
         <div>
-          <div className='post-title'><h4>{title}</h4></div>
+          <div className="post-title">
+            <h4>{title}</h4>
+          </div>
           <Interweave content={content} />
         </div>
       );
@@ -76,10 +85,10 @@ class BlogPost extends React.Component<IBlogPostProps, IBlogPostState> {
       <div className="blogPost">
         <FullScreen hideOnMobile={false}>
           <SplitScreen hideOnWrap={false}>
-            <div className='fixed-cover'>{this.getFeaturedImg()}</div>
+            <div className="fixed-cover">{this.getFeaturedImg()}</div>
           </SplitScreen>
           <SplitScreen hideOnWrap={false}>
-            <div className='read-content'>{this.getBlogContent()}</div>
+            <div className="read-content">{this.getBlogContent()}</div>
           </SplitScreen>
         </FullScreen>
       </div>
