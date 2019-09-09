@@ -45,19 +45,13 @@ const SocialMediaLinks: INavigationTypes[] = [
 
 class App extends React.Component<{}, {}> {
   showHome = () => {
-    return (
-        <Home links={NavLinks} socialMedia={SocialMediaLinks} />
-    );
+    return <Home links={NavLinks} socialMedia={SocialMediaLinks} />;
   };
   showFeatures = () => {
-    return (
-        <Blog />
-    );
+    return <Blog />;
   };
   showFeatureById = () => {
-    return (
-        <BlogPost />
-    );
+    return <BlogPost />;
   };
   showCalendar = () => {
     return <div>Home</div>;
@@ -66,16 +60,16 @@ class App extends React.Component<{}, {}> {
   render() {
     return (
       <Router>
-          <div className="App">
-            <Navigation links={NavLinks} socialMedia={SocialMediaLinks} />
-            <Switch>
-              <Route exact path="/" component={this.showHome} />
-              <Route exact path="/features" component={this.showFeatures} />
-              <Route path="/features/:id" component={this.showFeatureById} />
-              <Route exact path="/calendar" component={this.showCalendar} />
-            </Switch>
-            <Footer />
-          </div>
+        <div className="App">
+          <Navigation links={NavLinks} socialMedia={SocialMediaLinks} />
+          <Switch>
+            <Route exact path="/" component={this.showHome} />
+            <Route exact path="/features" component={this.showFeatures} />
+            <Route path="/features/:id" component={this.showFeatureById} />
+            <Route exact path="/calendar" component={this.showCalendar} />
+          </Switch>
+          <Footer />
+        </div>
       </Router>
     );
   }
