@@ -1,6 +1,9 @@
-@import '../../styles//colours.scss';
+@import "../../styles//colours.scss";
 
 .blogPost {
+    .split-screen {
+        height: auto !important;
+    }
   .fixed-cover {
     position: relative;
     width: 100%;
@@ -13,6 +16,7 @@
       img {
         object-position: 50% 50%;
         width: 100%;
+        min-width: 400px;
         height: 100%;
         object-fit: cover;
       }
@@ -25,7 +29,22 @@
     padding-top: 5em;
     padding-bottom: 5em;
     .post-title {
+        margin-top: 20vh;
+        margin-bottom: 10vh;
       padding-bottom: 4em;
     }
+    .post-content {
+      max-width: 720px;
+      margin-left: 10vw;
+    }
   }
+}
+
+
+@media only screen and (max-width:765px) {
+    .read-content {
+        .post-title {
+            margin-top: 0px !important;
+        }
+    }
 }

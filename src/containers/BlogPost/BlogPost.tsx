@@ -72,9 +72,12 @@ class BlogPost extends React.Component<IBlogPostProps, IBlogPostState> {
       return (
         <div>
           <div className="post-title">
+          <h6 className='blueText'>Presented by MUNCO</h6>
             <h4>{title}</h4>
           </div>
-          <Interweave content={content} />
+          <div className="post-content">
+            <Interweave content={content} />
+          </div>
         </div>
       );
     }
