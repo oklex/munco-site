@@ -19,7 +19,7 @@ export interface media_details {
     width: number,
     height: number,
     file: string,
-    sizes: imageDetails[]
+    sizes: any
 }
 
 export interface imageDetails {

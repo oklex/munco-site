@@ -4,6 +4,7 @@ import { BlogService } from "../../services/BlogService";
 import "./SingleBlogLink.scss";
 import { SingleBlogPost } from "../../models/BlogPost";
 import BlogPostProcessor from "../../utils/BlogPostProcessor";
+import MediaProcessor from "../../utils/MediaProcessor";
 
 interface ISingleBlogLinkProps {
   post: SingleBlogPost;
@@ -20,8 +21,7 @@ export enum linkStyle {
 
 interface ISingleBlogLinkState {
   mediaData: MediaItem | null;
-  mediumThumbnailUrl: string | null;
-  fullUrl: string | null;
+  thumbnailUrl: string | null
 }
 
 class SingleBlogLink extends React.Component<
@@ -30,8 +30,7 @@ class SingleBlogLink extends React.Component<
 > {
   state = {
     mediaData: null,
-    mediumThumbnailUrl: null,
-    fullUrl: null
+    thumbnailUrl: null
   };
 
   componentDidMount = async () => {
@@ -39,19 +38,18 @@ class SingleBlogLink extends React.Component<
       this.props.post
     );
     if (featuredMediaId) {
-      var mediaData = await BlogService.getMediaFromID(featuredMediaId);
+      var mediaData: MediaItem = await BlogService.getMediaFromID(featuredMediaId);
+      var thumbnailUrl: any = await MediaProcessor.getMediaForSize(mediaData, 400)
       this.setState({
         mediaData: mediaData,
-        mediumThumbnailUrl:
-          mediaData.media_details.sizes.medium_large.source_url,
-        fullUrl: mediaData.media_details.sizes.full
+        thumbnailUrl: thumbnailUrl
       });
       console.log(this.state);
     }
   };
 
   getImageIfExists = () => {
-    const imgUrl = this.state.mediumThumbnailUrl;
+    const imgUrl = this.state.thumbnailUrl;
     if (imgUrl) {
       return (
         <div className="featured-image">

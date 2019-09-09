@@ -6,9 +6,9 @@ import INavigationTypes, { LinkImportance } from "../../models/NavigationLinks";
 import { Link } from "react-router-dom";
 import { SingleBlogPost } from "../../models/BlogPost";
 import { BlogService } from "../../services/BlogService";
-import SingleBlogLink, { linkStyle } from "../../components/SingleBlogLink/SingleBlogLink";
-import SinglePostWrapper from "../../components/SinglePostWrapper/SinglePostWrapper";
-
+import SingleBlogLink, {
+  linkStyle
+} from "../../components/SingleBlogLink/SingleBlogLink";
 const vancouverBg: string = "/img/cambie.jpg";
 const logo: string = "/brand/white-logo.png";
 
@@ -42,16 +42,12 @@ class Home extends React.Component<IHomeProps, IHomeState> {
           return (
             <div key={index}>
               {/* <h5>{post.title.rendered}</h5> */}
-              <SingleBlogLink
-                post={post}
-                style={linkStyle.vertical}
-              />
+              <SingleBlogLink post={post} style={linkStyle.vertical} />
             </div>
           );
         } else {
-          return <div></div>
+          return <div></div>;
         }
-          
       });
     } else {
       return <div></div>;
@@ -147,7 +143,7 @@ class Home extends React.Component<IHomeProps, IHomeState> {
         </div>
         <div className="container">
           <h4>Student features</h4>
-          {this.showBlogPosts()}
+          <div className="d-flex">{this.showBlogPosts()}</div>
         </div>
       </div>
     );
