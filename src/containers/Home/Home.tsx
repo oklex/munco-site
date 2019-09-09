@@ -6,9 +6,11 @@ import INavigationTypes, { LinkImportance } from "../../models/NavigationLinks";
 import { Link } from "react-router-dom";
 import { SingleBlogPost } from "../../models/BlogPost";
 import { BlogService } from "../../services/BlogService";
-
-const vancouverBg: string = '/img/cambie.jpg'
-const logo: string = '/brand/white-logo.png'
+import SingleBlogLink, {
+  linkStyle
+} from "../../components/SingleBlogLink/SingleBlogLink";
+const vancouverBg: string = "/img/cambie.jpg";
+const logo: string = "/brand/white-logo.png";
 
 interface IHomeProps {
   links: INavigationTypes[];
@@ -16,38 +18,42 @@ interface IHomeProps {
 }
 
 interface IHomeState {
-  blogPosts: SingleBlogPost[],
+  blogPosts: SingleBlogPost[];
 }
 
 class Home extends React.Component<IHomeProps, IHomeState> {
   state = {
     blogPosts: []
-  }
+  };
 
-  componentDidMount = async() => {
+  componentDidMount = async () => {
+    window.scrollTo(0, 0);
     // load in the blog posts
-    var blogPosts: SingleBlogPost[] = await BlogService.getMostRecent()
+    var blogPosts: SingleBlogPost[] = await BlogService.getMostRecent();
     this.setState({
       blogPosts: blogPosts
-    })
-    console.log(this.state.blogPosts)
-  }
+    });
+    console.log(this.state.blogPosts);
+  };
 
   showBlogPosts = () => {
     if (this.state.blogPosts.length > 0) {
-      return this.state.blogPosts.map((post:SingleBlogPost, index: number) => {
-        if (post.status === 'publish') return (
-          <div key={index}>
-            {//need to call wp api to get featured media
-            }
-            <h5>{post.title.rendered}</h5>
-          </div>
-        )
-      })
+      return this.state.blogPosts.map((post: SingleBlogPost, index: number) => {
+        if (post.status === "publish") {
+          return (
+            <div key={index}>
+              {/* <h5>{post.title.rendered}</h5> */}
+              <SingleBlogLink post={post} style={linkStyle.vertical} />
+            </div>
+          );
+        } else {
+          return <div></div>;
+        }
+      });
     } else {
-      return <div></div>
+      return <div></div>;
     }
-  }
+  };
 
   returnNavOptions = () => {
     // change the style of the return value based on the classification
@@ -110,29 +116,35 @@ class Home extends React.Component<IHomeProps, IHomeState> {
         <FullScreen hideOnMobile={false}>
           <SplitScreen>
             <div className="hero-banner">
-              <img src={vancouverBg} alt='street-view-of-cambie-and-14th-avn' className='bg-image'/>
+              <img
+                src={vancouverBg}
+                alt="street-view-of-cambie-and-14th-avn"
+                className="bg-image"
+              />
               <div className="overlay">
-                <img src={logo} alt='white-munco-logo' className='banner-logo'/>
-                <div className='banner-title lightText'>
-                   <h4>Community Starts here</h4> 
+                <img
+                  src={logo}
+                  alt="white-munco-logo"
+                  className="banner-logo"
+                />
+                <div className="banner-title lightText">
+                  <h4>Community Starts here</h4>
                 </div>
               </div>
             </div>
           </SplitScreen>
           <SplitScreen hideOnWrap={true}>
-            <div className='side-nav'>
-                {this.showNavigation()}
-            </div>
+            <div className="side-nav short-link">{this.showNavigation()}</div>
           </SplitScreen>
         </FullScreen>
 
-        <div className='container'>
+        <div className="container">
           <h4>Upcoming conferences</h4>
           <p>list</p>
         </div>
-        <div className='container'>
-          <h4>Student features</h4>
-          {this.showBlogPosts()}
+        <div className="container">
+          <div className='section-title'><h4>Student features</h4></div>
+          <div className="d-flex flex-wrap">{this.showBlogPosts()}</div>
         </div>
       </div>
     );

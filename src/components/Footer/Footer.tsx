@@ -9,7 +9,7 @@ class Footer extends React.Component <{},{}> {
     
     render() {
         return (
-            <div className='row justify-content-around footer'>
+            <div className='row justify-content-around footer short-link'>
                 <div className='col-sm-4'>
                     <Link to='/'><h5>Home</h5></Link>
                     <Link to='/features'><h5>Features+</h5></Link>
