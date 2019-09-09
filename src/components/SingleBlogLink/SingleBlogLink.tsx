@@ -6,6 +6,7 @@ import { SingleBlogPost } from "../../models/BlogPost";
 import BlogPostProcessor from "../../utils/BlogPostProcessor";
 import MediaProcessor from "../../utils/MediaProcessor";
 import Interweave from "interweave";
+import { Link } from "react-router-dom";
 
 interface ISingleBlogLinkProps {
   post: SingleBlogPost;
@@ -77,7 +78,12 @@ class SingleBlogLink extends React.Component<
     return (
       <div className={positionStyle}>
         <h5>{BlogPostProcessor.getPostTitle(this.props.post)}</h5>{" "}
-        <Interweave content={BlogPostProcessor.getPostExcerptByLength(this.props.post, 150)}/>
+        <Interweave
+          content={BlogPostProcessor.getPostExcerptByLength(
+            this.props.post,
+            150
+          )}
+        />
       </div>
     );
   };
@@ -88,9 +94,11 @@ class SingleBlogLink extends React.Component<
       flexIf = linkStyle.horizontal;
     }
     return (
-      <div className={"singleBlogLink " + flexIf}>
-        {this.getImageIfExists()} {this.getTextbox()}
-      </div>
+      <Link to={`/features/${this.props.post.id}`}>
+        <div className={"singleBlogLink " + flexIf}>
+          {this.getImageIfExists()} {this.getTextbox()}
+        </div>
+      </Link>
     );
   }
 }

@@ -27,6 +27,7 @@ class Home extends React.Component<IHomeProps, IHomeState> {
   };
 
   componentDidMount = async () => {
+    window.scrollTo(0, 0);
     // load in the blog posts
     var blogPosts: SingleBlogPost[] = await BlogService.getMostRecent();
     this.setState({
@@ -133,7 +134,7 @@ class Home extends React.Component<IHomeProps, IHomeState> {
             </div>
           </SplitScreen>
           <SplitScreen hideOnWrap={true}>
-            <div className="side-nav">{this.showNavigation()}</div>
+            <div className="side-nav short-link">{this.showNavigation()}</div>
           </SplitScreen>
         </FullScreen>
 

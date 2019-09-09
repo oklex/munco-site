@@ -5,6 +5,7 @@ import { INavigationTypes, LinkImportance } from "../../models/NavigationLinks";
 import Home from "../Home/Home";
 import Footer from "../../components/Footer/Footer";
 import Blog from "../Blog/Blog";
+import BlogPost from "../BlogPost/BlogPost";
 
 const NavLinks: INavigationTypes[] = [
   {
@@ -44,10 +45,19 @@ const SocialMediaLinks: INavigationTypes[] = [
 
 class App extends React.Component<{}, {}> {
   showHome = () => {
-    return <Home links={NavLinks} socialMedia={SocialMediaLinks} />;
+    return (
+        <Home links={NavLinks} socialMedia={SocialMediaLinks} />
+    );
   };
   showFeatures = () => {
-    return <Blog/>;
+    return (
+        <Blog />
+    );
+  };
+  showFeatureById = () => {
+    return (
+        <BlogPost />
+    );
   };
   showCalendar = () => {
     return <div>Home</div>;
@@ -60,8 +70,9 @@ class App extends React.Component<{}, {}> {
             <Navigation links={NavLinks} socialMedia={SocialMediaLinks} />
             <Switch>
               <Route exact path="/" component={this.showHome} />
-              <Route path="/features" component={this.showFeatures} />
-              <Route path="/calendar" component={this.showCalendar} />
+              <Route exact path="/features" component={this.showFeatures} />
+              <Route path="/features/:id" component={this.showFeatureById} />
+              <Route exact path="/calendar" component={this.showCalendar} />
             </Switch>
             <Footer />
           </div>

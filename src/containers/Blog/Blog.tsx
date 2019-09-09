@@ -4,33 +4,11 @@ import "./Blog.scss";
 const chilling: string = "/img/chilling.jpg";
 
 class Blog extends React.Component<{}, {}> {
-  // state = {
-  //   blogPosts: []
-  // };
 
-  // componentDidMount = async () => {
-  //   const newPosts: SingleBlogPost[] = await BlogService.getMostRecent();
-  //   this.setState({
-  //     blogPosts: newPosts
-  //   });
+  // componentDidMount = () => {
+  //   window.scrollTo(0, 0);
   // };
-
-  // showAllPosts = () => {
-  //   return (
-  //     <div className="d-flex flex-wrap justify-content-center">
-  //       {this.state.blogPosts.map(this.showSinglePost)}
-  //     </div>
-  //   );
-  // };
-
-  // showSinglePost = (post: SingleBlogPost, index: number) => {
-  //   return (
-  //     <div key={post.id}>
-  //       <SingleBlogLink post={post} style={linkStyle.horizontal} />
-  //     </div>
-  //   );
-  // };
-
+  
   render() {
     return (
       <div id="blog-home">
