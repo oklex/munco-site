@@ -6,7 +6,7 @@ import INavigationTypes, { LinkImportance } from "../../models/NavigationLinks";
 import { Link } from "react-router-dom";
 import { SingleBlogPost } from "../../models/BlogPost";
 import { BlogService } from "../../services/BlogService";
-import SingleBlogLink from "../../components/SingleBlogLink/SingleBlogLink";
+import SingleBlogLink, { linkStyle } from "../../components/SingleBlogLink/SingleBlogLink";
 import SinglePostWrapper from "../../components/SinglePostWrapper/SinglePostWrapper";
 
 const vancouverBg: string = "/img/cambie.jpg";
@@ -41,11 +41,10 @@ class Home extends React.Component<IHomeProps, IHomeState> {
         if (post.status === "publish") {
           return (
             <div key={index}>
-              <h5>{post.title.rendered}</h5>
+              {/* <h5>{post.title.rendered}</h5> */}
               <SingleBlogLink
-                postId={post.id}
-                featuredMediaId={post.featured_media}
-                postExcerpt={post.excerpt.rendered}
+                post={post}
+                style={linkStyle.vertical}
               />
             </div>
           );

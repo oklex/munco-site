@@ -1,3 +1,5 @@
+import { number } from "prop-types"
+
 export interface MediaItem {
     id: number,
     date: Date,
@@ -10,7 +12,22 @@ export interface MediaItem {
     ping_status: string,
     meta: string[],
     template: string,
-    media_details: any
+    media_details: media_details
+}
+
+export interface media_details {
+    width: number,
+    height: number,
+    file: string,
+    sizes: imageDetails[]
+}
+
+export interface imageDetails {
+    file: string,
+    width: number,
+    height: number,
+    mime_type: string,
+    source_url: string
 }
 
 export default MediaItem
