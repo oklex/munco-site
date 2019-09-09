@@ -15,9 +15,8 @@
       top: 0;
       img {
         object-position: 50% 50%;
-        width: 100%;
         min-width: 400px;
-        height: 100%;
+        height: 100vh;
         object-fit: cover;
       }
     }
@@ -41,10 +40,19 @@
 }
 
 
-@media only screen and (max-width:765px) {
+@media only screen and (max-width:766px) {
     .read-content {
         .post-title {
             margin-top: 0px !important;
         }
     }
 }
+
+// @media only screen and (max-width:600px) {
+//   .featured-img {
+//     img {
+//       width: 100% !important;
+//       height: auto !important;
+//     }
+//   }
+// }
