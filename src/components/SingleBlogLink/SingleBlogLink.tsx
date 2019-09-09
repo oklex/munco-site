@@ -5,6 +5,7 @@ import "./SingleBlogLink.scss";
 import { SingleBlogPost } from "../../models/BlogPost";
 import BlogPostProcessor from "../../utils/BlogPostProcessor";
 import MediaProcessor from "../../utils/MediaProcessor";
+import Interweave from "interweave";
 
 interface ISingleBlogLinkProps {
   post: SingleBlogPost;
@@ -21,7 +22,7 @@ export enum linkStyle {
 
 interface ISingleBlogLinkState {
   mediaData: MediaItem | null;
-  thumbnailUrl: string | null
+  thumbnailUrl: string | null;
 }
 
 class SingleBlogLink extends React.Component<
@@ -38,8 +39,13 @@ class SingleBlogLink extends React.Component<
       this.props.post
     );
     if (featuredMediaId) {
-      var mediaData: MediaItem = await BlogService.getMediaFromID(featuredMediaId);
-      var thumbnailUrl: any = await MediaProcessor.getMediaForSize(mediaData, 400)
+      var mediaData: MediaItem = await BlogService.getMediaFromID(
+        featuredMediaId
+      );
+      var thumbnailUrl: any = await MediaProcessor.getMediaForSize(
+        mediaData,
+        400
+      );
       this.setState({
         mediaData: mediaData,
         thumbnailUrl: thumbnailUrl
@@ -70,7 +76,8 @@ class SingleBlogLink extends React.Component<
     }
     return (
       <div className={positionStyle}>
-        <h5>title</h5> <p>excerpt</p>
+        <h5>{BlogPostProcessor.getPostTitle(this.props.post)}</h5>{" "}
+        <p><Interweave content={BlogPostProcessor.getPostExcerpt(this.props.post)}/></p>
       </div>
     );
   };
