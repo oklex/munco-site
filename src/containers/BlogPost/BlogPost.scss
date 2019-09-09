@@ -1,20 +1,20 @@
 @import "../../styles//colours.scss";
 
 .blogPost {
-    .split-screen {
-        height: auto !important;
-    }
+  .split-screen {
+    height: auto !important;
+  }
   .fixed-cover {
     position: relative;
     width: 100%;
     height: 100%;
     z-index: -99999;
-    background-color: $light-grey;
+    background-color: white;
     .featured-img {
       position: sticky;
       top: 0;
       img {
-        object-position: 50% 50%;
+        object-position: 50% 50%; // not quite working
         min-width: 400px;
         height: 100vh;
         object-fit: cover;
@@ -27,8 +27,8 @@
     padding-top: 5em;
     padding-bottom: 5em;
     .post-title {
-        margin-top: 20vh;
-        margin-bottom: 10vh;
+      margin-top: 20vh;
+      margin-bottom: 10vh;
       padding-bottom: 4em;
     }
     .post-content {
@@ -36,15 +36,39 @@
       margin-left: 10vw;
     }
   }
+  .other-buttons {
+    background-color: $light-grey;
+    height: 10vh;
+    min-height: 65px;
+    .div-btn {
+      padding-top: 4vh;
+      width: 100%;
+      text-align: center;
+    }
+    .left-btn {
+      background-color: grey;
+      color: white;
+    }
+    .right-btn {
+      border-left: 1px $neutral-grey solid;
+    }
+  }
 }
 
-
-@media only screen and (max-width:766px) {
-    .read-content {
-        .post-title {
-            margin-top: 0px !important;
-        }
+@media only screen and (max-width: 766px) {
+  .read-content {
+    .post-title {
+      margin-top: 0px !important;
     }
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .div-btn {
+    h5 {
+      font-size: 16px !important;
+    }
+  }
 }
 
 // @media only screen and (max-width:600px) {

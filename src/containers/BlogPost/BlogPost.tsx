@@ -1,5 +1,5 @@
 import React from "react";
-import { RouteComponentProps, withRouter } from "react-router-dom";
+import { RouteComponentProps, withRouter, Link } from "react-router-dom";
 import "./BlogPost.scss";
 import FullScreen from "../../components/SplitScreen/FullScreen";
 import SplitScreen from "../../components/SplitScreen/SplitScreen";
@@ -8,6 +8,7 @@ import { BlogService } from "../../services/BlogService";
 import BlogPostProcessor from "../../utils/BlogPostProcessor";
 import { GetMedia } from "../../utils/GetMediaUrlById";
 import Interweave from "interweave";
+import BlogList from "../../components/BlogList/BlogList";
 
 interface IBlogPostProps extends RouteComponentProps {}
 
@@ -70,9 +71,9 @@ class BlogPost extends React.Component<IBlogPostProps, IBlogPostState> {
     }
     if (content && title) {
       return (
-        <div>
+        <div className="read-content">
           <div className="post-title">
-          <h6 className='blueText'>Presented by MUNCO</h6>
+            <h6 className="blueText">Presented by MUNCO</h6>
             <h4>{title}</h4>
           </div>
           <div className="post-content">
@@ -91,7 +92,21 @@ class BlogPost extends React.Component<IBlogPostProps, IBlogPostState> {
             <div className="fixed-cover">{this.getFeaturedImg()}</div>
           </SplitScreen>
           <SplitScreen hideOnWrap={false}>
-            <div className="read-content">{this.getBlogContent()}</div>
+            <div>
+              {this.getBlogContent()}
+              <div className="other-buttons d-flex justify-content-around">
+                <div className="div-btn left-btn">
+                  <Link to="/features">
+                    <h5> &lt; Back to all posts</h5>
+                  </Link>
+                </div>
+                <div className="div-btn right-btn">
+                  <a href="https://forms.gle/rzHMmwdG7ay9LrCc6" target="_blank">
+                    <h5>refer someone &gt;</h5>
+                  </a>
+                </div>
+              </div>
+            </div>
           </SplitScreen>
         </FullScreen>
       </div>
