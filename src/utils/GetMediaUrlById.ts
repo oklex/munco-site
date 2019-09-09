@@ -2,11 +2,17 @@ import MediaItem from "../models/MediaItem";
 import { BlogService } from "../services/BlogService";
 import MediaProcessor from "./MediaProcessor";
 
-// input media id, screen length
-// get media item
-// convert media item
+/* 
+- Include ALT fetching
+- update the other components accordingly
+*/
 
-export const GetMediaUrl = {
+export interface IMediaData {
+  url: string,
+  alt: string
+}
+
+export const GetMedia = {
   async byHeight(mediaId: number, height: number) {
     try {
       const mediaItem: MediaItem = await BlogService.getMediaFromID(mediaId);
@@ -20,7 +26,6 @@ export const GetMediaUrl = {
       return;
     }
   },
-
   async byWidth(mediaId: number, width: number) {
     try {
       const mediaItem: MediaItem = await BlogService.getMediaFromID(mediaId);
@@ -33,7 +38,7 @@ export const GetMediaUrl = {
       console.log(err);
       return;
     }
-  }
+  },
 };
 
-export default GetMediaUrl;
+export default GetMedia;

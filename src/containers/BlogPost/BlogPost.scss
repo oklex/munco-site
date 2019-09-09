@@ -1,0 +1,23 @@
+.blogPost {
+  .fixed-cover {
+    position: fixed;
+    width: auto;
+    z-index: -99999;
+    .featured-img {
+      img {
+        object-position: 50% 50%;
+        object-fit: cover;
+      }
+    }
+  }
+  .read-content {
+    background-color: white;
+    padding: 2em;
+    padding-left: 3em;
+    padding-top: 5em;
+    padding-bottom: 5em;
+    .post-title {
+      padding-bottom: 4em;
+    }
+  }
+}

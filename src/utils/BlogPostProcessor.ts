@@ -33,6 +33,14 @@ export const BlogPostProcessor = {
       return;
     }
   },
+  getPostContent(post: SingleBlogPost) {
+    try {
+      return post.content.rendered
+    } catch (err) {
+      console.log(err)
+      return
+    }
+  },
   getPostExcerptByLength(post: SingleBlogPost, charLength: number) {
     try {
       console.log('excerpt length: ', charLength)
