@@ -11,20 +11,19 @@
         height: 350px;
       }
     }
-
     .horizontal {
       img {
         object-fit: cover;
-        width: 350px;
-        height: 400px;
+        width: 200px;
+        height: 250px;
       }
     }
   }
   .textbox-horizontal {
     margin-right: 1em;
     display: inline-block;
-    width: 300px;
-    height: 350px;
+    max-width: 300px;
+    height: 250px;
     border: solid $light-grey 1px;
     padding: 1em;
   }
@@ -36,4 +35,10 @@
     border: solid $light-grey 1px;
     padding: 1em;
   }
+}
+
+.horizontal {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }

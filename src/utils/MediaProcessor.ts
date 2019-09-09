@@ -1,8 +1,7 @@
 import { MediaItem, imageDetails } from "../models/MediaItem";
-import { number } from "prop-types";
 
 export const MediaProcessor = {
-  getMediaForSize(mediaData: MediaItem, desiredHeight: number) {
+  getMediaForHeight(mediaData: MediaItem, desiredHeight: number) {
     try {
       // go through the array to find one that fits
       // if none fits, return closest match
@@ -18,6 +17,35 @@ export const MediaProcessor = {
 
         if (img.height > desiredHeight) {
           var sizeDifference: number = img.height - desiredHeight;
+          console.log("comparing difference: ", sizeDifference);
+          if (sizeDifference < difference || difference == null) {
+            bestFitAbove = img;
+          }
+        }
+        return 0;
+      }
+      return bestFitAbove.source_url;
+    } catch (err) {
+      console.log("getMedaForSize failed");
+      return null;
+    }
+  },
+  getMediaForWidth(mediaData: MediaItem, desiredWidth: number) {
+    try {
+      // go through the array to find one that fits
+      // if none fits, return closest match
+      const sizes: any = mediaData.media_details.sizes;
+      console.log("getMediaForSize: ", sizes);
+      var bestFitAbove: imageDetails = sizes.full;
+      console.log("full: ", bestFitAbove);
+      var difference: number = bestFitAbove.width - desiredWidth;
+      console.log("difference: ", difference);
+
+      for (var i = 0; i < sizes.length; i++) {
+        var img: imageDetails = sizes[i];
+
+        if (img.width > desiredWidth) {
+          var sizeDifference: number = img.width - desiredWidth;
           console.log("comparing difference: ", sizeDifference);
           if (sizeDifference < difference || difference == null) {
             bestFitAbove = img;

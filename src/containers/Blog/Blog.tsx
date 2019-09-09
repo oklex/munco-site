@@ -1,17 +1,19 @@
 import React from "react";
 import { SingleBlogPost } from "../../models/BlogPost";
 import { BlogService } from "../../services/BlogService";
-import SinglePostWrapper from "../../components/SinglePostWrapper/SinglePostWrapper";
+import SingleBlogLink, {
+  linkStyle
+} from "../../components/SingleBlogLink/SingleBlogLink";
+import "./Blog.scss";
+const chilling: string = "/img/chilling.jpg";
 
 interface BlogState {
   blogPosts: SingleBlogPost[];
-  currentPostId: number;
 }
 
 class Blog extends React.Component<{}, BlogState> {
   state = {
-    blogPosts: [],
-    currentPostId: 0
+    blogPosts: []
   };
 
   componentDidMount = async () => {
@@ -22,37 +24,42 @@ class Blog extends React.Component<{}, BlogState> {
   };
 
   showAllPosts = () => {
-    return this.state.blogPosts.map(this.showSinglePost);
+    return (
+      <div className="d-flex flex-wrap justify-content-center">
+        {this.state.blogPosts.map(this.showSinglePost)}
+      </div>
+    );
   };
 
   showSinglePost = (post: SingleBlogPost, index: number) => {
     return (
       <div key={post.id}>
-        <h1>{post.slug}</h1>
-        <p>Date: {post.date}</p>
-        <p>id: {post.id}</p>
-        <button onClick={() => this.updateCurrentPost(post.id)} >see this </button>
+        <SingleBlogLink post={post} style={linkStyle.horizontal} />
       </div>
     );
   };
 
-  updateCurrentPost = (postId: number) => {
-    console.log('updating to: ', postId)
-    this.setState({
-      currentPostId: postId
-    });
-  };
-
-  renderPostIfSelected = () => {
-    console.log('state id: ', this.state.currentPostId)
-    if (this.state.currentPostId) {
-      return <SinglePostWrapper postId={this.state.currentPostId} />
-    } else return <SinglePostWrapper postId={ null } />
-  };
-
   render() {
-    return <div>{this.showAllPosts()}
-    {this.renderPostIfSelected()}</div>;
+    return (
+      <div id="blog-home">
+        <div className="blog-header">
+          <img
+            className="banner-img"
+            src={chilling}
+            alt="student in suit playing accordion"
+          ></img>
+          <div className='banner-overlay'>
+            <div className='banner-title'>
+            <h3>Features</h3>
+            </div>
+          </div>
+        </div>
+        <div className='container'>
+        <div className='section-title'><h5>This is our community</h5></div>
+        <div className="d-flex">{this.showAllPosts()}</div>
+        </div>
+      </div>
+    );
   }
 }
 

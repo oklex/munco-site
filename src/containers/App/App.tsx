@@ -4,6 +4,7 @@ import Navigation from "../../components/Navigation/Navigation";
 import { INavigationTypes, LinkImportance } from "../../models/NavigationLinks";
 import Home from "../Home/Home";
 import Footer from "../../components/Footer/Footer";
+import Blog from "../Blog/Blog";
 
 const NavLinks: INavigationTypes[] = [
   {
@@ -46,7 +47,7 @@ class App extends React.Component<{}, {}> {
     return <Home links={NavLinks} socialMedia={SocialMediaLinks} />;
   };
   showFeatures = () => {
-    return <div>Features</div>;
+    return <Blog/>;
   };
   showCalendar = () => {
     return <div>Home</div>;

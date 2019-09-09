@@ -42,7 +42,7 @@ class SingleBlogLink extends React.Component<
       var mediaData: MediaItem = await BlogService.getMediaFromID(
         featuredMediaId
       );
-      var thumbnailUrl: any = await MediaProcessor.getMediaForSize(
+      var thumbnailUrl: any = await MediaProcessor.getMediaForHeight(
         mediaData,
         400
       );

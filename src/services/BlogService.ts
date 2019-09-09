@@ -1,5 +1,6 @@
 import { API } from './constants'
 import { SingleBlogPost } from '../models/BlogPost'
+import MediaItem from '../models/MediaItem'
 
 export const BlogService = {
     async getMostRecent(): Promise<SingleBlogPost[]> {
@@ -14,7 +15,7 @@ export const BlogService = {
         return data
     },
 
-    async getMediaFromID(mediaId: number): Promise<any> {
+    async getMediaFromID(mediaId: number): Promise<MediaItem> {
         const { data } = await API.get(`/media/${mediaId}`)
         console.log('getMediaFromID', data)
         return data
