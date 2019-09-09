@@ -142,8 +142,8 @@ class Home extends React.Component<IHomeProps, IHomeState> {
           <p>list</p>
         </div>
         <div className="container">
-          <h4>Student features</h4>
-          <div className="d-flex">{this.showBlogPosts()}</div>
+          <div className='section-title'><h4>Student features</h4></div>
+          <div className="d-flex flex-wrap">{this.showBlogPosts()}</div>
         </div>
       </div>
     );

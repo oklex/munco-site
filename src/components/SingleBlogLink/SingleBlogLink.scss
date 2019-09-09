@@ -1,6 +1,7 @@
 @import "../../styles//colours.scss";
 
 .singleBlogLink {
+  padding-bottom: 1em;
   .featured-image {
     margin-right: 1em;
     .vertical {
@@ -30,7 +31,7 @@
   .textbox-vertical {
     margin-right: 1em;
     display: block;
-    width: 300px;
+    max-width: 300px;
     height: auto;
     border: solid $light-grey 1px;
     padding: 1em;
