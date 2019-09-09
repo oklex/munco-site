@@ -1,43 +1,35 @@
 import React from "react";
-import { SingleBlogPost } from "../../models/BlogPost";
-import { BlogService } from "../../services/BlogService";
-import SingleBlogLink, {
-  linkStyle
-} from "../../components/SingleBlogLink/SingleBlogLink";
+import BlogList from '../../components/BlogList/BlogList'
 import "./Blog.scss";
 const chilling: string = "/img/chilling.jpg";
 
-interface BlogState {
-  blogPosts: SingleBlogPost[];
-}
+class Blog extends React.Component<{}, {}> {
+  // state = {
+  //   blogPosts: []
+  // };
 
-class Blog extends React.Component<{}, BlogState> {
-  state = {
-    blogPosts: []
-  };
+  // componentDidMount = async () => {
+  //   const newPosts: SingleBlogPost[] = await BlogService.getMostRecent();
+  //   this.setState({
+  //     blogPosts: newPosts
+  //   });
+  // };
 
-  componentDidMount = async () => {
-    const newPosts: SingleBlogPost[] = await BlogService.getMostRecent();
-    this.setState({
-      blogPosts: newPosts
-    });
-  };
+  // showAllPosts = () => {
+  //   return (
+  //     <div className="d-flex flex-wrap justify-content-center">
+  //       {this.state.blogPosts.map(this.showSinglePost)}
+  //     </div>
+  //   );
+  // };
 
-  showAllPosts = () => {
-    return (
-      <div className="d-flex flex-wrap justify-content-center">
-        {this.state.blogPosts.map(this.showSinglePost)}
-      </div>
-    );
-  };
-
-  showSinglePost = (post: SingleBlogPost, index: number) => {
-    return (
-      <div key={post.id}>
-        <SingleBlogLink post={post} style={linkStyle.horizontal} />
-      </div>
-    );
-  };
+  // showSinglePost = (post: SingleBlogPost, index: number) => {
+  //   return (
+  //     <div key={post.id}>
+  //       <SingleBlogLink post={post} style={linkStyle.horizontal} />
+  //     </div>
+  //   );
+  // };
 
   render() {
     return (
@@ -55,9 +47,9 @@ class Blog extends React.Component<{}, BlogState> {
           </div>
         </div>
         <div className='container'>
-        <div className='section-title'><h5>This is our community</h5></div>
-        <div className="d-flex">{this.showAllPosts()}</div>
+          <h5>This is our Community</h5>
         </div>
+        <BlogList/>
       </div>
     );
   }
