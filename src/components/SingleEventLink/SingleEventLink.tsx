@@ -15,7 +15,7 @@ class SingleEventLink extends React.Component<ISingleEventProps, {}> {
     if (event.tags.length > 0) {
       return event.tags.map((tag: string, index: number) => {
         const info: string = event.tags[index];
-        return <p className="tags blueText">{info}, </p>;
+        return <span className='tag'><p className="blueText">{info}</p></span>
       });
     }
   };

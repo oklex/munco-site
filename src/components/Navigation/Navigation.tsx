@@ -110,7 +110,7 @@ class Navigation extends React.Component<INavigationProps, INavigationState> {
         <div className="d-flex justify-content-between">
           <img className="logo" src={Logo} alt="munco brand logo" />
           <div className="btn-nav">
-            <button onClick={() => this.closeNavigation()}>
+            <button className='btn-full' onClick={() => this.closeNavigation()}>
               <img
                 src={closeIcon}
                 alt="close-navigation"
@@ -127,7 +127,7 @@ class Navigation extends React.Component<INavigationProps, INavigationState> {
     return (
       <div className="d-flex flex-row-reverse">
         <div className="btn-nav">
-          <button onClick={() => this.openNavigation()}>
+          <button className='btn-full' onClick={() => this.openNavigation()}>
             <img
               src={HamburgerIcon}
               alt="close-navigation"
