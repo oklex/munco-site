@@ -1,6 +1,7 @@
 import React from "react";
 import { SingleBlogPost } from "../../models/BlogPost";
-import SingleBlogLink, { linkStyle } from "../SingleBlogLink/SingleBlogLink";
+import SingleBlogLink from "../SingleBlogLink/SingleBlogLink";
+import LinkStyle from '../../models/LinkStyle'
 import { BlogService } from "../../services/BlogService";
 import './BlogList.scss'
 
@@ -31,7 +32,7 @@ class BlogList extends React.Component<{}, BlogListState> {
   showSinglePost = (post: SingleBlogPost) => {
     return (
       <div key={post.id}>
-        <SingleBlogLink post={post} style={linkStyle.horizontal} />
+        <SingleBlogLink post={post} style={LinkStyle.horizontal} />
       </div>
     );
   };

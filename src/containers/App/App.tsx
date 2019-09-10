@@ -6,6 +6,7 @@ import Home from "../Home/Home";
 import Footer from "../../components/Footer/Footer";
 import Blog from "../Blog/Blog";
 import BlogPost from "../BlogPost/BlogPost";
+import Calendar from "../Calendar/Calendar";
 
 const NavLinks: INavigationTypes[] = [
   {
@@ -54,7 +55,7 @@ class App extends React.Component<{}, {}> {
     return <BlogPost />;
   };
   showCalendar = () => {
-    return <div>Home</div>;
+    return <Calendar/>;
   };
 
   render() {

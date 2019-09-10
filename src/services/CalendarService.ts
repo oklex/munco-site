@@ -72,9 +72,7 @@ const UpcomingCalendarData: CalendarEvent[] = [
         website: 'https://www.bevmun.com',
         running_since: null,
         tags: [
-            'overnight conference',
-            'private school funded',
-            'gr 7-10 only'
+            'day conference',
         ],
         cost: null,
         confirmed: true

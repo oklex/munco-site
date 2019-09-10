@@ -6,12 +6,12 @@ import INavigationTypes, { LinkImportance } from "../../models/NavigationLinks";
 import { Link } from "react-router-dom";
 import { SingleBlogPost } from "../../models/BlogPost";
 import { BlogService } from "../../services/BlogService";
-import SingleBlogLink, {
-  linkStyle
-} from "../../components/SingleBlogLink/SingleBlogLink";
+import SingleBlogLink from "../../components/SingleBlogLink/SingleBlogLink";
 import SingleEventLink from '../../components/SingleEventLink/SingleEventLink';
 import CalendarEvent from "../../models/CalendarEvent";
 import CalendarService from "../../services/CalendarService";
+import LinkStyle from "../../models/LinkStyle";
+
 const vancouverBg: string = "/img/cambie.jpg";
 const logo: string = "/brand/white-logo.png";
 
@@ -50,7 +50,7 @@ class Home extends React.Component<IHomeProps, IHomeState> {
           return (
             <div key={index}>
               {/* <h5>{post.title.rendered}</h5> */}
-              <SingleBlogLink post={post} style={linkStyle.vertical} />
+              <SingleBlogLink post={post} style={LinkStyle.vertical} />
             </div>
           );
         } else {
@@ -67,8 +67,10 @@ class Home extends React.Component<IHomeProps, IHomeState> {
       return this.state.upcomingConferences.map((event: CalendarEvent, index: number) => {
         if (event.confirmed === true) {
           return (
-            <SingleEventLink eventDetails={event} />
+            <SingleEventLink eventDetails={event} linkStyle={LinkStyle.horizontal}/>
           )
+        } else {
+          return <span/>
         }
       })
     }

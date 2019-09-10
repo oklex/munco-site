@@ -7,18 +7,14 @@ import BlogPostProcessor from "../../utils/BlogPostProcessor";
 import MediaProcessor from "../../utils/MediaProcessor";
 import Interweave from "interweave";
 import { Link } from "react-router-dom";
+import LinkStyle from '../../models/LinkStyle'
 
 interface ISingleBlogLinkProps {
   post: SingleBlogPost;
   //   postId: number;
   //   featuredMediaId: number;
   //   postExcerpt: string;
-  style: linkStyle;
-}
-
-export enum linkStyle {
-  vertical = "vertical",
-  horizontal = "horizontal"
+  style: LinkStyle;
 }
 
 interface ISingleBlogLinkState {
@@ -70,9 +66,9 @@ class SingleBlogLink extends React.Component<
 
   getTextbox = () => {
     var positionStyle: string = "";
-    if (this.props.style === linkStyle.horizontal) {
+    if (this.props.style === LinkStyle.horizontal) {
       positionStyle = "textbox-horizontal";
-    } else if (this.props.style === linkStyle.vertical) {
+    } else if (this.props.style === LinkStyle.vertical) {
       positionStyle = "textbox-vertical";
     }
     return (
@@ -90,8 +86,8 @@ class SingleBlogLink extends React.Component<
 
   render() {
     var flexIf: string = "";
-    if (this.props.style === linkStyle.horizontal) {
-      flexIf = linkStyle.horizontal;
+    if (this.props.style === LinkStyle.horizontal) {
+      flexIf = LinkStyle.horizontal;
     }
     return (
       <Link to={`/features/${this.props.post.id}`}>
