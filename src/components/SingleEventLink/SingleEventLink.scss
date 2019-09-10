@@ -1,0 +1,22 @@
+@import '../../styles/colours.scss';
+
+.event-info {
+    background-color: $light-grey;
+    color:$dark-grey;
+    padding: 1em;
+    margin: 1em;
+    min-width: 350px;
+    // width: 30%;
+    // max-width: 800px;
+    height: auto;
+    min-height: 180px;
+    transition: 0.2s ease-out;
+    .tags {
+        display: inline-block;
+        line-height: 0px;
+    }
+}
+
+.event-info:hover {
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}

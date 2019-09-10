@@ -9,6 +9,9 @@ import { BlogService } from "../../services/BlogService";
 import SingleBlogLink, {
   linkStyle
 } from "../../components/SingleBlogLink/SingleBlogLink";
+import SingleEventLink from '../../components/SingleEventLink/SingleEventLink';
+import CalendarEvent from "../../models/CalendarEvent";
+import CalendarService from "../../services/CalendarService";
 const vancouverBg: string = "/img/cambie.jpg";
 const logo: string = "/brand/white-logo.png";
 
@@ -19,21 +22,25 @@ interface IHomeProps {
 
 interface IHomeState {
   blogPosts: SingleBlogPost[];
+  upcomingConferences: CalendarEvent[]
 }
 
 class Home extends React.Component<IHomeProps, IHomeState> {
   state = {
-    blogPosts: []
+    blogPosts: [],
+    upcomingConferences: []
   };
 
   componentDidMount = async () => {
     window.scrollTo(0, 0);
     // load in the blog posts
     var blogPosts: SingleBlogPost[] = await BlogService.getMostRecent();
+    var upcomingConferences: CalendarEvent[] = await CalendarService.getUpcoming()
     this.setState({
-      blogPosts: blogPosts
+      blogPosts: blogPosts,
+      upcomingConferences: upcomingConferences
     });
-    console.log(this.state.blogPosts);
+    console.log(this.state);
   };
 
   showBlogPosts = () => {
@@ -54,6 +61,18 @@ class Home extends React.Component<IHomeProps, IHomeState> {
       return <div></div>;
     }
   };
+
+  showUpcomingEvents = () => {
+    if (this.state.upcomingConferences.length > 0) {
+      return this.state.upcomingConferences.map((event: CalendarEvent, index: number) => {
+        if (event.confirmed === true) {
+          return (
+            <SingleEventLink eventDetails={event} />
+          )
+        }
+      })
+    }
+  }
 
   returnNavOptions = () => {
     // change the style of the return value based on the classification
@@ -139,8 +158,8 @@ class Home extends React.Component<IHomeProps, IHomeState> {
         </FullScreen>
 
         <div className="container">
-          <h4>Upcoming conferences</h4>
-          <p>list</p>
+        <div className='section-title'><h4>Upcoming conferences</h4></div>
+          <div className='row'>{this.showUpcomingEvents()}</div>
         </div>
         <div className="container">
           <div className='section-title'><h4>Student features</h4></div>

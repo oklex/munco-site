@@ -8,7 +8,6 @@ import { BlogService } from "../../services/BlogService";
 import BlogPostProcessor from "../../utils/BlogPostProcessor";
 import { GetMedia } from "../../utils/GetMediaUrlById";
 import Interweave from "interweave";
-import BlogList from "../../components/BlogList/BlogList";
 
 interface IBlogPostProps extends RouteComponentProps {}
 
@@ -48,11 +47,12 @@ class BlogPost extends React.Component<IBlogPostProps, IBlogPostState> {
 
   getFeaturedImg = () => {
     const src = this.state.mediaUrl;
-    const alt = this.state.mediaAlt;
+    var  alt:string = 'featured-student-portrait'
+    //alt = this.state.mediaAlt;
     if (src) {
       return (
         <div className="featured-img">
-          <img src={src} alt={""} />
+          <img src={src} alt={alt} />
           {/* <div className="more-posts d-flex flex-wrap">
             <div className="post-btn">left</div> <div className='post-btn'>right</div>
           </div> */}
