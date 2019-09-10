@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { SingleBlogPost } from "../../models/BlogPost";
 import { BlogService } from "../../services/BlogService";
 import SingleBlogLink from "../../components/SingleBlogLink/SingleBlogLink";
-import SingleEventLink from '../../components/SingleEventLink/SingleEventLink';
+import SingleEventLink from "../../components/SingleEventLink/SingleEventLink";
 import CalendarEvent from "../../models/CalendarEvent";
 import CalendarService from "../../services/CalendarService";
 import LinkStyle from "../../models/LinkStyle";
@@ -22,7 +22,7 @@ interface IHomeProps {
 
 interface IHomeState {
   blogPosts: SingleBlogPost[];
-  upcomingConferences: CalendarEvent[]
+  upcomingConferences: CalendarEvent[];
 }
 
 class Home extends React.Component<IHomeProps, IHomeState> {
@@ -35,7 +35,7 @@ class Home extends React.Component<IHomeProps, IHomeState> {
     window.scrollTo(0, 0);
     // load in the blog posts
     var blogPosts: SingleBlogPost[] = await BlogService.getMostRecent();
-    var upcomingConferences: CalendarEvent[] = await CalendarService.getUpcoming()
+    var upcomingConferences: CalendarEvent[] = await CalendarService.getUpcoming();
     this.setState({
       blogPosts: blogPosts,
       upcomingConferences: upcomingConferences
@@ -64,17 +64,22 @@ class Home extends React.Component<IHomeProps, IHomeState> {
 
   showUpcomingEvents = () => {
     if (this.state.upcomingConferences.length > 0) {
-      return this.state.upcomingConferences.map((event: CalendarEvent, index: number) => {
-        if (event.confirmed === true) {
-          return (
-            <SingleEventLink eventDetails={event} linkStyle={LinkStyle.horizontal}/>
-          )
-        } else {
-          return <span/>
+      return this.state.upcomingConferences.map(
+        (event: CalendarEvent, index: number) => {
+          if (event.confirmed === true) {
+            return (
+              <SingleEventLink
+                eventDetails={event}
+                linkStyle={LinkStyle.horizontal}
+              />
+            );
+          } else {
+            return <span />;
+          }
         }
-      })
+      );
     }
-  }
+  };
 
   returnNavOptions = () => {
     // change the style of the return value based on the classification
@@ -160,11 +165,25 @@ class Home extends React.Component<IHomeProps, IHomeState> {
         </FullScreen>
 
         <div className="container">
-        <div className='section-title'><h4>Upcoming conferences</h4></div>
-          <div className='row'>{this.showUpcomingEvents()}</div>
+          <div className="section-title">
+            <h4>Upcoming conferences</h4>
+            <div className="blueText">
+              <Link to="/calendar">
+                <p>see all conferences &gt;</p>
+              </Link>
+            </div>
+          </div>
+          <div className="row">{this.showUpcomingEvents()}</div>
         </div>
         <div className="container">
-          <div className='section-title'><h4>Student features</h4></div>
+          <div className="section-title">
+            <h4>Student features</h4>
+            <div className="blueText">
+              <Link to="/features">
+                <p>see all features &gt;</p>
+              </Link>
+            </div>
+          </div>
           <div className="d-flex flex-wrap">{this.showBlogPosts()}</div>
         </div>
       </div>
