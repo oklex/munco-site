@@ -73,6 +73,41 @@
           color: $neutral-grey;
         }
       }
+      .projects {
+        color: grey;
+        margin-bottom: 2em;
+        .grey-box-main {
+          text-align: left;
+          background-color: $light-grey;
+          padding: 10px;
+          padding-top: 1em;
+          padding-bottom: 1em;
+          margin-bottom: 0.5em;
+        }
+        .grey-box {
+          padding: 5px;
+          padding-left: 10px;
+          padding-right: 10px;
+          text-align: left;
+          background-color: $light-grey;
+          .status-symbol-yellow {
+            display: inline-block;
+            background-color:$munco-gold;
+            margin-right: 10px;
+            width: 13px;
+            height: 13px;
+            border-radius: 100%;
+          }
+          .status-symbol-grey {
+            display: inline-block;
+            background-color: grey;
+            margin-right: 10px;
+            width: 13px;
+            height: 13px;
+            border-radius: 100%;
+          }
+        }
+      }
     }
   }
 }

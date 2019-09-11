@@ -141,6 +141,46 @@ class About extends React.Component<{}, IAboutState> {
               <h3>Projects</h3>
             </div>
             <div>hello world</div>
+            <div className="row projects">
+              <div className="col-md-6">
+                <div className="grey-box-main">
+                  <h6 className="darkText">Student Features</h6>
+                  <p>desc.</p>
+                </div>
+                <div className="grey-box">
+                  <div className="status-symbol-yellow" />
+                  in-progress
+                </div>
+              </div>
+              <div className="col-md-6">
+                <div className="grey-box-main">
+                  <h6 className="darkText">MUNCO access</h6>
+                  <p>desc.</p>
+                </div>
+                <div className="grey-box">
+                  <div className="status-symbol-grey" />
+                  prototyping
+                </div>
+              </div>
+            </div>
+            <div className="row projects">
+              <div className="col-md-6">
+                <div className="grey-box-main">
+                  <h6 className="darkText">Clubs directory</h6>
+                  <p>desc.</p>
+                </div>
+                <div className="grey-box">
+                  <div className="status-symbol-grey" />
+                  on-hold
+                </div>
+              </div>
+              <div className="col-md-6">
+                <div className="grey-box-main">
+                  <h6 className="darkText">More +</h6>
+                  <p>desc.</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
