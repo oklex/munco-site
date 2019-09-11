@@ -139,8 +139,8 @@ class About extends React.Component<{}, IAboutState> {
           <div className="container">
             <div className="section-title">
               <h3>Projects</h3>
+            <p>hello world</p>
             </div>
-            <div>hello world</div>
             <div className="row projects">
               <div className="col-md-6">
                 <div className="grey-box-main">
