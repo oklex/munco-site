@@ -15,11 +15,13 @@ export interface IMediaData {
 export const GetMedia = {
   async byHeight(mediaId: number, height: number) {
     try {
+      console.log('starting get media')
       const mediaItem: MediaItem = await BlogService.getMediaFromID(mediaId);
       const imgUrl: any = await MediaProcessor.getMediaForHeight(
         mediaItem,
         height
       );
+      console.log('img url returned: ', imgUrl)
       return imgUrl;
     } catch (err) {
       console.log(err);

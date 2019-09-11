@@ -32,7 +32,7 @@ class Home extends React.Component<IHomeProps, IHomeState> {
   };
 
   componentDidMount = async () => {
-    window.scrollTo(0, 0);
+    // window.scrollTo(0, 0);
     // load in the blog posts
     var blogPosts: SingleBlogPost[] = await BlogService.getMostRecent();
     var upcomingConferences: CalendarEvent[] = await CalendarService.getUpcoming();
@@ -40,7 +40,6 @@ class Home extends React.Component<IHomeProps, IHomeState> {
       blogPosts: blogPosts,
       upcomingConferences: upcomingConferences
     });
-    console.log(this.state);
   };
 
   showBlogPosts = () => {
