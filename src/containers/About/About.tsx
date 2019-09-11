@@ -59,10 +59,10 @@ class About extends React.Component<{}, IAboutState> {
           // update var team
           team[i].portraitUrl = url;
         }
-        console.log('url for media: ', url)
+        console.log("url for media: ", url);
         this.setState({
           team
-        })
+        });
       } catch (err) {
         console.log("portrait url fetch failed", err);
       }
@@ -72,18 +72,20 @@ class About extends React.Component<{}, IAboutState> {
   showPortraitIfExists = (teamId: number) => {
     const mediaUrl = this.state.team[teamId].portraitUrl;
     if (mediaUrl) {
-      console.log('showing image')
+      console.log("showing image");
       return (
-        <div>
+        <div className="portrait-circle">
           <img
+            className="portrait-img"
             src={mediaUrl}
             alt={"photo-portrait-of-" + this.state.team[teamId].name}
           ></img>
+          <div className="overlay"></div>
         </div>
       );
     } else {
-      console.log('no image')
-      return <div></div>
+      console.log("no image");
+      return <div></div>;
     }
   };
 
@@ -93,8 +95,15 @@ class About extends React.Component<{}, IAboutState> {
       return (
         <div className="col-sm-4 person-box">
           <div className="portrait">{this.showPortraitIfExists(index)}</div>
-          <div>{member.name}</div>
-          <div>{member.role}</div>
+          <div className="name">
+            <h6>{member.name}</h6>
+          </div>
+          <div className="position">
+            <p className="blueText">{member.role}</p>
+          </div>
+          <div className="description">
+            <p></p>
+          </div>
         </div>
       );
     });
@@ -107,7 +116,8 @@ class About extends React.Component<{}, IAboutState> {
         <div className="full-page">
           <div className="container">
             <div className="section-title">
-              <h3>Team</h3>
+              <h3>The Team</h3>
+              <p className="blueText">discover what we're pssionate about</p>
             </div>
             <div className="quote-banner">
               <img

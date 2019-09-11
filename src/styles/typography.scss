@@ -46,8 +46,8 @@ body {
     line-height: 25px + $basicLinePadding;
   }
   h6 {
-    font-size: 14px;
-    line-height: 14px;
+    font-size: 18px;
+    line-height: 18px + $basicLinePadding;
   }
 
   a {
