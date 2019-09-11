@@ -1,0 +1,54 @@
+@import "../../styles/colours.scss";
+
+#About {
+  text-align: left;
+  color: $dark-grey;
+  .logo {
+    position: absolute;
+    padding-left: 0.9em;
+    padding-top: 0.6em;
+    max-width: 120px;
+    width: 10vw;
+  }
+  .full-page {
+    min-height: 100vh;
+    color: black;
+    .container {
+      padding-left: 10vw;
+      padding-right: 10vw;
+      .quote-banner {
+        margin-top: 10vh;
+        border: solid 2px $munco-gold;
+        padding-left: 3em;
+        padding-right: 3em;
+        text-align: center;
+        .quotation {
+          height: 2em;
+          margin: 0.75em;
+        }
+        .quote {
+          padding-bottom: 3em;
+        }
+      }
+      .person-box {
+        margin-top: 30px;
+        padding: 10px;
+        height: 150px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 720px) {
+  #About {
+    .logo {
+      visibility: hidden;
+    }
+    .full-page {
+      .container {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+      }
+    }
+  }
+}

@@ -7,6 +7,7 @@ import Footer from "../../components/Footer/Footer";
 import Blog from "../Blog/Blog";
 import BlogPost from "../BlogPost/BlogPost";
 import Calendar from "../Calendar/Calendar";
+import About from '../About/About'
 
 const NavLinks: INavigationTypes[] = [
   {
@@ -57,6 +58,9 @@ class App extends React.Component<{}, {}> {
   showCalendar = () => {
     return <Calendar/>;
   };
+  showAbout = () => {
+    return <About/>
+  }
 
   render() {
     return (
@@ -68,6 +72,7 @@ class App extends React.Component<{}, {}> {
             <Route exact path="/features" component={this.showFeatures} />
             <Route path="/features/:id" component={this.showFeatureById} />
             <Route exact path="/calendar" component={this.showCalendar} />
+            <Route exact path="/about" component={this.showAbout} />
           </Switch>
           <Footer />
         </div>
