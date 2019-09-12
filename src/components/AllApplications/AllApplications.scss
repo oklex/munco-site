@@ -1,0 +1,17 @@
+@import "../../styles/colours.scss";
+
+.AllApplications {
+  .nav {
+    .nav-item {
+      .active {
+        color: $munco-gold !important;
+      }
+    }
+  }
+  .app-content {
+    border-top: none;
+    border: 1px solid #dee2e6;
+    padding: 1em;
+    padding-top: 1.5em;
+  }
+}

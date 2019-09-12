@@ -25,7 +25,7 @@ class SingleEventLink extends React.Component<ISingleEventProps, {}> {
     if (event.start_date && event.confirmed) {
       return (
         <div className="blueText">
-          <p>{date.format(event.start_date, "ddd., MMM. DD YYYY")}</p>
+          <p>{date.format(event.start_date, "ddd, MMM. DD YYYY")}</p>
         </div>
       );
     } else {

@@ -1,6 +1,8 @@
 import React from "react";
 import "./About.scss";
 import GetMedia from "../../utils/GetMediaUrlById";
+import AllApplications from '../../components/AllApplications/AllApplications'
+import ApplicationDetails from "../../models/ApplicationDetails";
 // import { RouteComponentProps } from "react-router-dom";
 
 // interface IAboutProps extends RouteComponentProps {}
@@ -139,7 +141,7 @@ class About extends React.Component<{}, IAboutState> {
           <div className="container">
             <div className="section-title">
               <h3>Projects</h3>
-            <p>hello world</p>
+            <p className='blueText'>enhancing the community</p>
             </div>
             <div className="row projects">
               <div className="col-md-6">
@@ -187,9 +189,10 @@ class About extends React.Component<{}, IAboutState> {
         <div className="full-page">
           <div className="container">
             <div className="section-title">
-              <h3>Apply</h3>
+              <h3>Be a part of MUNCO</h3>
+            <p className='blueText'>apply</p>
             </div>
-            <div>hello world</div>
+            <div><AllApplications apps={Applications}/></div>
           </div>
         </div>
       </div>
@@ -198,3 +201,22 @@ class About extends React.Component<{}, IAboutState> {
 }
 
 export default About;
+
+
+const Applications: ApplicationDetails[] = [
+  {
+    title: 'Social Media manager',
+    description: 'string',
+    // applicationLink: 'string',
+  },
+  {
+    title: 'IT apprentice',
+    description: 'string',
+    // applicationLink: 'string',
+  },
+  {
+    title: 'Community Coordinator',
+    description: 'string',
+    // applicationLink: 'string',
+  }
+]
