@@ -17,9 +17,9 @@ class Footer extends React.Component <{},{}> {
                 </div>
                 <div className='col-sm-4'>
                     <Link to='/about'><h3>About+</h3></Link>
-                    <Link to='/about/team'><p>+ team</p></Link>
-                    <Link to='/about/projects'><p>+ projects</p></Link>
-                    <Link to='/about/apply'><p>+ apply</p></Link>
+                    <Link to='/about/#team'><p>+ team</p></Link>
+                    <Link to='/about/#projects'><p>+ projects</p></Link>
+                    <Link to='/about/#apply'><p>+ apply</p></Link>
                     <div className='socials'>
                         <button className='btn btn-outline-light'><a href='https://www.facebook.com/BCmunco'>Facebook</a></button>
                         <button className='btn btn-outline-light'><a href='https://www.instagram.com/bc.munco/'>Instagram</a></button>

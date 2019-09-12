@@ -1,7 +1,7 @@
 import React from "react";
 import "./About.scss";
 import GetMedia from "../../utils/GetMediaUrlById";
-import AllApplications from '../../components/AllApplications/AllApplications'
+import AllApplications from "../../components/AllApplications/AllApplications";
 import ApplicationDetails from "../../models/ApplicationDetails";
 // import { RouteComponentProps } from "react-router-dom";
 
@@ -115,7 +115,7 @@ class About extends React.Component<{}, IAboutState> {
     return (
       <div id="About">
         <img className="logo" src={Logo} alt="munco brand logo" />
-        <div className="full-page">
+        <div className="full-page team">
           <div className="container">
             <div className="section-title">
               <h3>The Team</h3>
@@ -137,11 +137,11 @@ class About extends React.Component<{}, IAboutState> {
           </div>
         </div>
 
-        <div className="full-page">
+        <div className="full-page" id="projects">
           <div className="container">
             <div className="section-title">
               <h3>Projects</h3>
-            <p className='blueText'>enhancing the community</p>
+              <p className="blueText">enhancing the community</p>
             </div>
             <div className="row projects">
               <div className="col-md-6">
@@ -186,13 +186,15 @@ class About extends React.Component<{}, IAboutState> {
           </div>
         </div>
 
-        <div className="full-page">
+        <div className="full-page" id="apply">
           <div className="container">
             <div className="section-title">
               <h3>Be a part of MUNCO</h3>
-            <p className='blueText'>apply</p>
+              <p className="blueText">apply</p>
             </div>
-            <div><AllApplications apps={Applications}/></div>
+            <div>
+              <AllApplications apps={Applications} />
+            </div>
           </div>
         </div>
       </div>
@@ -202,21 +204,20 @@ class About extends React.Component<{}, IAboutState> {
 
 export default About;
 
-
 const Applications: ApplicationDetails[] = [
   {
-    title: 'Social Media manager',
-    description: 'string',
+    title: "Social Media manager",
+    description: "string"
     // applicationLink: 'string',
   },
   {
-    title: 'IT apprentice',
-    description: 'string',
+    title: "IT apprentice",
+    description: "string"
     // applicationLink: 'string',
   },
   {
-    title: 'Community Coordinator',
-    description: 'string',
+    title: "Community Coordinator",
+    description: "string"
     // applicationLink: 'string',
   }
-]
+];
