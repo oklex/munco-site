@@ -10,6 +10,8 @@ Done:
 
 To-do:
 1. add SEO using React-helmet
+    1. seo tag research
+    2. add title. and desc. tags
 2. add scroll updating when history changes
 3. add Google analytics
 
