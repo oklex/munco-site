@@ -115,7 +115,7 @@ class About extends React.Component<{}, IAboutState> {
     return (
       <div id="About">
         <img className="logo" src={Logo} alt="munco brand logo" />
-        <div className="full-page team">
+        <div className="full-page" id='team'>
           <div className="container">
             <div className="section-title">
               <h3>The Team</h3>
