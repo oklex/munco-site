@@ -17,17 +17,17 @@ const NavLinks: INavigationTypes[] = [
   },
   {
     link: "/features",
-    title: "Features+",
+    title: "Features",
     type: LinkImportance.major
   },
   {
     link: "/calendar",
-    title: "Calendar+",
+    title: "Calendar",
     type: LinkImportance.major
   },
   {
     link: "/about",
-    title: "About+",
+    title: "About",
     type: LinkImportance.minor
   }
 ];
