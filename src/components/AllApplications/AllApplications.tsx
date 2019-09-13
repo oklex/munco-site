@@ -44,7 +44,7 @@ class AllApplications extends React.Component<
             className={"nav-link " + ifActive}
             onClick={() => this.switchId(index)}
           >
-            <h6>{app.title}</h6>
+            <h4>{app.title}</h4>
           </div>
         </li>
       );
@@ -60,7 +60,7 @@ class AllApplications extends React.Component<
     }
     return (
       <div>
-        <h5>{info.title}</h5>
+        <h3>{info.title}</h3>
         <p>{info.description}</p>
         {(link !== '' && <button className="btn btn-outline-dark"><a href={link} target='_blank'>Apply now</a></button>)}
       </div>

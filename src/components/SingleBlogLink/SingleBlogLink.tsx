@@ -73,7 +73,7 @@ class SingleBlogLink extends React.Component<
     }
     return (
       <div className={positionStyle}>
-        <h5>{BlogPostProcessor.getPostTitle(this.props.post)}</h5>{" "}
+        <h4>{BlogPostProcessor.getPostTitle(this.props.post)}</h4>
         <Interweave
           content={BlogPostProcessor.getPostExcerptByLength(
             this.props.post,

@@ -60,7 +60,7 @@ class Calendar extends React.Component<{}, ICalendarState> {
                 />
               </div>
               <div className="overlay">
-                <div className="banner-title"><h3>Conference Calendar</h3></div>
+                <div className="banner-title"><h1>Conference Calendar</h1></div>
               </div>
             </div>
           </SplitScreen>

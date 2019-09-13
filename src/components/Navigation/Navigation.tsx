@@ -73,7 +73,7 @@ class Navigation extends React.Component<INavigationProps, INavigationState> {
               className={"highlight-link" + this.getLinkAnimation()}
               onClick={() => this.closeNavigation()}
             >
-              <h4>{link.title}</h4>
+              <h2>{link.title}</h2>
             </Link>
           </li>
         );
@@ -86,7 +86,7 @@ class Navigation extends React.Component<INavigationProps, INavigationState> {
               className={this.getLinkAnimation()}
               onClick={() => this.closeNavigation()}
             >
-              <h5>{link.title}</h5>
+              <h3>{link.title}</h3>
             </Link>
           </li>
         );
@@ -108,7 +108,7 @@ class Navigation extends React.Component<INavigationProps, INavigationState> {
     if (!this.props.hideButtons) {
       return (
         <div className="d-flex justify-content-between">
-          <img className="logo" src={Logo} alt="munco brand logo" />
+          <Link to='/' onClick={() => this.closeNavigation()}><img className="logo" src={Logo} alt="munco brand logo" /></Link>
           <div className="btn-nav">
             <button className='btn-full' onClick={() => this.closeNavigation()}>
               <img

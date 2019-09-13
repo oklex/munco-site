@@ -10,10 +10,10 @@ body {
   // default
   h1,
   h2,
+  h1,
+  h2,
   h3,
   h4,
-  h5,
-  h6,
   p {
     font-style: normal;
     font-weight: normal;
@@ -22,30 +22,22 @@ body {
   }
 
   h1 {
-    font-size: 120px;
-    line-height: 120px + $basicLinePadding;
-  }
-  h2 {
-    font-size: 90px;
-    line-height: 90px + $basicLinePadding;
-  }
-  h3 {
-    font-size: 60px;
-    line-height: 60px + $basicLinePadding;
-  }
-  h4 {
     font-size: 40px;
     line-height: 40px + $basicLinePadding;
   }
-  h5 {
+  h2 {
     font-size: 35px;
     line-height: 35px + $basicLinePadding;
   }
-  h5 {
+  h3 {
     font-size: 25px;
     line-height: 25px + $basicLinePadding;
   }
-  h6 {
+  h4 {
+    font-size: 20px;
+    line-height: 25px + $basicLinePadding;
+  }
+  h5 {
     font-size: 18px;
     line-height: 18px + $basicLinePadding;
   }
@@ -65,10 +57,10 @@ body {
       text-decoration: none;
       h1,
       h2,
+      h1,
+      h2,
       h3,
       h4,
-      h5,
-      h6,
       p {
         letter-spacing: 0.1em;
       }

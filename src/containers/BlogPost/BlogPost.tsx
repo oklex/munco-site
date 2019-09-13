@@ -73,8 +73,8 @@ class BlogPost extends React.Component<IBlogPostProps, IBlogPostState> {
       return (
         <div className="read-content">
           <div className="post-title">
-            <h6 className="blueText">Presented by MUNCO</h6>
-            <h4>{title}</h4>
+            <h5 className="blueText">Presented by MUNCO</h5>
+            <h1>{title}</h1>
           </div>
           <div className="post-content">
             <Interweave content={content} />
@@ -97,12 +97,12 @@ class BlogPost extends React.Component<IBlogPostProps, IBlogPostState> {
               <div className="other-buttons d-flex justify-content-around">
                 <div className="div-btn left-btn">
                   <Link to="/features">
-                    <h5> &lt; Back to all posts</h5>
+                    <h3> &lt; Back to all posts</h3>
                   </Link>
                 </div>
                 <div className="div-btn right-btn">
                   <a href="https://forms.gle/rzHMmwdG7ay9LrCc6" target="_blank">
-                    <h5>refer someone &gt;</h5>
+                    <h3>refer someone &gt;</h3>
                   </a>
                 </div>
               </div>

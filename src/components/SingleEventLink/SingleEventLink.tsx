@@ -43,7 +43,7 @@ class SingleEventLink extends React.Component<ISingleEventProps, {}> {
         <a href={this.props.eventDetails.website} target="_blank">
           <div className="event-info">
             {this.getDateIfExists()}
-            <h5>{event.short_name}</h5>
+            <h3>{event.short_name}</h3>
             <div>
               <p>
                 {event.venue_name}, {event.venue_city}

@@ -10,18 +10,18 @@ class Footer extends React.Component<{}, {}> {
       <div className="row justify-content-around footer short-link">
         <div className="col-sm-4">
           <Link to="/">
-            <h5>Home</h5>
+            <h3>Home</h3>
           </Link>
           <Link to="/features">
-            <h5>Features</h5>
+            <h3>Features</h3>
           </Link>
           <Link to="/calendar">
-            <h5>Calendar</h5>
+            <h3>Calendar</h3>
           </Link>
         </div>
         <div className="col-sm-4">
           <Link to="/about">
-            <h3>About</h3>
+            <h1>About</h1>
           </Link>
           <Link to="/about/#team">
             <p>+ team</p>

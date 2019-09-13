@@ -98,7 +98,7 @@ class About extends React.Component<{}, IAboutState> {
         <div className="col-sm-4 person-box">
           <div className="portrait">{this.showPortraitIfExists(index)}</div>
           <div className="name">
-            <h6>{member.name}</h6>
+            <h4>{member.name}</h4>
           </div>
           <div className="position">
             <p className="blueText">{member.role}</p>
@@ -118,7 +118,7 @@ class About extends React.Component<{}, IAboutState> {
         <div className="full-page" id='team'>
           <div className="container">
             <div className="section-title">
-              <h3>The Team</h3>
+              <h1>The Team</h1>
               <p className="blueText">discover what we're pssionate about</p>
             </div>
             <div className="quote-banner">
@@ -128,7 +128,7 @@ class About extends React.Component<{}, IAboutState> {
                 alt="quotation mark"
               ></img>
               <div className="quote">
-                <h5>Some quote here</h5>
+                <h3>Some quote here</h3>
               </div>
             </div>
             <div className="row justify-content-center">
@@ -140,13 +140,13 @@ class About extends React.Component<{}, IAboutState> {
         <div className="full-page" id="projects">
           <div className="container">
             <div className="section-title">
-              <h3>Projects</h3>
+              <h1>Projects</h1>
               <p className="blueText">enhancing the community</p>
             </div>
             <div className="row projects">
               <div className="col-md-6">
                 <div className="grey-box-main">
-                  <h6 className="darkText">Student Features</h6>
+                  <h4 className="darkText">Student Features</h4>
                   <p>desc.</p>
                 </div>
                 <div className="grey-box">
@@ -156,7 +156,7 @@ class About extends React.Component<{}, IAboutState> {
               </div>
               <div className="col-md-6">
                 <div className="grey-box-main">
-                  <h6 className="darkText">MUNCO access</h6>
+                  <h4 className="darkText">MUNCO access</h4>
                   <p>desc.</p>
                 </div>
                 <div className="grey-box">
@@ -168,7 +168,7 @@ class About extends React.Component<{}, IAboutState> {
             <div className="row projects">
               <div className="col-md-6">
                 <div className="grey-box-main">
-                  <h6 className="darkText">Clubs directory</h6>
+                  <h4 className="darkText">Clubs directory</h4>
                   <p>desc.</p>
                 </div>
                 <div className="grey-box">
@@ -178,7 +178,7 @@ class About extends React.Component<{}, IAboutState> {
               </div>
               <div className="col-md-6">
                 <div className="grey-box-main">
-                  <h6 className="darkText">More +</h6>
+                  <h4 className="darkText">More +</h4>
                   <p>desc.</p>
                 </div>
               </div>
@@ -189,7 +189,7 @@ class About extends React.Component<{}, IAboutState> {
         <div className="full-page" id="apply">
           <div className="container">
             <div className="section-title">
-              <h3>Be a part of MUNCO</h3>
+              <h1>Be a part of MUNCO</h1>
               <p className="blueText">apply</p>
             </div>
             <div>

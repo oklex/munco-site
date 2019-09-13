@@ -20,12 +20,12 @@ class Blog extends React.Component<{}, {}> {
           <div className="banner-overlay">
             <div className="banner-title">
               
-              <h3>Features</h3>
+              <h1>Student Features</h1>
             </div>
           </div>
         </div>
         <div className="container">
-          <h5>This is our Community</h5>
+          <h3>This is our MUN community</h3>
           
           <div className="referral-btn blueText">
               <a href="https://forms.gle/rzHMmwdG7ay9LrCc6" target="_blank">

@@ -48,7 +48,7 @@ class Home extends React.Component<IHomeProps, IHomeState> {
         if (post.status === "publish") {
           return (
             <div key={index}>
-              {/* <h5>{post.title.rendered}</h5> */}
+              {/* <h3>{post.title.rendered}</h3> */}
               <SingleBlogLink post={post} style={LinkStyle.vertical} />
             </div>
           );
@@ -91,7 +91,7 @@ class Home extends React.Component<IHomeProps, IHomeState> {
         return (
           <li key={index}>
             <Link to={link.link}>
-              <h4>{link.title}</h4>
+              <h2>{link.title}</h2>
             </Link>
           </li>
         );
@@ -100,7 +100,7 @@ class Home extends React.Component<IHomeProps, IHomeState> {
         return (
           <li key={index}>
             <Link to={link.link}>
-              <h5>{link.title}</h5>
+              <h3>{link.title}</h3>
             </Link>
           </li>
         );
@@ -153,7 +153,7 @@ class Home extends React.Component<IHomeProps, IHomeState> {
                   className="banner-logo"
                 />
                 <div className="banner-title lightText">
-                  <h4>Community Starts here</h4>
+                  <h1>Community Starts here</h1>
                 </div>
               </div>
             </div>
@@ -165,7 +165,7 @@ class Home extends React.Component<IHomeProps, IHomeState> {
 
         <div className="container">
           <div className="section-title">
-            <h4>Upcoming conferences</h4>
+            <h2>Upcoming conferences</h2>
             <div className="blueText">
               <Link to="/calendar">
                 <p>see all conferences &gt;</p>
@@ -176,7 +176,7 @@ class Home extends React.Component<IHomeProps, IHomeState> {
         </div>
         <div className="container">
           <div className="section-title">
-            <h4>Student features</h4>
+            <h2>Student features</h2>
             <div className="blueText">
               <Link to="/features">
                 <p>see all features &gt;</p>

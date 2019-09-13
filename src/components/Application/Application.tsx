@@ -26,7 +26,7 @@ class Application extends React.Component<IApplicationProps, {}> {
   render() {
     return (
       <div>
-        <h5>{this.props.app.title}</h5>
+        <h3>{this.props.app.title}</h3>
         {this.showDeadlineIfExists()}
         <p>{this.props.app.description}</p>
       </div>
