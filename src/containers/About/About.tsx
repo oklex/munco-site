@@ -4,6 +4,7 @@ import GetMedia from "../../utils/GetMediaUrlById";
 import AllApplications from "../../components/AllApplications/AllApplications";
 import ApplicationDetails from "../../models/ApplicationDetails";
 import { Link } from "react-router-dom";
+import Helmet from "react-helmet";
 // import { RouteComponentProps } from "react-router-dom";
 
 // interface IAboutProps extends RouteComponentProps {}
@@ -115,6 +116,14 @@ class About extends React.Component<{}, IAboutState> {
   render() {
     return (
       <div id="About">
+        
+        <Helmet>
+          <title>About MUNCO</title>
+          <meta
+            name="description"
+            content="MUNCO is the community hub for everything model united nation in british columbia. See what we're up to."
+          />
+        </Helmet>
         <Link to='/'><img className="logo" src={Logo} alt="munco brand logo" /></Link>
         <div className="full-page" id='team'>
           <div className="container">

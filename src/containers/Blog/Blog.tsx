@@ -1,6 +1,7 @@
 import React from "react";
 import BlogList from "../../components/BlogList/BlogList";
 import "./Blog.scss";
+import Helmet from "react-helmet";
 const chilling: string = "/img/chilling.jpg";
 
 class Blog extends React.Component<{}, {}> {
@@ -11,6 +12,13 @@ class Blog extends React.Component<{}, {}> {
   render() {
     return (
       <div id="blog-home">
+        <Helmet>
+          <title>Student features - munco</title>
+          <meta
+            name="description"
+            content="Check out notable students in the model un community."
+          />
+        </Helmet>
         <div className="blog-header">
           <img
             className="banner-img"

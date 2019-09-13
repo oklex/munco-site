@@ -7,7 +7,8 @@ import Footer from "../../components/Footer/Footer";
 import Blog from "../Blog/Blog";
 import BlogPost from "../BlogPost/BlogPost";
 import Calendar from "../Calendar/Calendar";
-import About from '../About/About'
+import About from "../About/About";
+import Helmet from "react-helmet";
 
 const NavLinks: INavigationTypes[] = [
   {
@@ -56,15 +57,28 @@ class App extends React.Component<{}, {}> {
     return <BlogPost />;
   };
   showCalendar = () => {
-    return <Calendar/>;
+    return <Calendar />;
   };
   showAbout = () => {
-    return <About/>
-  }
+    return <About />;
+  };
 
   render() {
     return (
       <Router>
+        <Helmet>
+          <title>MUNCO - british columbia's model un community</title>
+          <meta
+            name="description"
+            content="MUNCO is the community hub for everything model united nation in british columbia."
+          />
+          <link rel='canonical' href='https://munco.ca/' />
+          <meta charSet="utf-8" />
+          <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+          />
+        </Helmet>
         <div className="App">
           <Navigation links={NavLinks} socialMedia={SocialMediaLinks} />
           <Switch>

@@ -11,6 +11,7 @@ import SingleEventLink from "../../components/SingleEventLink/SingleEventLink";
 import CalendarEvent from "../../models/CalendarEvent";
 import CalendarService from "../../services/CalendarService";
 import LinkStyle from "../../models/LinkStyle";
+import Helmet from "react-helmet";
 
 const vancouverBg: string = "/img/cambie.jpg";
 const logo: string = "/brand/white-logo.png";
@@ -138,6 +139,13 @@ class Home extends React.Component<IHomeProps, IHomeState> {
   render() {
     return (
       <div className="home-hero">
+        <Helmet>
+          <title>MUNCO - british columbia's model un community</title>
+          <meta
+            name="description"
+            content="MUNCO is the community hub for everything model united nation in british columbia."
+          />
+        </Helmet>
         <FullScreen hideOnMobile={false}>
           <SplitScreen>
             <div className="hero-banner">

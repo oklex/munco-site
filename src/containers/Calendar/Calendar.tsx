@@ -6,6 +6,7 @@ import CalendarEvent from "../../models/CalendarEvent";
 import SingleEventLink from "../../components/SingleEventLink/SingleEventLink";
 import CalendarService from "../../services/CalendarService";
 import LinkStyle from "../../models/LinkStyle";
+import Helmet from "react-helmet";
 
 const vancouverBg: string = "/img/cambie.jpg";
 
@@ -49,6 +50,13 @@ class Calendar extends React.Component<{}, ICalendarState> {
   render() {
     return (
       <div className="Calendar">
+        <Helmet>
+          <title>Conferences calendar</title>
+          <meta
+            name="description"
+            content="Calendar for Model UN conferences in BC and internationally. See all dates and site links and more."
+          />
+        </Helmet>
         <FullScreen hideOnMobile={false}>
           <SplitScreen hideOnWrap={true}>
             <div className="fixed-cover">
@@ -60,7 +68,9 @@ class Calendar extends React.Component<{}, ICalendarState> {
                 />
               </div>
               <div className="overlay">
-                <div className="banner-title"><h1>Conference Calendar</h1></div>
+                <div className="banner-title">
+                  <h1>Conference Calendar</h1>
+                </div>
               </div>
             </div>
           </SplitScreen>
