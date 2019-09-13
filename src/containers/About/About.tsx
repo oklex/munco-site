@@ -3,6 +3,7 @@ import "./About.scss";
 import GetMedia from "../../utils/GetMediaUrlById";
 import AllApplications from "../../components/AllApplications/AllApplications";
 import ApplicationDetails from "../../models/ApplicationDetails";
+import { Link } from "react-router-dom";
 // import { RouteComponentProps } from "react-router-dom";
 
 // interface IAboutProps extends RouteComponentProps {}
@@ -114,7 +115,7 @@ class About extends React.Component<{}, IAboutState> {
   render() {
     return (
       <div id="About">
-        <img className="logo" src={Logo} alt="munco brand logo" />
+        <Link to='/'><img className="logo" src={Logo} alt="munco brand logo" /></Link>
         <div className="full-page" id='team'>
           <div className="container">
             <div className="section-title">
@@ -190,7 +191,7 @@ class About extends React.Component<{}, IAboutState> {
           <div className="container">
             <div className="section-title">
               <h1>Be a part of MUNCO</h1>
-              <p className="blueText">apply</p>
+              <p className="blueText">apply for unique positions</p>
             </div>
             <div>
               <AllApplications apps={Applications} />

@@ -110,6 +110,9 @@
   }
   .main-nav-links {
     padding-left: 2em;
-    padding-top: 15vh !important;
+    padding-top: calc((100vh - 111px - 314px)/2) !important;
+  }
+  .social-media-links {
+    padding-top: calc((100vh - 111px - 40px)) !important;
   }
 }
