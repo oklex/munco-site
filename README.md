@@ -20,3 +20,9 @@ Fine-tuning:
 2. Calendar quick scroll UI
 3. Update the 'About us' page
 4. Add dynamic Nav children options
+
+
+-----------------
+
+
+Run: `npm run build` (it bundles and optimizes your app for production), and then `npm run deploy`. It’s all set !
