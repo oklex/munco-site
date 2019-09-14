@@ -63,12 +63,12 @@ class About extends React.Component<{}, IAboutState> {
           // update var team
           team[i].portraitUrl = url;
         }
-        console.log("url for media: ", url);
+        //console.log("url for media: ", url);
         this.setState({
           team
         });
       } catch (err) {
-        console.log("portrait url fetch failed", err);
+        //console.log("portrait url fetch failed", err);
       }
     }
   };
@@ -76,7 +76,7 @@ class About extends React.Component<{}, IAboutState> {
   showPortraitIfExists = (teamId: number) => {
     const mediaUrl = this.state.team[teamId].portraitUrl;
     if (mediaUrl) {
-      console.log("showing image");
+      //console.log("showing image");
       return (
         <div className="portrait-circle">
           <img
@@ -88,7 +88,7 @@ class About extends React.Component<{}, IAboutState> {
         </div>
       );
     } else {
-      console.log("no image");
+      //console.log("no image");
       return <div></div>;
     }
   };

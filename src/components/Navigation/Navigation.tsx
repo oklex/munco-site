@@ -24,7 +24,7 @@ class Navigation extends React.Component<INavigationProps, INavigationState> {
   };
 
   openNavigation = () => {
-    console.log("open nav");
+    //console.log("open nav");
     this.setState({
       show: true
     });
@@ -36,7 +36,7 @@ class Navigation extends React.Component<INavigationProps, INavigationState> {
   };
 
   closeNavigation = () => {
-    console.log("close nav");
+    //console.log("close nav");
     this.setState({
       show: false
     });

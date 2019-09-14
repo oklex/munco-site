@@ -32,7 +32,7 @@ class BlogPost extends React.Component<IBlogPostProps, IBlogPostState> {
 
   componentDidMount = async () => {
     let param: any = this.props.match.params;
-    console.log("param", param.id);
+    //console.log("param", param.id);
     const postData: any = await BlogService.getPostFromID(param.id);
     const featuredMedia: any = await BlogPostProcessor.getFeaturedImageId(
       postData
@@ -42,7 +42,7 @@ class BlogPost extends React.Component<IBlogPostProps, IBlogPostState> {
       post: postData,
       mediaUrl: mediaUrl
     });
-    console.log("State is now: ", this.state);
+    //console.log("State is now: ", this.state);
   };
 
   getFeaturedImg = () => {

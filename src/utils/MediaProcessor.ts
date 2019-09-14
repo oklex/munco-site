@@ -6,21 +6,21 @@ export const MediaProcessor = {
     try {
       // go through the array to find one that fits
       // if none fits, return closest match
-      console.log('starting media processor')
+      //console.log('starting media processor')
       const sizesRaw: any = mediaData.media_details.sizes;
       const sizesArray: imageDetails[] = ParseImageSizes.asArray(sizesRaw)
-      console.log('size length: ', sizesArray)
+      //console.log('size length: ', sizesArray)
       // so sizes is apparently NOT an array
       var bestFitAbove: imageDetails = sizesRaw.full;
       var difference: number = bestFitAbove.height - desiredHeight;
       for (var i = 0; i < sizesArray.length; i++) {
-        console.log('starting iteration: ',i)
+        //console.log('starting iteration: ',i)
         var img: imageDetails = sizesArray[i];
-        console.log('for iteration ', i, ' the img height is: ', img.height)
+        //console.log('for iteration ', i, ' the img height is: ', img.height)
         if (img.height > desiredHeight) {
           var sizeDifference: number = img.height - desiredHeight;
-          console.log('for iteration ', i, ' the difference is: ', sizeDifference)
-          console.log('for iteration ', i, ' the differences is compared to: ', difference)
+          //console.log('for iteration ', i, ' the difference is: ', sizeDifference)
+          //console.log('for iteration ', i, ' the differences is compared to: ', difference)
           if (sizeDifference < difference) {
             difference = sizeDifference;
             bestFitAbove = img;
@@ -29,7 +29,7 @@ export const MediaProcessor = {
       }
       return bestFitAbove.source_url;
     } catch (err) {
-      console.log("getMedaForSize failed");
+      //console.log("getMedaForSize failed");
       return null;
     }
   },
@@ -54,7 +54,7 @@ export const MediaProcessor = {
       }
       return bestFitAbove.source_url;
     } catch (err) {
-      console.log("getMedaForSize failed");
+      //console.log("getMedaForSize failed");
       return null;
     }
   },
@@ -63,7 +63,7 @@ export const MediaProcessor = {
       var data: any = mediaData.media_details.sizes;
       return data.thumbnail.source_url;
     } catch (err) {
-      console.log("media fetch error");
+      //console.log("media fetch error");
       return null;
     }
   },
@@ -72,7 +72,7 @@ export const MediaProcessor = {
       var data: any = mediaData.media_details.sizes;
       return data.medium.source_url;
     } catch (err) {
-      console.log("media fetch error");
+      //console.log("media fetch error");
       return null;
     }
   },
@@ -81,7 +81,7 @@ export const MediaProcessor = {
       var data: any = mediaData.media_details.sizes;
       return data.medium_large.source_url;
     } catch (err) {
-      console.log("media fetch error");
+      //console.log("media fetch error");
       return;
     }
   },
@@ -90,7 +90,7 @@ export const MediaProcessor = {
       var data: any = mediaData.media_details.sizes;
       return data.larger.source_url;
     } catch (err) {
-      console.log("media fetch error");
+      //console.log("media fetch error");
       return;
     }
   },
@@ -99,7 +99,7 @@ export const MediaProcessor = {
       var data: any = mediaData.media_details.sizes;
       return data.full.source_url;
     } catch (err) {
-      console.log("media fetch error");
+      //console.log("media fetch error");
       return;
     }
   },
