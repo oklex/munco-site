@@ -33,7 +33,7 @@ class AllApplications extends React.Component<
   showTabs = () => {
     var ifActive: string = "";
     return this.props.apps.map((app: ApplicationDetails, index: number) => {
-      if (this.state.selectedId == index) {
+      if (this.state.selectedId === index) {
         ifActive = " active";
       } else {
         ifActive = "";
