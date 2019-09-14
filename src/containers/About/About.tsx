@@ -11,9 +11,9 @@ import Helmet from "react-helmet";
 
 const Logo: string = "/brand/logo.svg";
 const Quotation: string = "/icons/quotation.svg";
-const AndrewPortraitId: number = 4853;
-const AlexPortraitId: number = 4675;
-const SanyaPortraitId: number = 4484;
+const AndrewPortraitId: number = 6;
+const AlexPortraitId: number = 10;
+const SanyaPortraitId: number = 9;
 
 interface IPersonBox {
   name: string;

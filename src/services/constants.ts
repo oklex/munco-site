@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const apiEndpoint = 'https://munco.ca/wp-json/wp/v2/'
+const apiEndpoint = 'https://munco.zyx/wp-json/wp/v2/'
 let API = createAxiosInstance() 
 
 function createAxiosInstance() {
