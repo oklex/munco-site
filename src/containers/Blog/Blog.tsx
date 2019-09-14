@@ -18,6 +18,7 @@ class Blog extends React.Component<{}, {}> {
             name="description"
             content="Check out notable students in the model un community."
           />
+          <link rel="canonical" href="https://wwww.munco.ca/features" />
         </Helmet>
         <div className="blog-header">
           <img

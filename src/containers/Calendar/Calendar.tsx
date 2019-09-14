@@ -57,6 +57,8 @@ class Calendar extends React.Component<{}, ICalendarState> {
             name="description"
             content="Calendar for Model UN conferences in BC and internationally. See all dates and site links and more."
           />
+          
+          <link rel="canonical" href="https://wwww.munco.ca/calendar" />
         </Helmet>
         <FullScreen hideOnMobile={false}>
           <SplitScreen hideOnWrap={true}>
