@@ -47,6 +47,7 @@ const SocialMediaLinks: INavigationTypes[] = [
 ];
 
 class App extends React.Component<{}, {}> {
+
   showHome = () => {
     return <Home links={NavLinks} socialMedia={SocialMediaLinks} />;
   };
@@ -72,7 +73,7 @@ class App extends React.Component<{}, {}> {
             name="description"
             content="MUNCO is the community hub for everything model united nation in british columbia."
           />
-          <link rel='canonical' href='https://munco.ca/' />
+          <link rel="canonical" href="https://munco.ca/" />
           <meta charSet="utf-8" />
           <meta
             name="viewport"

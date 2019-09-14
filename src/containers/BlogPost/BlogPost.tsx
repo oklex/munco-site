@@ -31,6 +31,7 @@ class BlogPost extends React.Component<IBlogPostProps, IBlogPostState> {
   };
 
   componentDidMount = async () => {
+    document.body.scrollTop = 0;
     let param: any = this.props.match.params;
     //console.log("param", param.id);
     const postData: any = await BlogService.getPostFromID(param.id);

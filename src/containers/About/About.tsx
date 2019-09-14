@@ -52,6 +52,7 @@ class About extends React.Component<{}, IAboutState> {
   };
 
   componentDidMount = async () => {
+    document.body.scrollTop = 0;
     // update the team portraitUrl
     var team: IPersonBox[] = this.state.team;
     var i: number;
@@ -116,7 +117,6 @@ class About extends React.Component<{}, IAboutState> {
   render() {
     return (
       <div id="About">
-        
         <Helmet>
           <title>About MUNCO</title>
           <meta
@@ -124,8 +124,10 @@ class About extends React.Component<{}, IAboutState> {
             content="MUNCO is the community hub for everything model united nation in british columbia. See what we're up to."
           />
         </Helmet>
-        <Link to='/'><img className="logo" src={Logo} alt="munco brand logo" /></Link>
-        <div className="full-page" id='team'>
+        <Link to="/">
+          <img className="logo" src={Logo} alt="munco brand logo" />
+        </Link>
+        <div className="full-page" id="team">
           <div className="container">
             <div className="section-title">
               <h1>The Team</h1>

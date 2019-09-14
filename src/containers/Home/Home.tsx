@@ -33,6 +33,7 @@ class Home extends React.Component<IHomeProps, IHomeState> {
   };
 
   componentDidMount = async () => {
+    document.body.scrollTop = 0;
     // window.scrollTo(0, 0);
     // load in the blog posts
     var blogPosts: SingleBlogPost[] = await BlogService.getMostRecent();

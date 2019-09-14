@@ -20,6 +20,7 @@ class Calendar extends React.Component<{}, ICalendarState> {
   };
 
   componentDidMount = async () => {
+    document.body.scrollTop = 0;
     var allConferences: any = await CalendarService.getAll();
     if (allConferences) {
       this.setState({

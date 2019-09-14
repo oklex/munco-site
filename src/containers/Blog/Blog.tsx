@@ -5,9 +5,9 @@ import Helmet from "react-helmet";
 const chilling: string = "/img/chilling.jpg";
 
 class Blog extends React.Component<{}, {}> {
-  // componentDidMount = () => {
-  //   window.scrollTo(0, 0);
-  // };
+  componentDidMount = () => {
+    document.body.scrollTop = 0;
+  };
 
   render() {
     return (
