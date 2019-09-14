@@ -85,6 +85,7 @@ class SingleBlogLink extends React.Component<
   };
 
   render() {
+    console.log(this.state)
     var flexIf: string = "";
     if (this.props.style === LinkStyle.horizontal) {
       flexIf = LinkStyle.horizontal;

@@ -43,14 +43,14 @@ export const BlogPostProcessor = {
   },
   getPostExcerptByLength(post: SingleBlogPost, charLength: number) {
     try {
-      console.log('excerpt length: ', charLength)
+      // console.log('excerpt length: ', charLength)
       var excerpt: string = post.excerpt.rendered;
       // at charLength, iterate until end OR a space, then add the [...] thing
       var i: number = charLength;
       if (i < excerpt.length) {
         for (i; i < excerpt.length; i++) {
           if (excerpt[i] === ' ' || excerpt[i] === '\t' || excerpt[i] === '\n' ) {
-            console.log('excerpt slice at: ', i, 'out of: ', excerpt.length)
+            // console.log('excerpt slice at: ', i, 'out of: ', excerpt.length)
             return excerpt.slice(0, i) + ' [&#8230;]'
           }
         }

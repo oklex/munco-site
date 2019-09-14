@@ -69,12 +69,13 @@ class Home extends React.Component<IHomeProps, IHomeState> {
           if (event.confirmed === true) {
             return (
               <SingleEventLink
+                key={index}
                 eventDetails={event}
                 linkStyle={LinkStyle.horizontal}
               />
             );
           } else {
-            return <span />;
+            return <span key={index} />;
           }
         }
       );
