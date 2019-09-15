@@ -1,3 +1,5 @@
+import YoastMeta from "./YoastMeta";
+
 export interface SingleBlogPost {
     id: number,
     date: Date,
@@ -22,6 +24,7 @@ export interface SingleBlogPost {
     meta: any,
     categories: any,
     tags: any,
+    yoast_meta?: YoastMeta,
     links: any,
 }
 

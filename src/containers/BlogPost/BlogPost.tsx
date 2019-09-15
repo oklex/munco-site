@@ -8,6 +8,8 @@ import { BlogService } from "../../services/BlogService";
 import BlogPostProcessor from "../../utils/BlogPostProcessor";
 import { GetMedia } from "../../utils/GetMediaUrlById";
 import Interweave from "interweave";
+import YoastMetaProcessor from "../../utils/YoastMetaProcessor";
+import Helmet from "react-helmet";
 
 interface IBlogPostProps extends RouteComponentProps {}
 
@@ -46,9 +48,21 @@ class BlogPost extends React.Component<IBlogPostProps, IBlogPostState> {
     //console.log("State is now: ", this.state);
   };
 
+  getMetaTags = () => {
+    const post = this.state.post;
+    if (post) {
+      const tags = YoastMetaProcessor.fromPost(post);
+      if (tags) {
+        return tags
+      } else {
+        return ''
+      }
+    } else return ''
+  };
+
   getFeaturedImg = () => {
     const src = this.state.mediaUrl;
-    var  alt:string = 'featured-student-portrait'
+    var alt: string = "featured-student-portrait";
     //alt = this.state.mediaAlt;
     if (src) {
       return (
@@ -88,6 +102,9 @@ class BlogPost extends React.Component<IBlogPostProps, IBlogPostState> {
   render() {
     return (
       <div className="blogPost">
+        <Helmet>
+          {this.getMetaTags()}
+        </Helmet>
         <FullScreen hideOnMobile={false}>
           <SplitScreen hideOnWrap={false}>
             <div className="fixed-cover">{this.getFeaturedImg()}</div>
