@@ -17,6 +17,8 @@ export const YoastMetaProcessor = {
         // for (var i = 0; i < )
         // console.log("array", yoast_meta[]);
         // see: https://stackoverflow.com/questions/9991805/javascript-how-to-parse-json-array
+
+        // must stringify first, then parse
         return null;
       } else {
         console.log("no tags found");
