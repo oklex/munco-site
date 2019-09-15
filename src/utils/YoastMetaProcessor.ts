@@ -7,19 +7,25 @@ import YoastMeta from "../models/YoastMeta";
 // return a large JSX element
 
 export const YoastMetaProcessor = {
-    fromPost(post: SingleBlogPost) {
-        console.log('starting yoast meta processor')
-        const yoast_meta = post.yoast_meta
-        if (yoast_meta) {
-            console.log('tags: ',yoast_meta)
-            // const metaArray: YoastMeta[] = yoast_meta
-            // for (var i = 0; i < )
-            return null
-        } else {
-            console.log('no tags found')
-            return null
-        }
+  fromPost(post: SingleBlogPost) {
+    try {
+      console.log("starting yoast meta processor");
+      const yoast_meta = post.yoast_meta;
+      if (yoast_meta) {
+        console.log("tags: ", yoast_meta);
+        // const metaArray: YoastMeta[] = JSON.parse(`${yoast_meta}`);
+        // for (var i = 0; i < )
+        // console.log("array", yoast_meta[]);
+        return null;
+      } else {
+        console.log("no tags found");
+        return null;
+      }
+    } catch (err) {
+      console.log(err);
+      return null;
     }
-}
+  }
+};
 
-export default YoastMetaProcessor
+export default YoastMetaProcessor;
