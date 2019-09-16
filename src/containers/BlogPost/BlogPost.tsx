@@ -115,12 +115,12 @@ class BlogPost extends React.Component<IBlogPostProps, IBlogPostState> {
               <div className="other-buttons d-flex justify-content-around">
                 <div className="div-btn left-btn">
                   <Link to="/features">
-                    <h3> &lt; Back to all posts</h3>
+                    <h3>Back to all posts</h3>
                   </Link>
                 </div>
                 <div className="div-btn right-btn">
                   <a href="https://forms.gle/rzHMmwdG7ay9LrCc6" target="_blank">
-                    <h3>refer someone &gt;</h3>
+                    <h3>refer someone</h3>
                   </a>
                 </div>
               </div>

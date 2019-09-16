@@ -29,7 +29,7 @@ const UpcomingCalendarData: CalendarEvent[] = [
     {
         conference_id: 2,
         short_name: 'SPAMUN',
-        name_prefix: ' Southpointe Academy\'s',
+        name_prefix: 'Southpointe Academy\'s',
         venue_name: 'Southpointe Academy',
         venue_city: 'Delta, BC',
         start_date:  new Date(2019, 5, 20),
@@ -167,10 +167,10 @@ const AllCalendarData: CalendarEvent[] = [
     },
     {
         conference_id: 6,
-        short_name: 'Seatle PACMUN',
-        name_prefix: 'Seatle Pacific',
+        short_name: 'Seattle PACMUN',
+        name_prefix: 'Seattle Pacific',
         venue_name: ' Sheraton Seattle ',
-        venue_city: 'Seatle, WA, USA',
+        venue_city: 'Seattle, WA, USA',
         start_date:  new Date(2019, 11, 22),
         end_date: new Date(2019, 11, 24),
         website: 'https://pacificmun.com',

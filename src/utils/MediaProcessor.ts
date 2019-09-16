@@ -1,5 +1,5 @@
 import { MediaItem, imageDetails } from "../models/MediaItem";
-import { ParseImageSizes } from "./parseImageSizes";
+import { ParseImageSizes } from "./ParseImageSizes";
 
 export const MediaProcessor = {
   getMediaForHeight(mediaData: MediaItem, desiredHeight: number) {

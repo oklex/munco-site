@@ -131,7 +131,7 @@ class About extends React.Component<{}, IAboutState> {
           <div className="container">
             <div className="section-title">
               <h1>The Team</h1>
-              <p className="blueText">discover what we're pssionate about</p>
+              <p className="blueText">discover what we're passionate about</p>
             </div>
             <div className="quote-banner">
               <img
