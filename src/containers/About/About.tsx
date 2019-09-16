@@ -59,7 +59,7 @@ class About extends React.Component<{}, IAboutState> {
     for (i = 0; i < team.length; i++) {
       try {
         const thisMember: IPersonBox = team[i];
-        const url: any = await GetMedia.byHeight(thisMember.portraitId, 200);
+        const url: any = await GetMedia.byHeight(thisMember.portraitId, 150);
         if (url) {
           // update var team
           team[i].portraitUrl = url;

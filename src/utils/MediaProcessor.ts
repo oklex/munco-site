@@ -17,7 +17,7 @@ export const MediaProcessor = {
         //console.log('starting iteration: ',i)
         var img: imageDetails = sizesArray[i];
         //console.log('for iteration ', i, ' the img height is: ', img.height)
-        if (img.height > desiredHeight) {
+        if (img.height >= desiredHeight) {
           var sizeDifference: number = img.height - desiredHeight;
           //console.log('for iteration ', i, ' the difference is: ', sizeDifference)
           //console.log('for iteration ', i, ' the differences is compared to: ', difference)
@@ -43,7 +43,7 @@ export const MediaProcessor = {
       for (var i = 0; i < sizes.length; i++) {
         var img: imageDetails = sizes[i];
 
-        if (img.width > desiredWidth) {
+        if (img.width >= desiredWidth) {
           var sizeDifference: number = img.width - desiredWidth;
           if (sizeDifference < difference || difference == null) {
             difference = sizeDifference;
