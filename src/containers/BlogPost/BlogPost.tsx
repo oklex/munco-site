@@ -51,6 +51,13 @@ class BlogPost extends React.Component<IBlogPostProps, IBlogPostState> {
     console.log('SEO tags: ', tags)
   };
 
+  getPostMeta = () => {
+    return [
+      <meta property='og:title' content='blog post'/>,
+      <meta property='og:description' content='blog post'/>
+    ]
+  }
+
   getFeaturedImg = () => {
     const mediaId = this.state.mediaId
     if (mediaId) {
@@ -93,6 +100,7 @@ class BlogPost extends React.Component<IBlogPostProps, IBlogPostState> {
     return (
       <div className="blogPost">
         <Helmet>
+          {this.getPostMeta()}
         </Helmet>
         <FullScreen hideOnMobile={false}>
           <SplitScreen hideOnWrap={false}>
