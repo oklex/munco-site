@@ -2,6 +2,13 @@ import { MediaItem, imageDetails } from "../models/MediaItem";
 import { ParseImageSizes } from "./ParseImageSizes";
 
 export const MediaProcessor = {
+  getMediaAlt(mediaItem: MediaItem) {
+    try {
+      return mediaItem.alt_text
+    } catch (err) {
+      return
+    }
+  },
   getMediaForHeight(mediaData: MediaItem, desiredHeight: number) {
     try {
       // go through the array to find one that fits
