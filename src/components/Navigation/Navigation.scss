@@ -62,26 +62,28 @@
   }
   .slideIn {
     -webkit-animation-name: slideInDown;
-    -webkit-animation-duration: 0.2s;
+    -webkit-animation-duration: 0.1s;
     animation-name: slideInDown;
-    animation-duration: 0.2s;
+    animation-duration: 0.1s;
   }
 
   .slideOut {
     -webkit-animation-name: slideOutUp;
-    -webkit-animation-duration: 0.2s;
+    -webkit-animation-duration: 0.1s;
     animation-name: slideOutUp;
-    animation-duration: 0.2s;
+    animation-duration: 0.1s;
   }
 
   .fadeIn {
     -webkit-animation-name: fadeIn;
-    -webkit-animation-duration: 0.7s;
+    -webkit-animation-duration: 0.5s;
     animation-name: fadeIn;
-    animation-duration: 0.7s;
+    animation-duration: 0.5s;
   }
 
   .btn-nav {
+    position: absolute;
+    right: 0;
     background-color: $munco-gold;
     width: 3em;
     height: 3em;

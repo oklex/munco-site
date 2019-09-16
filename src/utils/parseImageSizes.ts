@@ -6,38 +6,34 @@ import { imageDetails } from "../models/MediaItem";
 export const ParseImageSizes = {
   asArray(list: any) {
     var array: imageDetails[] = [];
-    if (list.thumbnail) {
-      array.push(list.thumbnail);
+    var stringifyList = JSON.stringify(list)
+    var jsonList = JSON.parse(stringifyList)
+    // numbers
+    if (jsonList[400]) {
+        array.push(jsonList[400])
+    } if (jsonList[500]) {
+        array.push(jsonList[500])
+    }if (jsonList[600]) {
+        array.push(jsonList[600])
+    }if (jsonList[900]) {
+        array.push(jsonList[900])
     }
-    if (list.medium) {
-      array.push(list.medium);
+    // names
+    if (jsonList.thumbnail) {
+        array.push(jsonList.thumbnail)
+    }if (jsonList.medium) {
+        array.push(jsonList.medium)
+    }if (jsonList.medium_large) {
+        array.push(jsonList.medium_large)
+    }if (jsonList.large) {
+        array.push(jsonList.large)
+    } if (jsonList.full) {
+        array.push(jsonList.full)
+    }if (jsonList['post-thumbnail']) {
+        array.push(jsonList['post-thumbnail'])
     }
-    if (list.medium_large) {
-      array.push(list.medium_large);
-    }
-    if (list.large) {
-      array.push(list.large);
-    }
-    if (list.woocommerce_thumbnail) {
-      array.push(list.woocommerce_thumbnail);
-    }
-    if (list.woocommerce_single) {
-      array.push(list.woocommerce_single);
-    }
-    if (list.woocommerce_gallery_thumbnail) {
-      array.push(list.woocommerce_gallery_thumbnail);
-    }
-    if (list.shop_catalog) {
-      array.push(list.shop_catalog);
-    }
-    if (list.shop_single) {
-      array.push(list.shop_single);
-    }
-    if (list.shop_thumbnail) {
-      array.push(list.shop_thumbnail);
-    }
-    if (list.full) {
-      array.push(list.full);
+    if (jsonList.full) {
+        array.push(jsonList.full)
     }
     return array
   } 

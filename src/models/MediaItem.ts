@@ -12,6 +12,7 @@ export interface MediaItem {
     ping_status: string,
     meta: string[],
     template: string,
+    alt_text: string,
     media_details: media_details
 }
 

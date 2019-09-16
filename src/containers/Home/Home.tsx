@@ -12,6 +12,7 @@ import CalendarEvent from "../../models/CalendarEvent";
 import CalendarService from "../../services/CalendarService";
 import LinkStyle from "../../models/LinkStyle";
 import Helmet from "react-helmet";
+import AllEventsLink from "../../components/SingleEventLink/AllEventsLink";
 
 const vancouverBg: string = "/img/cambie.jpg";
 const logo: string = "/brand/white-logo.png";
@@ -82,6 +83,10 @@ class Home extends React.Component<IHomeProps, IHomeState> {
       );
     }
   };
+
+  showEventsLink = () => {
+    return <AllEventsLink linkStyle={LinkStyle.horizontal}/>
+  }
 
   returnNavOptions = () => {
     // change the style of the return value based on the classification
@@ -183,7 +188,7 @@ class Home extends React.Component<IHomeProps, IHomeState> {
               </Link>
             </div>
           </div>
-          <div className="row">{this.showUpcomingEvents()}</div>
+          <div className="row">{this.showUpcomingEvents()} {this.showEventsLink()}</div>
         </div>
         <div className="container">
           <div className="section-title">

@@ -10,13 +10,15 @@ import { GetMedia } from "../../utils/GetMediaUrlById";
 import Interweave from "interweave";
 import YoastMetaProcessor from "../../utils/YoastMetaProcessor";
 import Helmet from "react-helmet";
+import YoastMeta from "../../models/YoastMeta";
+import ImgWrapper from "../../components/ImgWrapper";
 
 interface IBlogPostProps extends RouteComponentProps {}
 
 interface IBlogPostState {
   post: SingleBlogPost | null;
-  mediaUrl: string | null;
-  mediaAlt: string | null;
+  mediaId: number | null,
+  metaTags: YoastMeta[]
 }
 
 /*
@@ -28,8 +30,8 @@ interface IBlogPostState {
 class BlogPost extends React.Component<IBlogPostProps, IBlogPostState> {
   state = {
     post: null,
-    mediaUrl: null,
-    mediaAlt: null
+    mediaId: null,
+    metaTags: []
   };
 
   componentDidMount = async () => {
@@ -40,34 +42,31 @@ class BlogPost extends React.Component<IBlogPostProps, IBlogPostState> {
     const featuredMedia: any = await BlogPostProcessor.getFeaturedImageId(
       postData
     );
-    const mediaUrl: any = await GetMedia.byWidth(featuredMedia, 1000);
     this.setState({
       post: postData,
-      mediaUrl: mediaUrl
+      mediaId: featuredMedia
     });
     //console.log("State is now: ", this.state);
+    var tags = await YoastMetaProcessor.fromPost(postData)
+    console.log('SEO tags: ', tags)
   };
 
-  getMetaTags = () => {
-    const post = this.state.post;
-    if (post) {
-      const tags = YoastMetaProcessor.fromPost(post);
-      if (tags) {
-        return tags
-      } else {
-        return ''
-      }
-    } else return ''
-  };
+  getPostMeta = () => {
+    // also need to create a custom 'title' and 'description' section 
+    // if they don't exist, derive from 'og:<name>'
+    return [
+      <meta property='og:title' content='blog post'/>,
+      <meta property='og:description' content='blog post'/>
+    ]
+  }
 
   getFeaturedImg = () => {
-    const src = this.state.mediaUrl;
-    var alt: string = "featured-student-portrait";
-    //alt = this.state.mediaAlt;
-    if (src) {
+    const mediaId = this.state.mediaId
+    if (mediaId) {
       return (
         <div className="featured-img">
-          <img src={src} alt={alt} />
+          <ImgWrapper mediaId={mediaId} height={1000}/>
+          {/* <img src={src} alt={alt} /> */}
           {/* <div className="more-posts d-flex flex-wrap">
             <div className="post-btn">left</div> <div className='post-btn'>right</div>
           </div> */}
@@ -103,7 +102,7 @@ class BlogPost extends React.Component<IBlogPostProps, IBlogPostState> {
     return (
       <div className="blogPost">
         <Helmet>
-          {this.getMetaTags()}
+          {this.getPostMeta()}
         </Helmet>
         <FullScreen hideOnMobile={false}>
           <SplitScreen hideOnWrap={false}>
