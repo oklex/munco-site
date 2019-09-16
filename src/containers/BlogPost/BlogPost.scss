@@ -59,14 +59,18 @@
 }
 
 @media only screen and (max-width: 766px) {
-  .split-screen {
-    min-height: 10vh !important;
-    .fixed-cover {
-      height: 70vh;
-      .featured-img {
-        img {
-          height: auto !important;
-          width: 100vw !important;
+  .blogPost {
+    .split-screen {
+      min-height: 10vh !important;
+      .fixed-cover {
+        height: auto;
+        max-height: 90vh;
+        .featured-img {
+          img {
+            height: auto !important;
+            width: 100vw !important;
+            min-width: 400px;
+          }
         }
       }
     }

@@ -17,6 +17,8 @@ export const ParseImageSizes = {
         array.push(jsonList[600])
     }if (jsonList[900]) {
         array.push(jsonList[900])
+    }if (jsonList[1000]) {
+        array.push(jsonList[1000])
     }
     // names
     if (jsonList.thumbnail) {

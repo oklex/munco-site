@@ -37,7 +37,7 @@ class BlogPost extends React.Component<IBlogPostProps, IBlogPostState> {
   componentDidMount = async () => {
     document.body.scrollTop = 0;
     let param: any = this.props.match.params;
-    //console.log("param", param.id);
+    // console.log("param", param.id);
     const postData: any = await BlogService.getPostFromID(param.id);
     const featuredMedia: any = await BlogPostProcessor.getFeaturedImageId(
       postData
@@ -48,13 +48,14 @@ class BlogPost extends React.Component<IBlogPostProps, IBlogPostState> {
     });
     //console.log("State is now: ", this.state);
     var tags = await YoastMetaProcessor.fromPost(postData)
-    console.log('SEO tags: ', tags)
+    // console.log('SEO tags: ', tags)
   };
 
   getPostMeta = () => {
     // also need to create a custom 'title' and 'description' section 
     // if they don't exist, derive from 'og:<name>'
     return [
+      <title>Blog post</title>,
       <meta property='og:title' content='blog post'/>,
       <meta property='og:description' content='blog post'/>
     ]
