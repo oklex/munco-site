@@ -6,7 +6,7 @@
   }
   .fixed-cover {
     position: relative;
-    width: 100%;
+    width: 50%;
     height: 100%;
     z-index: -99999;
     background-color: white;
@@ -14,8 +14,9 @@
       position: sticky;
       top: 0;
       img {
-        object-position: 50% 50%; // not quite working
-        min-width: 400px;
+        object-position: center center; // not quite working
+        width: auto;
+        min-width: 200px;
         height: 100vh;
         object-fit: cover;
       }
@@ -58,6 +59,17 @@
 }
 
 @media only screen and (max-width: 766px) {
+  .split-screen {
+    min-height: 10vh !important;
+    .fixed-cover {
+      .featured-img {
+        img {
+          height: auto !important;
+          width: 100vw !important;
+        }
+      }
+    }
+  }
   .read-content {
     .post-title {
       margin-top: 0px !important;

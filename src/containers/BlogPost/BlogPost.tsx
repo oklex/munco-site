@@ -40,7 +40,7 @@ class BlogPost extends React.Component<IBlogPostProps, IBlogPostState> {
     const featuredMedia: any = await BlogPostProcessor.getFeaturedImageId(
       postData
     );
-    const mediaUrl: any = await GetMedia.byHeight(featuredMedia, 1000);
+    const mediaUrl: any = await GetMedia.byWidth(featuredMedia, 1000);
     this.setState({
       post: postData,
       mediaUrl: mediaUrl
