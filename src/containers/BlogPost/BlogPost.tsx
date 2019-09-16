@@ -6,7 +6,6 @@ import SplitScreen from "../../components/SplitScreen/SplitScreen";
 import { SingleBlogPost } from "../../models/BlogPost";
 import { BlogService } from "../../services/BlogService";
 import BlogPostProcessor from "../../utils/BlogPostProcessor";
-import { GetMedia } from "../../utils/GetMediaUrlById";
 import Interweave from "interweave";
 import YoastMetaProcessor from "../../utils/YoastMetaProcessor";
 import Helmet from "react-helmet";
@@ -46,20 +45,20 @@ class BlogPost extends React.Component<IBlogPostProps, IBlogPostState> {
       post: postData,
       mediaId: featuredMedia
     });
-    //console.log("State is now: ", this.state);
+    // console.log("State is now: ", this.state);
     var tags = await YoastMetaProcessor.fromPost(postData)
-    // console.log('SEO tags: ', tags)
+    console.log('SEO tags: ', tags)
   };
 
-  getPostMeta = () => {
-    // also need to create a custom 'title' and 'description' section 
-    // if they don't exist, derive from 'og:<name>'
-    return [
-      <title>Blog post</title>,
-      <meta property='og:title' content='blog post'/>,
-      <meta property='og:description' content='blog post'/>
-    ]
-  }
+  // getPostMeta = () => {
+  //   // also need to create a custom 'title' and 'description' section 
+  //   // if they don't exist, derive from 'og:<name>'
+  //   return [
+  //     <title>Blog post</title>,
+  //     <meta property='og:title' content='blog post'/>,
+  //     <meta property='og:description' content='blog post'/>
+  //   ]
+  // }
 
   getFeaturedImg = () => {
     const mediaId = this.state.mediaId
@@ -103,7 +102,7 @@ class BlogPost extends React.Component<IBlogPostProps, IBlogPostState> {
     return (
       <div className="blogPost">
         <Helmet>
-          {this.getPostMeta()}
+          <meta name="robots" content="noindex" />
         </Helmet>
         <FullScreen hideOnMobile={false}>
           <SplitScreen hideOnWrap={false}>

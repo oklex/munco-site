@@ -10,16 +10,11 @@ import { ParseMetaTags } from "./ParseMetaTags";
 export const YoastMetaProcessor = {
   async fromPost(post: SingleBlogPost) {
     try {
-      console.log("starting yoast meta processor");
+      // console.log("starting yoast meta processor");
       const yoast_meta = post.yoast_meta;
       if (yoast_meta) {
-        console.log("tags: ", yoast_meta);
         var array: YoastMeta[] = await ParseMetaTags.asArray(yoast_meta);
-        console.log('at index 0: ', array[0])
-        console.log('at index 1: ', array[1])
-        console.log('at index 2: ', array[2])
-        console.log('at index 3: ', array[3])
-        console.log(array)
+        // console.log(array)
         return array
       } else {
         console.log("no tags found");

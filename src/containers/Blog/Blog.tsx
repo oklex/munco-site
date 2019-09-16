@@ -7,6 +7,7 @@ const chilling: string = "/img/chilling.jpg";
 class Blog extends React.Component<{}, {}> {
   componentDidMount = () => {
     document.body.scrollTop = 0;
+    console.log('blog')
   };
 
   render() {
