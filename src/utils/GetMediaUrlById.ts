@@ -1,7 +1,6 @@
 import MediaItem from "../models/MediaItem";
 import { BlogService } from "../services/BlogService";
 import MediaProcessor from "./MediaProcessor";
-import FullScreen from "../components/SplitScreen/FullScreen";
 
 /* 
 - NOTE

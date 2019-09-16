@@ -1,24 +1,23 @@
 import React from "react";
 import "./About.scss";
-import GetMedia from "../../utils/GetMediaUrlById";
 import AllApplications from "../../components/AllApplications/AllApplications";
 import ApplicationDetails from "../../models/ApplicationDetails";
 import { Link } from "react-router-dom";
 import Helmet from "react-helmet";
+import ImgWrapper from "../../components/ImgWrapper";
 // import { RouteComponentProps } from "react-router-dom";
 
 // interface IAboutProps extends RouteComponentProps {}
 
 const Logo: string = "/brand/logo.svg";
 const Quotation: string = "/icons/quotation.svg";
-const AndrewPortraitId: number = 6;
-const AlexPortraitId: number = 10;
-const SanyaPortraitId: number = 9;
+const AndrewPortraitId: number = 13;
+const AlexPortraitId: number = 15;
+const SanyaPortraitId: number = 14;
 
 interface IPersonBox {
   name: string;
   portraitId: number;
-  portraitUrl: string | null;
   role: string;
 }
 
@@ -33,19 +32,16 @@ class About extends React.Component<{}, IAboutState> {
       {
         name: "Alexander Kim",
         portraitId: AlexPortraitId,
-        portraitUrl: null,
         role: "Director"
       },
       {
         name: "Sanya Grover",
         portraitId: SanyaPortraitId,
-        portraitUrl: null,
         role: "Director"
       },
       {
         name: "Andrew Huang",
         portraitId: AndrewPortraitId,
-        portraitUrl: null,
         role: "Director"
       }
     ]
@@ -53,43 +49,17 @@ class About extends React.Component<{}, IAboutState> {
 
   componentDidMount = async () => {
     document.body.scrollTop = 0;
-    // update the team portraitUrl
-    var team: IPersonBox[] = this.state.team;
-    var i: number;
-    for (i = 0; i < team.length; i++) {
-      try {
-        const thisMember: IPersonBox = team[i];
-        const url: any = await GetMedia.byHeight(thisMember.portraitId, 150);
-        if (url) {
-          // update var team
-          team[i].portraitUrl = url;
-        }
-        //console.log("url for media: ", url);
-        this.setState({
-          team
-        });
-      } catch (err) {
-        //console.log("portrait url fetch failed", err);
-      }
-    }
   };
 
   showPortraitIfExists = (teamId: number) => {
-    const mediaUrl = this.state.team[teamId].portraitUrl;
-    if (mediaUrl) {
-      //console.log("showing image");
+    const mediaId = this.state.team[teamId].portraitId;
+    if (mediaId) {
       return (
-        <div className="portrait-circle">
-          <img
-            className="portrait-img"
-            src={mediaUrl}
-            alt={"photo-portrait-of-" + this.state.team[teamId].name}
-          ></img>
-          <div className="overlay"></div>
-        </div>
-      );
+      <div className="portrait-circle">
+        <ImgWrapper mediaId={mediaId} height={300} className={"portrait-img"} />
+        <div className="overlay"></div>
+      </div>)
     } else {
-      //console.log("no image");
       return <div></div>;
     }
   };
@@ -98,7 +68,7 @@ class About extends React.Component<{}, IAboutState> {
     var team: IPersonBox[] = this.state.team;
     return team.map((member: IPersonBox, index: number) => {
       return (
-        <div className="col-sm-4 person-box">
+        <div className="col-sm-4 person-box" key={index}>
           <div className="portrait">{this.showPortraitIfExists(index)}</div>
           <div className="name">
             <h4>{member.name}</h4>
