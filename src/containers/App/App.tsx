@@ -72,12 +72,6 @@ class App extends React.Component<{}, {}> {
     return (
       <Router>
         <Helmet>
-          <title>MUNCO - british columbia's model un community</title>
-          <meta
-            name="description"
-            content="MUNCO is the community hub for everything model united nation in british columbia."
-          />
-          <link rel="canonical" href="https://wwww.munco.ca/" />
           <meta charSet="utf-8" />
           <meta
             name="viewport"

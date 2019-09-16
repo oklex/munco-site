@@ -52,6 +52,8 @@ class BlogPost extends React.Component<IBlogPostProps, IBlogPostState> {
   };
 
   getPostMeta = () => {
+    // also need to create a custom 'title' and 'description' section 
+    // if they don't exist, derive from 'og:<name>'
     return [
       <meta property='og:title' content='blog post'/>,
       <meta property='og:description' content='blog post'/>
