@@ -107,7 +107,7 @@ class Navigation extends React.Component<INavigationProps, INavigationState> {
   showCloseButton = () => {
     if (!this.props.hideButtons) {
       return (
-        <div className="d-flex justify-content-between">
+        <div className="">
           <Link to='/' onClick={() => this.closeNavigation()}><img className="logo" src={Logo} alt="munco brand logo" /></Link>
           <div className="btn-nav">
             <button className='btn-full' onClick={() => this.closeNavigation()}>
