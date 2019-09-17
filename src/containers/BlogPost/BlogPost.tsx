@@ -16,8 +16,8 @@ interface IBlogPostProps extends RouteComponentProps {}
 
 interface IBlogPostState {
   post: SingleBlogPost | null;
-  mediaId: number | null,
-  metaTags: YoastMeta[]
+  mediaId: number | null;
+  metaTags: JSX.Element[];
 }
 
 /*
@@ -46,26 +46,27 @@ class BlogPost extends React.Component<IBlogPostProps, IBlogPostState> {
       mediaId: featuredMedia
     });
     // console.log("State is now: ", this.state);
-    var tags = await YoastMetaProcessor.fromPost(postData)
-    console.log('SEO tags: ', tags)
+    var tags = await YoastMetaProcessor.fromPost(postData);
+    if (tags) {
+      this.setState({
+        metaTags: tags
+      });
+    }
+    // console.log('SEO tags: ', tags)
   };
 
-  // getPostMeta = () => {
-  //   // also need to create a custom 'title' and 'description' section 
-  //   // if they don't exist, derive from 'og:<name>'
-  //   return [
-  //     <title>Blog post</title>,
-  //     <meta property='og:title' content='blog post'/>,
-  //     <meta property='og:description' content='blog post'/>
-  //   ]
-  // }
+  getPostMeta = () => {
+    // also need to create a custom 'title' and 'description' section
+    // if they don't exist, derive from 'og:<name>'?
+    return this.state.metaTags;
+  };
 
   getFeaturedImg = () => {
-    const mediaId = this.state.mediaId
+    const mediaId = this.state.mediaId;
     if (mediaId) {
       return (
         <div className="featured-img">
-          <ImgWrapper mediaId={mediaId} height={1000}/>
+          <ImgWrapper mediaId={mediaId} height={1000} />
           {/* <img src={src} alt={alt} /> */}
           {/* <div className="more-posts d-flex flex-wrap">
             <div className="post-btn">left</div> <div className='post-btn'>right</div>
@@ -101,9 +102,7 @@ class BlogPost extends React.Component<IBlogPostProps, IBlogPostState> {
   render() {
     return (
       <div className="blogPost">
-        <Helmet>
-          <meta name="robots" content="noindex" />
-        </Helmet>
+        <Helmet>{this.getPostMeta()}</Helmet>
         <FullScreen hideOnMobile={false}>
           <SplitScreen hideOnWrap={false}>
             <div className="fixed-cover">{this.getFeaturedImg()}</div>

@@ -1,5 +1,6 @@
 export interface YoastMeta {
-    property: string,
+    property?: string,
+    name?: string,
     content: string,
 }
 
