@@ -77,14 +77,17 @@
       }
       .projects {
         color: grey;
-        margin-bottom: 2em;
+        margin-bottom: 0.5em;
         .grey-box-main {
           text-align: left;
           background-color: $light-grey;
           padding: 10px;
           padding-top: 1em;
-          padding-bottom: 1em;
+          padding-bottom: 0.25em;
           margin-bottom: 0.5em;
+          p {
+            padding-left: 0.25em;
+          }
         }
         .grey-box {
           padding: 5px;
@@ -92,6 +95,7 @@
           padding-right: 10px;
           text-align: left;
           background-color: $light-grey;
+          margin-bottom: 1em;
           .status-symbol-yellow {
             display: inline-block;
             background-color:$munco-gold;

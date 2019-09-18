@@ -61,7 +61,7 @@ class AllApplications extends React.Component<
     return (
       <div>
         <h3>{info.title}</h3>
-        <p>{info.description}</p>
+        <p className='neutralText'>{info.description}</p>
         {(link !== '' && <button className="btn btn-outline-dark"><a href={link} target='_blank'>Apply now</a></button>)}
       </div>
     );

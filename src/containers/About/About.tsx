@@ -32,17 +32,17 @@ class About extends React.Component<{}, IAboutState> {
       {
         name: "Alexander Kim",
         portraitId: AlexPortraitId,
-        role: "Director"
+        role: "IT Director"
       },
       {
         name: "Sanya Grover",
         portraitId: SanyaPortraitId,
-        role: "Director"
+        role: "Administrative Director"
       },
       {
         name: "Andrew Huang",
         portraitId: AndrewPortraitId,
-        role: "Director"
+        role: "Community Director"
       }
     ]
   };
@@ -55,10 +55,15 @@ class About extends React.Component<{}, IAboutState> {
     const mediaId = this.state.team[teamId].portraitId;
     if (mediaId) {
       return (
-      <div className="portrait-circle">
-        <ImgWrapper mediaId={mediaId} height={300} className={"portrait-img"} />
-        <div className="overlay"></div>
-      </div>)
+        <div className="portrait-circle">
+          <ImgWrapper
+            mediaId={mediaId}
+            height={300}
+            className={"portrait-img"}
+          />
+          <div className="overlay"></div>
+        </div>
+      );
     } else {
       return <div></div>;
     }
@@ -110,7 +115,10 @@ class About extends React.Component<{}, IAboutState> {
                 alt="quotation mark"
               ></img>
               <div className="quote">
-                <h3>Some quote here</h3>
+                <h3 className="neutralText">
+                  We strive to create meaningful connections between the
+                  delegates, conferences, and school club executives.{" "}
+                </h3>
               </div>
             </div>
             <div className="row justify-content-center">
@@ -129,7 +137,11 @@ class About extends React.Component<{}, IAboutState> {
               <div className="col-md-6">
                 <div className="grey-box-main">
                   <h4 className="darkText">Student Features</h4>
-                  <p>desc.</p>
+                  <p>
+                    We're shining light on some of the prominent role models in
+                    our community - to share their stories, their struggles, and
+                    lessons learned along the way.
+                  </p>
                 </div>
                 <div className="grey-box">
                   <div className="status-symbol-yellow" />
@@ -139,7 +151,12 @@ class About extends React.Component<{}, IAboutState> {
               <div className="col-md-6">
                 <div className="grey-box-main">
                   <h4 className="darkText">MUNCO access</h4>
-                  <p>desc.</p>
+                  <p>
+                    We're creating a registration system/backgrounder system to
+                    help staff and secretariat better understand and communicate
+                    with their delegates, as well as enable data-based feedback
+                    on delegate engagement.
+                  </p>
                 </div>
                 <div className="grey-box">
                   <div className="status-symbol-grey" />
@@ -151,7 +168,12 @@ class About extends React.Component<{}, IAboutState> {
               <div className="col-md-6">
                 <div className="grey-box-main">
                   <h4 className="darkText">Clubs directory</h4>
-                  <p>desc.</p>
+                  <p>
+                    Club leaders already contribute so much to their own clubs
+                    that we feel driven to lend them a hand. By connecting
+                    community leaders we hope to empower those club leaders who
+                    hold our communtiy up.
+                  </p>
                 </div>
                 <div className="grey-box">
                   <div className="status-symbol-grey" />
@@ -161,7 +183,12 @@ class About extends React.Component<{}, IAboutState> {
               <div className="col-md-6">
                 <div className="grey-box-main">
                   <h4 className="darkText">More +</h4>
-                  <p>desc.</p>
+                  <p>
+                    We're always researching new ways to enhance the student
+                    experience in Model UN. Follow us on social media for
+                    updates, and feel free to send us a message with your
+                    thoughts!
+                  </p>
                 </div>
               </div>
             </div>
@@ -188,18 +215,21 @@ export default About;
 
 const Applications: ApplicationDetails[] = [
   {
-    title: "Social Media manager",
-    description: "string"
-    // applicationLink: 'string',
+    title: "Social Media",
+    description:
+      "We're hiring a student who feels passionately about connecting the community to help drive our 'Student Features' project to life. As a part of our team, you would play a critical role in enhancing the quality and efficiency of our editorial process. \nSuccessful applicants will have the opportunity to grow within the role, with unique opportunities for students interested in data-driven business decisions.",
+    applicationLink: 'https://forms.gle/Crvb2N31gTfnJQNJA',
   },
   {
-    title: "IT apprentice",
-    description: "string"
-    // applicationLink: 'string',
+    title: "Design and Technology",
+    description:
+      "Interested in web-design? We're looking to fill a flexible role and train a student to contribute towards our design and development process for ouir 'MUNCO Access' project. Applicants will have an opportunity to experience professional design and development processes and learn as much code as they are comfortable with. \nThis position is great for anyone intersted in pursuing a career in software development and/or professional design.",
+    applicationLink: 'https://forms.gle/Crvb2N31gTfnJQNJA',
   },
   {
-    title: "Community Coordinator",
-    description: "string"
-    // applicationLink: 'string',
+    title: "Community",
+    description:
+      "Interested in bringing new projects into the Model UN community? We are too! And we're hoping to work with more students who can help us bring a new assortment of workshops and help us conduct research on students needs and wants.",
+    applicationLink: 'https://forms.gle/Crvb2N31gTfnJQNJA',
   }
 ];
