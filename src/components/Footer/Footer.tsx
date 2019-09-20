@@ -1,6 +1,7 @@
 import React from "react";
 import "./Footer.scss";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
+import { HashLink as Link } from 'react-router-hash-link';
 
 // include props here eventually
 
