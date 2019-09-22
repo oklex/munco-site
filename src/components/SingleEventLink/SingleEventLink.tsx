@@ -26,11 +26,13 @@ class SingleEventLink extends React.Component<ISingleEventProps, {}> {
 
   getDateIfExists = () => {
     const event = this.props.eventDetails;
-    if (event.start_date && event.confirmed) {
+    if (event.start_date) {
       var newMoment: any = moment.utc(event.start_date);
       return (
         <div className="blueText">
-          <p>{newMoment.format('MMMM (dddd) Do, YYYY')}</p>
+          <p>
+          <span>{newMoment.format('MMMM (dddd) Do, YYYY')}</span>
+          </p>
         </div>
       );
     } else {
