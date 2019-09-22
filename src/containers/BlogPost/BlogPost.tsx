@@ -67,10 +67,6 @@ class BlogPost extends React.Component<IBlogPostProps, IBlogPostState> {
       return (
         <div className="featured-img">
           <ImgWrapper mediaId={mediaId} height={1000} />
-          {/* <img src={src} alt={alt} /> */}
-          {/* <div className="more-posts d-flex flex-wrap">
-            <div className="post-btn">left</div> <div className='post-btn'>right</div>
-          </div> */}
         </div>
       );
     }
