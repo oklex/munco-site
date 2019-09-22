@@ -38,6 +38,7 @@ class Home extends React.Component<IHomeProps, IHomeState> {
     // load in the blog posts
     var blogPosts: SingleBlogPost[] = await BlogService.getMostRecent();
     var upcomingConferences: CalendarEvent[] = await CalendarService.getUpcoming();
+    // console.log(upcomingConferences)
     this.setState({
       blogPosts: blogPosts,
       upcomingConferences: upcomingConferences

@@ -2,7 +2,7 @@ import React from "react";
 import CalendarEvent from "../../models/CalendarEvent";
 import "./SingleEventLink.scss";
 import LinkStyle from "../../models/LinkStyle";
-import date from "date-and-time";
+import moment from "moment";
 
 interface ISingleEventProps {
   eventDetails: CalendarEvent;
@@ -15,7 +15,11 @@ class SingleEventLink extends React.Component<ISingleEventProps, {}> {
     if (event.tags.length > 0) {
       return event.tags.map((tag: string, index: number) => {
         const info: string = event.tags[index];
-        return <span key={index} className='tag'><p className="blueText">{info}</p></span>
+        return (
+          <span key={index} className="tag">
+            <p className="blueText">{info}</p>
+          </span>
+        );
       });
     }
   };
@@ -23,13 +27,14 @@ class SingleEventLink extends React.Component<ISingleEventProps, {}> {
   getDateIfExists = () => {
     const event = this.props.eventDetails;
     if (event.start_date && event.confirmed) {
+      var newMoment: any = moment(event.start_date);
       return (
         <div className="blueText">
-          <p>{date.format(event.start_date, "ddd, MMM. DD YYYY")}</p>
+          <p>{newMoment.format('MMMM (dddd) Do, YYYY')}</p>
         </div>
       );
     } else {
-      return <span/>
+      return <span />;
     }
   };
 

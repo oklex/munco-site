@@ -1,12 +1,20 @@
 import axios from 'axios'
 
-const apiEndpoint = 'https://munco.xyz/wp-json/wp/v2/'
-let API = createAxiosInstance() 
+const wpApiEndpoint = 'https://munco.xyz/wp-json/wp/v2/'
+const eventApiEndpoint = 'https://munco-access-api.herokuapp.com/api/conference'
+let wordpressAPI = wpCreateWordpressAxiosInstance() 
+let conferenceAPI = eventCreateAxiosInstance()
 
-function createAxiosInstance() {
+function wpCreateWordpressAxiosInstance() {
     return axios.create({
-        baseURL: apiEndpoint
+        baseURL: wpApiEndpoint
     })
 }
 
-export { apiEndpoint, API}
+function eventCreateAxiosInstance() {
+    return axios.create({
+        baseURL: eventApiEndpoint
+    })
+}
+
+export { wpApiEndpoint, wordpressAPI, eventApiEndpoint, conferenceAPI}
