@@ -14,24 +14,33 @@ export const YoastMetaProcessor = {
       const yoast_meta = post.yoast_meta;
       if (yoast_meta) {
         var array: YoastMeta[] = await ParseMetaTags.asArray(yoast_meta);
-        var tagArray: JSX.Element[] = []
+        var tagArray: JSX.Element[] = [];
         // process tags into an array of meta tags
-        for (var i = 0; i < array.length; i++ ) {
-          var tag:YoastMeta = array[i]
-          if (tag.property && tag.property === 'og:title') {
-            tagArray.push(<title key={i}>{tag.content}</title>)
-          } else if (tag.property && tag.property === 'og:description') {
-            tagArray.push(<meta key={i} name='description' content={tag.content}/>)
+        for (var i = 0; i < array.length; i++) {
+          var tag: YoastMeta = array[i];
+          // create new title and description tags
+          if (tag.property && tag.property === "og:title") {
+            tagArray.push(<title key={i}>{tag.content}</title>);
+          } else if (tag.property && tag.property === "og:description") {
+            tagArray.push(
+              <meta key={i} name="description" content={tag.content} />
+            );
           }
           // add for all; expect only name || property
-          if (tag.name){
-            tagArray.push(<meta key={i} name={tag.name} content={tag.content}/>)
+          if (tag.name) {
+            tagArray.push(
+              <meta key={i} name={tag.name} content={tag.content} />
+            );
           } else if (tag.property) {
-            tagArray.push(<meta key={i} property={tag.property} content={tag.content}/>)
+            if (tag.property !== "og:url") {
+              tagArray.push(
+                <meta key={i} property={tag.property} content={tag.content} />
+              );
+            }
           }
         }
         // console.log('tagArray:', tagArray)
-        return tagArray
+        return tagArray;
       } else {
         console.log("no tags found");
         return [];
