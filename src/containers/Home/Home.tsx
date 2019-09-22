@@ -12,6 +12,7 @@ import CalendarEvent from "../../models/CalendarEvent";
 import CalendarService from "../../services/CalendarService";
 import LinkStyle from "../../models/LinkStyle";
 import Helmet from "react-helmet";
+import UpcomingConferences from "./UpcomingConferences";
 
 const vancouverBg: string = "/img/cambie.jpg";
 const logoWhite: string = "/brand/white-logo.png";
@@ -24,13 +25,11 @@ interface IHomeProps {
 
 interface IHomeState {
   blogPosts: SingleBlogPost[];
-  upcomingConferences: CalendarEvent[];
 }
 
 class Home extends React.Component<IHomeProps, IHomeState> {
   state = {
     blogPosts: [],
-    upcomingConferences: []
   };
 
   componentDidMount = async () => {
@@ -38,11 +37,9 @@ class Home extends React.Component<IHomeProps, IHomeState> {
     // window.scrollTo(0, 0);
     // load in the blog posts
     var blogPosts: SingleBlogPost[] = await BlogService.getMostRecent();
-    var upcomingConferences: CalendarEvent[] = await CalendarService.getUpcoming();
     // console.log(upcomingConferences)
     this.setState({
       blogPosts: blogPosts,
-      upcomingConferences: upcomingConferences
     });
   };
 
@@ -62,26 +59,6 @@ class Home extends React.Component<IHomeProps, IHomeState> {
       });
     } else {
       return <div></div>;
-    }
-  };
-
-  showUpcomingEvents = () => {
-    if (this.state.upcomingConferences.length > 0) {
-      return this.state.upcomingConferences.map(
-        (event: CalendarEvent, index: number) => {
-          if (event.confirmed === true) {
-            return (
-              <SingleEventLink
-                key={index}
-                eventDetails={event}
-                linkStyle={LinkStyle.horizontal}
-              />
-            );
-          } else {
-            return <span key={index} />;
-          }
-        }
-      );
     }
   };
 
@@ -187,7 +164,7 @@ class Home extends React.Component<IHomeProps, IHomeState> {
               </Link>
             </div>
           </div>
-          <div className="row">{this.showUpcomingEvents()}</div>
+          <UpcomingConferences/>
         </div>
         <div className="container">
           <div className="section-title">
