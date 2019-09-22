@@ -15,6 +15,7 @@ import ImgWrapper from "../../components/ImgWrapper";
 interface IBlogPostProps extends RouteComponentProps {}
 
 interface IBlogPostState {
+  postId: number | null,
   post: SingleBlogPost | null;
   mediaId: number | null;
   metaTags: JSX.Element[];
@@ -28,6 +29,7 @@ interface IBlogPostState {
 
 class BlogPost extends React.Component<IBlogPostProps, IBlogPostState> {
   state = {
+    postId: null,
     post: null,
     mediaId: null,
     metaTags: []
@@ -42,6 +44,7 @@ class BlogPost extends React.Component<IBlogPostProps, IBlogPostState> {
       postData
     );
     this.setState({
+      postId: param.id,
       post: postData,
       mediaId: featuredMedia
     });
@@ -58,7 +61,13 @@ class BlogPost extends React.Component<IBlogPostProps, IBlogPostState> {
   getPostMeta = () => {
     // also need to create a custom 'title' and 'description' section
     // if they don't exist, derive from 'og:<name>'?
-    return this.state.metaTags;
+    var tags: JSX.Element[] = this.state.metaTags;
+    if (tags && this.state.postId) {
+      tags.push(
+        <meta property="og:url" content={`https://munco.ca/features/${this.state.postId}`} />
+      );
+    }
+    return tags;
   };
 
   getFeaturedImg = () => {
@@ -93,9 +102,11 @@ class BlogPost extends React.Component<IBlogPostProps, IBlogPostState> {
         </div>
       );
     } else {
-      return <div>
-        <p>Loading . . . </p>
-      </div>
+      return (
+        <div>
+          <p>Loading . . . </p>
+        </div>
+      );
     }
   };
 
