@@ -2,7 +2,7 @@ import React from "react";
 import CalendarEvent from "../../models/CalendarEvent";
 import "./SingleEventLink.scss";
 import LinkStyle from "../../models/LinkStyle";
-import moment from "moment";
+import moment from 'moment'
 
 interface ISingleEventProps {
   eventDetails: CalendarEvent;
@@ -27,7 +27,7 @@ class SingleEventLink extends React.Component<ISingleEventProps, {}> {
   getDateIfExists = () => {
     const event = this.props.eventDetails;
     if (event.start_date && event.confirmed) {
-      var newMoment: any = moment(event.start_date);
+      var newMoment: any = moment.utc(event.start_date);
       return (
         <div className="blueText">
           <p>{newMoment.format('MMMM (dddd) Do, YYYY')}</p>
