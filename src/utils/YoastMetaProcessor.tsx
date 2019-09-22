@@ -22,7 +22,9 @@ export const YoastMetaProcessor = {
             tagArray.push(<title key={i}>{tag.content}</title>)
           } else if (tag.property && tag.property === 'og:description') {
             tagArray.push(<meta key={i} name='description' content={tag.content}/>)
-          } else if (tag.name){
+          }
+          // add for all; expect only name || property
+          if (tag.name){
             tagArray.push(<meta key={i} name={tag.name} content={tag.content}/>)
           } else if (tag.property) {
             tagArray.push(<meta key={i} property={tag.property} content={tag.content}/>)

@@ -9,7 +9,7 @@ import BlogPostProcessor from "../../utils/BlogPostProcessor";
 import Interweave from "interweave";
 import YoastMetaProcessor from "../../utils/YoastMetaProcessor";
 import Helmet from "react-helmet";
-import YoastMeta from "../../models/YoastMeta";
+// import YoastMeta from "../../models/YoastMeta";
 import ImgWrapper from "../../components/ImgWrapper";
 
 interface IBlogPostProps extends RouteComponentProps {}

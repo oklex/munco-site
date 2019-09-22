@@ -14,7 +14,8 @@ import LinkStyle from "../../models/LinkStyle";
 import Helmet from "react-helmet";
 
 const vancouverBg: string = "/img/cambie.jpg";
-const logo: string = "/brand/white-logo.png";
+const logoWhite: string = "/brand/white-logo.png";
+const logoColour:string = '/brand/logo.svg'
 
 interface IHomeProps {
   links: INavigationTypes[];
@@ -148,7 +149,9 @@ class Home extends React.Component<IHomeProps, IHomeState> {
             name="description"
             content="MUNCO is the community hub for everything model united nation in british columbia."
           />
+          <meta property='og:title' content='MUNCO'/>
           <link rel="canonical" href="https://wwww.munco.ca/" />
+          <meta property='og:img' content={logoColour}/>
         </Helmet>
         <FullScreen hideOnMobile={false}>
           <SplitScreen>
@@ -160,7 +163,7 @@ class Home extends React.Component<IHomeProps, IHomeState> {
               />
               <div className="overlay">
                 <img
-                  src={logo}
+                  src={logoWhite}
                   alt="white-munco-logo"
                   className="banner-logo"
                 />
