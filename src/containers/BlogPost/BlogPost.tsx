@@ -92,6 +92,10 @@ class BlogPost extends React.Component<IBlogPostProps, IBlogPostState> {
           </div>
         </div>
       );
+    } else {
+      return <div>
+        <p>Loading . . . </p>
+      </div>
     }
   };
 
