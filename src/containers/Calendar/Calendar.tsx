@@ -45,6 +45,10 @@ class Calendar extends React.Component<{}, ICalendarState> {
           }
         }
       );
+    } else {
+      return (<div>
+        <p>Loading . . .</p>
+      </div>)
     }
   };
 
