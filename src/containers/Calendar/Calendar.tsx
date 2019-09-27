@@ -46,9 +46,11 @@ class Calendar extends React.Component<{}, ICalendarState> {
         }
       );
     } else {
-      return (<div>
-        <p>Loading . . .</p>
-      </div>)
+      return (
+        <div>
+          <p>Loading . . .</p>
+        </div>
+      );
     }
   };
 
@@ -61,7 +63,7 @@ class Calendar extends React.Component<{}, ICalendarState> {
             name="description"
             content="Calendar for Model UN conferences in BC and internationally. See all dates and site links and more."
           />
-          
+
           <link rel="canonical" href="https://wwww.munco.ca/calendar" />
         </Helmet>
         <FullScreen hideOnMobile={false}>
@@ -77,14 +79,34 @@ class Calendar extends React.Component<{}, ICalendarState> {
               <div className="overlay">
                 <div className="banner-title">
                   <h1>Conference Calendar</h1>
-                  <p>in-development <br/> alpha v. 0.1</p>
+                  <p>
+                    in-development <br /> alpha v. 0.1
+                  </p>
                 </div>
               </div>
             </div>
           </SplitScreen>
           <SplitScreen hideOnWrap={false}>
             <div className="read-content">
-              <div className="event-list">{this.showEvents()}</div>
+              <div className="event-list">
+                <div className="socials">
+                  <h4>Last updated: Sept. 26, 2019</h4>
+                  <p>
+                    Notice anything out of date? Let us know!
+                    <br />
+                    <br/>
+                    <button className="btn btn-outline-dark">
+                      <a href="https://www.facebook.com/BCmunco">Facebook</a>
+                    </button>
+                    <button className="btn btn-outline-dark">
+                      <a href="https://www.instagram.com/bc.munco/">
+                        Instagram
+                      </a>
+                    </button>
+                  </p>
+                </div>
+                {this.showEvents()}
+              </div>
             </div>
           </SplitScreen>
         </FullScreen>
