@@ -6,37 +6,46 @@ import SingleEventLink from "../../components/SingleEventLink/SingleEventLink";
 
 interface IUpcomingState {
   upcomingConferences: CalendarEvent[];
+  loading: boolean;
 }
 
 class UpcomingConferences extends React.Component<{}, IUpcomingState> {
   state: IUpcomingState = {
-    upcomingConferences: []
+    upcomingConferences: [],
+    loading: true
   };
 
   componentDidMount = async () => {
     var upcomingConferences: CalendarEvent[] = await CalendarService.getUpcoming();
-    this.setState({
-      upcomingConferences: upcomingConferences
-    });
+    if (upcomingConferences) {
+      this.setState({
+        upcomingConferences: upcomingConferences,
+        loading: false
+      });
+    }
   };
 
   showUpcomingEvents = () => {
-    if (this.state.upcomingConferences.length > 0) {
-      return this.state.upcomingConferences.map(
-        (event: CalendarEvent, index: number) => {
-          if (event.confirmed === true) {
-            return (
-              <SingleEventLink
-                key={index}
-                eventDetails={event}
-                linkStyle={LinkStyle.horizontal}
-              />
-            );
-          } else {
-            return <span key={index} />;
+    if (this.state.loading) {
+      return <p> Loading . . .</p>;
+    } else {
+      if (this.state.upcomingConferences.length > 0) {
+        return this.state.upcomingConferences.map(
+          (event: CalendarEvent, index: number) => {
+            if (event.confirmed === true) {
+              return (
+                <SingleEventLink
+                  key={index}
+                  eventDetails={event}
+                  linkStyle={LinkStyle.horizontal}
+                />
+              );
+            } else {
+              return <span key={index} />;
+            }
           }
-        }
-      );
+        );
+      }
     }
   };
 
