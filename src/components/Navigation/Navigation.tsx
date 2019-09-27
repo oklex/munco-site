@@ -20,7 +20,7 @@ interface INavigationState {
 class Navigation extends React.Component<INavigationProps, INavigationState> {
   state = {
     show: false,
-    interacted: false
+    interacted: false,
   };
 
   openNavigation = () => {
@@ -108,9 +108,11 @@ class Navigation extends React.Component<INavigationProps, INavigationState> {
     if (!this.props.hideButtons) {
       return (
         <div className="">
-          <Link to='/' onClick={() => this.closeNavigation()}><img className="logo" src={Logo} alt="munco brand logo" /></Link>
+          <Link to="/" onClick={() => this.closeNavigation()}>
+            <img className="logo" src={Logo} alt="munco brand logo" />
+          </Link>
           <div className="btn-nav">
-            <button className='btn-full' onClick={() => this.closeNavigation()}>
+            <button className="btn-full" onClick={() => this.closeNavigation()}>
               <img
                 src={closeIcon}
                 alt="close-navigation"
@@ -127,7 +129,7 @@ class Navigation extends React.Component<INavigationProps, INavigationState> {
     return (
       <div className="d-flex flex-row-reverse">
         <div className="btn-nav">
-          <button className='btn-full' onClick={() => this.openNavigation()}>
+          <button className="btn-full" onClick={() => this.openNavigation()}>
             <img
               src={HamburgerIcon}
               alt="close-navigation"
@@ -163,7 +165,7 @@ class Navigation extends React.Component<INavigationProps, INavigationState> {
 
   render() {
     return (
-      <div id="Navigation" className='short-link'>
+      <div id="Navigation" className="short-link">
         {this.showOpenButton()}
         {this.showNavigation()}
       </div>

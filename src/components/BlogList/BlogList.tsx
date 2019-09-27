@@ -23,7 +23,7 @@ class BlogList extends React.Component<{}, BlogListState> {
 
   showAllPosts = () => {
     return (
-      <div className="d-flex flex-wrap justify-content-center">
+      <div className="d-flex flex-wrap justify-content-left">
         {this.state.blogPosts.map(this.showSinglePost)}
       </div>
     );
