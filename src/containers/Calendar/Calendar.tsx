@@ -90,7 +90,7 @@ class Calendar extends React.Component<{}, ICalendarState> {
             <div className="read-content">
               <div className="event-list">
                 <div className="socials">
-                  <h4>Last updated: Sept. 26, 2019</h4>
+                  <h4>Last updated: Sept. 27, 2019</h4>
                   <p>
                     Notice anything out of date? Let us know!
                     <br />
