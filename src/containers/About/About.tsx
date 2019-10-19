@@ -215,7 +215,7 @@ export default About;
 
 const Applications: ApplicationDetails[] = [
   {
-    title: "Social Media",
+    title: "Content Creator",
     description:
       "We're hiring a student who feels passionately about connecting the community to help drive our 'Student Features' project to life. As a part of our team, you would play a critical role in enhancing the quality and efficiency of our editorial process. \nSuccessful applicants will have the opportunity to grow within the role, with unique opportunities for students interested in data-driven business decisions.",
     applicationLink: 'https://forms.gle/Crvb2N31gTfnJQNJA',
@@ -226,10 +226,10 @@ const Applications: ApplicationDetails[] = [
       "Interested in web-design? We're looking to fill a flexible role and train a student to contribute towards our design and development process for ouir 'MUNCO Access' project. Applicants will have an opportunity to experience professional design and development processes and learn as much code as they are comfortable with. \nThis position is great for anyone intersted in pursuing a career in software development and/or professional design.",
     applicationLink: 'https://forms.gle/Crvb2N31gTfnJQNJA',
   },
-  {
-    title: "Community",
-    description:
-      "Interested in bringing new projects into the Model UN community? We are too! And we're hoping to work with more students who can help us bring a new assortment of workshops and help us conduct research on students needs and wants.",
-    applicationLink: 'https://forms.gle/Crvb2N31gTfnJQNJA',
-  }
+  // {
+  //   title: "Community",
+  //   description:
+  //     "Interested in bringing new projects into the Model UN community? We are too! And we're hoping to work with more students who can help us bring a new assortment of workshops and help us conduct research on students needs and wants.",
+  //   applicationLink: 'https://forms.gle/Crvb2N31gTfnJQNJA',
+  // }
 ];
