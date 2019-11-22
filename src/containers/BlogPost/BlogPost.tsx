@@ -11,11 +11,13 @@ import YoastMetaProcessor from "../../utils/YoastMetaProcessor";
 import Helmet from "react-helmet";
 // import YoastMeta from "../../models/YoastMeta";
 import ImgWrapper from "../../components/ImgWrapper";
+import SignupForm from "../../components/NewsletterPoll/SignupForm";
+import SignupFormPrompt from "../../constants/SignupFormPrompt.json";
 
 interface IBlogPostProps extends RouteComponentProps {}
 
 interface IBlogPostState {
-  postId: number | null,
+  postId: number | null;
   post: SingleBlogPost | null;
   mediaId: number | null;
   metaTags: JSX.Element[];
@@ -64,7 +66,10 @@ class BlogPost extends React.Component<IBlogPostProps, IBlogPostState> {
     var tags: JSX.Element[] = this.state.metaTags;
     if (tags && this.state.postId) {
       tags.push(
-        <meta property="og:url" content={`https://munco.ca/features/${this.state.postId}`} />
+        <meta
+          property="og:url"
+          content={`https://munco.ca/features/${this.state.postId}`}
+        />
       );
     }
     return tags;
@@ -136,6 +141,7 @@ class BlogPost extends React.Component<IBlogPostProps, IBlogPostState> {
             </div>
           </SplitScreen>
         </FullScreen>
+        <SignupForm />
       </div>
     );
   }
