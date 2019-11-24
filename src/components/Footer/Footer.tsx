@@ -2,6 +2,8 @@ import React from "react";
 import "./Footer.scss";
 // import { Link } from "react-router-dom";
 import { HashLink as Link } from 'react-router-hash-link';
+// @ts-ignore
+import { SocialIcon } from "react-social-icons";
 
 // include props here eventually
 
@@ -34,12 +36,14 @@ class Footer extends React.Component<{}, {}> {
             <p>+ apply</p>
           </Link>
           <div className="socials">
-            <button className="btn btn-outline-light">
+            <SocialIcon url="https://www.facebook.com/BCmunco"/>
+            <SocialIcon url="https://www.instagram.com/bc.munco/"/>
+            {/* <button className="btn btn-outline-light">
               <a href="https://www.facebook.com/BCmunco">Facebook</a>
             </button>
             <button className="btn btn-outline-light">
               <a href="https://www.instagram.com/bc.munco/">Instagram</a>
-            </button>
+            </button> */}
           </div>
         </div>
       </div>

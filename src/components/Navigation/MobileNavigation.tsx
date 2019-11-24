@@ -2,9 +2,12 @@ import React from "react";
 import "./Navigation.scss";
 import INavigationTypes, { LinkImportance } from "../../models/NavigationLinks";
 import { Link } from "react-router-dom";
+// @ts-ignore
+import { SocialIcon } from "react-social-icons";
 const closeIcon: string = "/icons/close.svg";
 const HamburgerIcon: string = "/icons/hamburger.svg";
 const Logo: string = "/brand/logo.svg";
+
 
 interface INavigationProps {
   links: INavigationTypes[];
@@ -20,7 +23,7 @@ interface INavigationState {
 class Navigation extends React.Component<INavigationProps, INavigationState> {
   state = {
     show: false,
-    interacted: false,
+    interacted: false
   };
 
   openNavigation = () => {
@@ -97,9 +100,9 @@ class Navigation extends React.Component<INavigationProps, INavigationState> {
   returnSocialMedia = () => {
     return this.props.socialMedia.map((link, index) => {
       return (
-        <a key={index} href={link.link}>
+        <SocialIcon key={index} url={link.link}>
           {link.title}
-        </a>
+        </SocialIcon>
       );
     });
   };
