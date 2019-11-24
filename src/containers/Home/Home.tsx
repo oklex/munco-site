@@ -16,7 +16,7 @@ import UpcomingConferences from "./UpcomingConferences";
 
 const vancouverBg: string = "/img/cambie.jpg";
 const logoWhite: string = "/brand/white-logo.png";
-const logoColour:string = '/brand/logo.svg'
+const logoColour: string = "/brand/logo.svg";
 
 interface IHomeProps {
   links: INavigationTypes[];
@@ -29,7 +29,7 @@ interface IHomeState {
 
 class Home extends React.Component<IHomeProps, IHomeState> {
   state = {
-    blogPosts: [],
+    blogPosts: []
   };
 
   componentDidMount = async () => {
@@ -39,7 +39,7 @@ class Home extends React.Component<IHomeProps, IHomeState> {
     var blogPosts: SingleBlogPost[] = await BlogService.getMostRecent();
     // console.log(upcomingConferences)
     this.setState({
-      blogPosts: blogPosts,
+      blogPosts: blogPosts
     });
   };
 
@@ -126,9 +126,9 @@ class Home extends React.Component<IHomeProps, IHomeState> {
             name="description"
             content="MUNCO is the community hub for everything model united nation in british columbia."
           />
-          <meta property='og:title' content='MUNCO'/>
+          <meta property="og:title" content="MUNCO" />
           <link rel="canonical" href="https://wwww.munco.ca/" />
-          <meta property='og:img' content={logoColour}/>
+          <meta property="og:img" content={logoColour} />
         </Helmet>
         <FullScreen hideOnMobile={false}>
           <SplitScreen>
@@ -151,31 +151,35 @@ class Home extends React.Component<IHomeProps, IHomeState> {
             </div>
           </SplitScreen>
           <SplitScreen hideOnWrap={true}>
-            <div className="side-nav short-link">{this.showNavigation()}</div>
+            <div className="side-nav">{this.showNavigation()}</div>
           </SplitScreen>
         </FullScreen>
 
-        <div className="container">
-          <div className="section-title">
-            <h2>Upcoming conferences</h2>
-            <div className="blueText">
-              <Link to="/calendar">
-                <p>see all conferences &gt;</p>
-              </Link>
+        <div className="conferenceSection">
+          <div className="container">
+            <div className="section-title">
+              <h2>Upcoming conferences</h2>
+              <div className="blueText">
+                <Link to="/calendar">
+                  <p>see all conferences &gt;</p>
+                </Link>
+              </div>
             </div>
+            <UpcomingConferences />
           </div>
-          <UpcomingConferences/>
         </div>
-        <div className="container">
-          <div className="section-title">
-            <h2>Student features</h2>
-            <div className="blueText">
-              <Link to="/features">
-                <p>see all features &gt;</p>
-              </Link>
+        <div className="featureSection">
+          <div className="container">
+            <div className="section-title">
+              <h2>Student features</h2>
+              <div className="blueText">
+                <Link to="/features">
+                  <p>see all features &gt;</p>
+                </Link>
+              </div>
             </div>
+            <div className="d-flex flex-wrap">{this.showBlogPosts()}</div>
           </div>
-          <div className="d-flex flex-wrap">{this.showBlogPosts()}</div>
         </div>
       </div>
     );

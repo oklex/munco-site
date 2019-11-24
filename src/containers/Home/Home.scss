@@ -89,6 +89,14 @@ $lg-wrap: calc(1920px / 2);
   }
 }
 
+.conferenceSection {
+  background-color: white;
+}
+
+.featureSection {
+  background-color: white;
+}
+
 @media only screen and (max-width: 566px) {
   .section-title {
     margin-top: 0px !important;
