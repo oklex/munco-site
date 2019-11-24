@@ -13,6 +13,7 @@ import Helmet from "react-helmet";
 import ImgWrapper from "../../components/ImgWrapper";
 import SignupForm from "../../components/NewsletterPoll/SignupForm";
 import SignupFormPrompt from "../../constants/SignupFormPrompt.json";
+import BlogList from "../../components/BlogList/BlogList";
 
 interface IBlogPostProps extends RouteComponentProps {}
 
@@ -86,21 +87,44 @@ class BlogPost extends React.Component<IBlogPostProps, IBlogPostState> {
     }
   };
 
+  getBlogTitle = () => {
+    const postData: any = this.state.post;
+    var title: any;
+    if (postData) {
+      title = BlogPostProcessor.getPostTitle(postData);
+    }
+    if (title) {
+      return (
+        <div className="row">
+          <div className="col-lg-6">{this.getFeaturedImg()}</div>
+
+          <div className="col-lg-6">
+            <div className="post-title">
+              {/* {this.getFeaturedImg()} */}
+              <h5 className="blueText">Presented by MUNCO</h5>
+              <h1>{title}</h1>
+            </div>
+          </div>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <p>Loading . . . </p>
+        </div>
+      );
+    }
+  };
+
   getBlogContent = () => {
     const postData: any = this.state.post;
     var content: any;
-    var title: any;
     if (postData) {
       content = BlogPostProcessor.getPostContent(postData);
-      title = BlogPostProcessor.getPostTitle(postData);
     }
-    if (content && title) {
+    if (content) {
       return (
         <div className="read-content">
-          <div className="post-title">
-            <h5 className="blueText">Presented by MUNCO</h5>
-            <h1>{title}</h1>
-          </div>
           <div className="post-content">
             <Interweave content={content} />
           </div>
@@ -115,44 +139,39 @@ class BlogPost extends React.Component<IBlogPostProps, IBlogPostState> {
     }
   };
 
+  displayQuickButton = () => {
+    return (
+      <div className="other-buttons d-flex justify-content-center">
+        <button type="button" className="btn btn-outline-secondary">
+          <a href="https://forms.gle/rzHMmwdG7ay9LrCc6" target="_blank">
+            <h3>refer someone</h3>
+          </a>
+        </button>
+      </div>
+    );
+  };
+
   render() {
     return (
       <div className="blogPost">
         <Helmet>{this.getPostMeta()}</Helmet>
-        <FullScreen hideOnMobile={false}>
+        {/* <FullScreen hideOnMobile={false}>
           <SplitScreen hideOnWrap={false}>
-            <div className="fixed-cover">{this.getFeaturedImg()}</div>
-          </SplitScreen>
-          <SplitScreen hideOnWrap={false}>
-            <div>
-              {this.getBlogContent()}
-              <div className="other-buttons d-flex justify-content-around">
-                <div className="div-btn left-btn">
-                  <Link to="/features">
-                    <h3>Back to all posts</h3>
-                  </Link>
-                </div>
-                <div className="div-btn right-btn">
-                  <a href="https://forms.gle/rzHMmwdG7ay9LrCc6" target="_blank">
-                    <h3>refer someone</h3>
-                  </a>
-                </div>
-              </div>
+            <div className="fixed-cover">
+              {this.getFeaturedImg()}
             </div>
           </SplitScreen>
-        </FullScreen>
-        <SignupForm />
+          <SplitScreen hideOnWrap={false}>
+            <div>{this.getBlogTitle()}</div>
+          </SplitScreen>
+        </FullScreen> */}
+        {/* {this.getBlogTitle()} */}
+        {this.getBlogTitle()}
+        {this.getBlogContent()}
+        {this.displayQuickButton()}
+        {/* <SignupForm /> */}
       </div>
     );
   }
 }
 export default withRouter(BlogPost);
-
-// to-do:
-/* 
-Basic display:
-- determine the props: pass by id
-- set-up the api interface
-- save the details in state
-- display cleanly
-*/
