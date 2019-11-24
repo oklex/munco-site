@@ -165,7 +165,7 @@ class Navigation extends React.Component<INavigationProps, INavigationState> {
 
   render() {
     return (
-      <div id="Navigation" className="short-link">
+      <div id="MobileNavigation" className="short-link">
         {this.showOpenButton()}
         {this.showNavigation()}
       </div>

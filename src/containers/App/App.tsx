@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Navigation from "../../components/Navigation/Navigation";
+import Navigation from "../../components/Navigation/MobileNavigation";
 import { INavigationTypes, LinkImportance } from "../../models/NavigationLinks";
 import Home from "../Home/Home";
 import Footer from "../../components/Footer/Footer";
@@ -10,6 +10,7 @@ import Calendar from "../Calendar/Calendar";
 import About from "../About/About";
 import Helmet from "react-helmet";
 import Error404 from "../Error404/Error404";
+import NavigationSuper from "../../components/Navigation/NavigationSuper";
 
 const NavLinks: INavigationTypes[] = [
   {
@@ -79,7 +80,7 @@ class App extends React.Component<{}, {}> {
           />
         </Helmet>
         <div className="App">
-          <Navigation links={NavLinks} socialMedia={SocialMediaLinks} />
+          <NavigationSuper links={NavLinks} socialMedia={SocialMediaLinks} />
           <Switch>
             <Route exact path="/" component={this.showHome} />
             <Route exact path="/features" component={this.showFeatures} />
