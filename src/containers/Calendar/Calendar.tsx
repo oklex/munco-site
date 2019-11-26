@@ -7,6 +7,8 @@ import SingleEventLink from "../../components/SingleEventLink/SingleEventLink";
 import CalendarService from "../../services/CalendarService";
 import LinkStyle from "../../models/LinkStyle";
 import Helmet from "react-helmet";
+// @ts-ignore
+import { SocialIcon } from 'react-social-icons';
 
 const vancouverBg: string = "/img/cambie.jpg";
 
@@ -90,19 +92,21 @@ class Calendar extends React.Component<{}, ICalendarState> {
             <div className="read-content">
               <div className="event-list">
                 <div className="socials">
-                  <h4>Last updated: Sept. 27, 2019</h4>
+                  <h4>Last updated: Nov.25th, 2019</h4>
                   <p>
-                    Notice anything out of date? Let us know!
+                    Notice anything out of date? Send us a message!
                     <br />
                     <br/>
-                    <button className="btn btn-outline-dark">
+                    <SocialIcon url="https://www.facebook.com/BCmunco" />
+                    <SocialIcon url="https://www.instagram.com/bc.munco/" />
+                    {/* <button className="btn btn-outline-dark">
                       <a href="https://www.facebook.com/BCmunco">Facebook</a>
                     </button>
                     <button className="btn btn-outline-dark">
                       <a href="https://www.instagram.com/bc.munco/">
                         Instagram
                       </a>
-                    </button>
+                    </button> */}
                   </p>
                 </div>
                 {this.showEvents()}
