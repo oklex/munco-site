@@ -13,6 +13,8 @@ import CalendarService from "../../services/CalendarService";
 import LinkStyle from "../../models/LinkStyle";
 import Helmet from "react-helmet";
 import UpcomingConferences from "./UpcomingConferences";
+// @ts-ignore
+import { SocialIcon } from "react-social-icons";
 
 const vancouverBg: string = "/img/cambie.jpg";
 const logoWhite: string = "/brand/white-logo.png";
@@ -93,9 +95,7 @@ class Home extends React.Component<IHomeProps, IHomeState> {
   returnSocialMedia = () => {
     return this.props.socialMedia.map((link, index) => {
       return (
-        <a key={index} href={link.link}>
-          {link.title}
-        </a>
+        <SocialIcon key={index} url={link.link}/>
       );
     });
   };
