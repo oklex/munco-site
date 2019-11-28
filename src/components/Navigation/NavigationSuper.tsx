@@ -1,18 +1,53 @@
-import Navigation from "./MobileNavigation";
+import MobileNavigation from "./MobileNavigation";
 import INavigationTypes, { LinkImportance } from "../../models/NavigationLinks";
 import React from "react";
+import DesktopNavigation from "./DesktopNavigation";
+import CheckIfMobile from '../../utils/checkIfMobile'
 
-interface INavigationProps {
+export interface INavigationProps {
   links: INavigationTypes[];
   socialMedia: INavigationTypes[];
   hideButtons?: boolean;
 }
 
-class NavigationSuper extends React.Component<INavigationProps, {}> {
-  
+export interface INavigationState {
+  isMobile: boolean;
+}
+
+class NavigationSuper extends React.Component<
+  INavigationProps,
+  INavigationState
+> {
+  state = {
+    isMobile: true
+  };
+
+  componentDidMount = () => {
+    this.setState({
+      isMobile: CheckIfMobile()
+    });
+  };
+
+  showNavigation = () => {
+    if (this.state.isMobile) {
+      return (
+        <MobileNavigation
+          links={this.props.links}
+          socialMedia={this.props.socialMedia}
+        />
+      );
+    } else {
+      return (
+        <DesktopNavigation
+          links={this.props.links}
+          socialMedia={this.props.socialMedia}
+        />
+      );
+    }
+  };
 
   render() {
-    return <Navigation links={this.props.links} socialMedia={this.props.socialMedia} />;
+    return this.showNavigation();
   }
 }
 

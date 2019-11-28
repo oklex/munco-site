@@ -94,9 +94,7 @@ class Home extends React.Component<IHomeProps, IHomeState> {
 
   returnSocialMedia = () => {
     return this.props.socialMedia.map((link, index) => {
-      return (
-        <SocialIcon key={index} url={link.link}/>
-      );
+      return <SocialIcon key={index} url={link.link} />;
     });
   };
 
@@ -130,31 +128,30 @@ class Home extends React.Component<IHomeProps, IHomeState> {
           <link rel="canonical" href="https://wwww.munco.ca/" />
           <meta property="og:img" content={logoColour} />
         </Helmet>
-        <FullScreen hideOnMobile={false}>
-          <SplitScreen>
-            <div className="hero-banner">
-              <img
-                src={vancouverBg}
-                alt="street-view-of-cambie-and-14th-avn"
-                className="bg-image"
-              />
-              <div className="overlay">
+          <FullScreen hideOnMobile={false}>
+            <SplitScreen>
+              <div className="hero-banner">
                 <img
-                  src={logoWhite}
-                  alt="white-munco-logo"
-                  className="banner-logo"
+                  src={vancouverBg}
+                  alt="street-view-of-cambie-and-14th-avn"
+                  className="bg-image"
                 />
-                <div className="banner-title lightText">
-                  <h1>Community Starts here</h1>
+                <div className="overlay">
+                  <img
+                    src={logoWhite}
+                    alt="white-munco-logo"
+                    className="banner-logo"
+                  />
+                  <div className="banner-title lightText">
+                    <h1>Community Starts here</h1>
+                  </div>
                 </div>
               </div>
-            </div>
-          </SplitScreen>
-          <SplitScreen hideOnWrap={true}>
-            <div className="side-nav">{this.showNavigation()}</div>
-          </SplitScreen>
-        </FullScreen>
-
+            </SplitScreen>
+            <SplitScreen hideOnWrap={true}>
+              <div className="side-nav">{this.showNavigation()}</div>
+            </SplitScreen>
+          </FullScreen>
         <div className="conferenceSection">
           <div className="container">
             <div className="section-title">

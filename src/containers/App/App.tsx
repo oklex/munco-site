@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Navigation from "../../components/Navigation/MobileNavigation";
 import { INavigationTypes, LinkImportance } from "../../models/NavigationLinks";
 import Home from "../Home/Home";
 import Footer from "../../components/Footer/Footer";

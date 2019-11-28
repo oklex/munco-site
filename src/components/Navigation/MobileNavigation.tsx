@@ -1,26 +1,20 @@
 import React from "react";
-import "./Navigation.scss";
+import "./MobileNavigation.scss";
 import INavigationTypes, { LinkImportance } from "../../models/NavigationLinks";
 import { Link } from "react-router-dom";
 // @ts-ignore
 import { SocialIcon } from "react-social-icons";
+import { INavigationProps } from "./NavigationSuper";
 const closeIcon: string = "/icons/close.svg";
 const HamburgerIcon: string = "/icons/hamburger.svg";
 const Logo: string = "/brand/logo.svg";
-
-
-interface INavigationProps {
-  links: INavigationTypes[];
-  socialMedia: INavigationTypes[];
-  hideButtons?: boolean;
-}
 
 interface INavigationState {
   show: boolean;
   interacted: boolean;
 }
 
-class Navigation extends React.Component<INavigationProps, INavigationState> {
+class MobileNavigation extends React.Component<INavigationProps, INavigationState> {
   state = {
     show: false,
     interacted: false
@@ -176,4 +170,4 @@ class Navigation extends React.Component<INavigationProps, INavigationState> {
   }
 }
 
-export default Navigation;
+export default MobileNavigation;

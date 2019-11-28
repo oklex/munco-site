@@ -99,9 +99,9 @@ class About extends React.Component<{}, IAboutState> {
             content="MUNCO is the community hub for everything model united nation in british columbia. See what we're up to."
           />
         </Helmet>
-        <Link to="/">
+        {/* <Link to="/">
           <img className="logo" src={Logo} alt="munco brand logo" />
-        </Link>
+        </Link> */}
         <div className="full-page" id="team">
           <div className="container">
             <div className="section-title">
