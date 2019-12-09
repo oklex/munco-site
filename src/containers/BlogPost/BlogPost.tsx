@@ -169,7 +169,7 @@ class BlogPost extends React.Component<IBlogPostProps, IBlogPostState> {
         {this.getBlogTitle()}
         {this.getBlogContent()}
         {this.displayQuickButton()}
-        {/* <SignupForm /> */}
+        <SignupForm />
       </div>
     );
   }

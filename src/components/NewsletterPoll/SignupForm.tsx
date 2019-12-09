@@ -40,8 +40,21 @@ class SignupForm extends React.Component<{}, ISignupFormState> {
   };
 
   render() {
-    return <div id='newsletter-SignupForm'>something</div>;
+    return <div id='newsletter-SignupForm'>
+      <h3>Question</h3>
+      <p>1, 2, 3, 4, 5</p>
+    </div>
   }
 }
 
 export default SignupForm;
+
+
+/*
+database:
+- email
+- - - question_id:
+- - - - - - question: 
+- - - - - - response: 
+- - - - - - dateTime:
+*/
