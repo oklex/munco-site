@@ -1,7 +1,73 @@
-@import '../../styles/colours.scss';
+@import "../../styles/colours.scss";
 
-#newsletter-SignupForm{
-    height: 300px;
-    padding: 50px;
-    background-color: $light-grey;
+$btn-size: 3em;
+$btn-mobile: 2em;
+
+#newsletter-SignupForm {
+  min-height: 300px;
+  padding: 50px;
+  background-color: $light-grey;
+  text-align: center;
+  .rating-container {
+    margin-top: 20px;
+    .btn-container {
+      p {
+        font-size: 13px;
+      }
+      .ratingButton {
+        width: $btn-size;
+        height: $btn-size;
+        margin: 5px;
+        border-radius: 100%;
+        -webkit-transition: transform 0.1s ease-in-out;
+        transition: transform 0.1s ease-in-out;
+      }
+      .ratingButton:hover {
+        transform: translateY(-5px);
+      }
+    }
+  }
+  .input-area {
+    margin-top: 45px;
+
+    input.largerCheckbox {
+      width: 1.2em;
+      height: 1.2em;
+      margin-right: 5px;
+      transform: translateY(5px);
+      margin-top: 10px;
+    }
+    .emailInput {
+      padding: 5px;
+      padding-left: 15px;
+      padding-right: 15px;
+      border-radius: 15px;
+      background-color: white;
+      font-size: 12px;
+    }
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .ratingButton {
+    width: $btn-mobile !important;
+    height: $btn-mobile !important;
+  }
+}
+
+// created for rating buttons
+.green-background {
+  background-color: #4fc14f;
+}
+.lightgreen-background {
+  background-color: #a7c44d;
+}
+.yellow-background {
+  background-color: #ffc443;
+}
+.orange-background {
+  background-color: #f58949;
+}
+.red-background {
+  background-color: #ec4743;
 }
