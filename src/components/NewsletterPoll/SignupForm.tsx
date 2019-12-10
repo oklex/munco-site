@@ -43,34 +43,44 @@ class SignupForm extends React.Component<{}, ISignupFormState> {
     return (
       <div id="newsletter-SignupForm">
         <div className="container">
-          <h3>Submit your email to cast your vote</h3>
-          <div className="input-area">
-            <div className="input-group">
-              <div className="input-group-prepend">
-                <span className="input-group-text" id="inputGroup-sizing-sm">
-                  email
-                </span>
+          <div className="row justify-content-center">
+            <div className="col-lg-6">
+              <h3>Submit your email to cast your vote</h3>
+
+              <div className="input-area">
+                <div className="input-group">
+                  <div className="input-group-prepend">
+                    <span
+                      className="input-group-text"
+                      id="inputGroup-sizing-sm"
+                    >
+                      email
+                    </span>
+                  </div>
+                  <input
+                    className="form-control"
+                    type="emali"
+                    name="email"
+                    aria-label="email"
+                    aria-describedby="inputGroup-sizing-sm"
+                  />
+                    <div className="input-group-append">
+    <button className="btn btn-outline-secondary" type="button">Submit</button>
+  </div>
+                </div>
+                <div className="checkbox">
+                  <label>
+                    <input
+                      className="largerCheckbox"
+                      type="checkbox"
+                      value="newsletter"
+                    />
+                    signup for our newsletter
+                  </label>
+                </div>
               </div>
-              <input
-                className="form-control"
-                type="emali"
-                name="email"
-                aria-label="email"
-                aria-describedby="inputGroup-sizing-sm"
-              />
-            </div>
-            <div className="checkbox">
-              <label>
-                <input
-                  className="largerCheckbox"
-                  type="checkbox"
-                  value="newsletter"
-                />
-                signup for our newsletter
-              </label>
             </div>
           </div>
-        <button type="button" className="btn btn-secondary">submit response</button>
         </div>
       </div>
     );
@@ -107,7 +117,12 @@ class SignupForm extends React.Component<{}, ISignupFormState> {
   };
 
   render() {
-    return <div>{this.showPollingQuestion()}{this.showNewsletterForm()}</div>;
+    return (
+      <div>
+        {this.showPollingQuestion()}
+        {this.showNewsletterForm()}
+      </div>
+    );
   }
 }
 
