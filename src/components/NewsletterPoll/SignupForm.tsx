@@ -60,6 +60,12 @@ class SignupForm extends React.Component<{}, ISignupFormState> {
     }
   };
 
+  backToFirstPage = () => {
+    this.setState({
+      page: 0
+    })
+  }
+
   showNewsletterForm = () => {
     return (
       <div className="container fadeIn">
@@ -131,7 +137,6 @@ class SignupForm extends React.Component<{}, ISignupFormState> {
         .database()
         .ref("/polls/" + emailId + "/is_staff_hiring_bias")
         .set({
-          email: this.state.email,
           rating: this.state.rating,
           dateTime: timeNow.format("hh:mm a, MMMM (dddd) Do, YYYY")
         });
@@ -185,6 +190,8 @@ class SignupForm extends React.Component<{}, ISignupFormState> {
       <div className="container fadeIn">
         <h4>Thank you for submitting</h4>
         <p>follow and share to see the results of this poll</p>
+        <button onClick={() => this.backToFirstPage()}>back to poll</button>
+        <button onClick={() => null}>copy URL</button>
         <SocialIcon url="https://www.facebook.com/BCmunco" />
         <SocialIcon url="https://www.instagram.com/bc.munco/" />
       </div>
@@ -209,14 +216,3 @@ class SignupForm extends React.Component<{}, ISignupFormState> {
 }
 
 export default SignupForm;
-
-// next: carousel functionality ->
-
-/*
-database:
-- email
-- - - question_id:
-- - - - - - question: 
-- - - - - - response: 
-- - - - - - dateTime:
-*/

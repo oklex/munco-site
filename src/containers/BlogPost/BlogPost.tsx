@@ -12,7 +12,6 @@ import Helmet from "react-helmet";
 // import YoastMeta from "../../models/YoastMeta";
 import ImgWrapper from "../../components/ImgWrapper";
 import SignupForm from "../../components/NewsletterPoll/SignupForm";
-import SignupFormPrompt from "../../constants/SignupFormPrompt.json";
 import BlogList from "../../components/BlogList/BlogList";
 
 interface IBlogPostProps extends RouteComponentProps {}
