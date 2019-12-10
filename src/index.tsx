@@ -6,19 +6,20 @@ import './styles/index.scss';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import * as firebase from'firebase'
 
-// require('dotenv').config()
+require('dotenv').config()
 
-// var firebaseConfig = {
-//     apiKey: process.env.FIREBASE_APIKEY,
-//     authDomain: process.env.FIREBASE_AUTHDOMAIN,
-//     databaseURL:  process.env.FIREBASE_DATABASE_URL,
-//     projectId:  process.env.FIREBASE_PROJET_ID,
-//     storageBucket:  process.env.FIREBASE_STORAGE_BUCKET,
-//     messagingSenderId:  process.env.FIREBASE_MESSAGING_SENDER_ID,
-//     appId:  process.env.FIREBASE_APP_ID
-//   };
+var firebaseConfig = {
+    apiKey:'AIzaSyAn4bf0wW3_JoqCLlldaUMKeXK2RiV1MeI',
+    authDomain:'ci-prototype-6f628.firebaseapp.com',
+    databaseURL:'https://ci-prototype-6f628.firebaseio.com',
+    projectId: 'ci-prototype-6f628',
+    storageBucket: 'ci-prototype-6f628.appspot.com',
+    messagingSenderId: '209284948223',
+    appId: '1:209284948223:web:9f451a8ee50dfd47a36cca'
+  };
   
-//   firebase.initializeApp(firebaseConfig);
+  firebase.initializeApp(firebaseConfig);
+  console.log(firebaseConfig)
 
 ReactDOM.render(<App />, document.getElementById('root'));
 

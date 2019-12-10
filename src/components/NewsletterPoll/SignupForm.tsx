@@ -1,9 +1,11 @@
 import React from "react";
 import { string } from "prop-types";
 import "./SignupForm.scss";
+import * as firebase from "firebase";
 
 // @ts-ignore
 import { SocialIcon } from "react-social-icons";
+import moment from "moment";
 
 // interface ISignupFormPrompt {
 //   title: string;
@@ -75,6 +77,9 @@ class SignupForm extends React.Component<{}, ISignupFormState> {
                   type="emali"
                   name="email"
                   onChange={this.onEmailChange}
+                  onKeyPress={e => {
+                    if (e.key === "Enter") this.onSubmit();
+                  }}
                   aria-label="email"
                   aria-describedby="inputGroup-sizing-sm"
                 />
@@ -106,14 +111,23 @@ class SignupForm extends React.Component<{}, ISignupFormState> {
     );
   };
 
-  onSubmit = () => {
+  onSubmit = async () => {
     console.log("submitting form", this.state);
     if (
       this.state.email.length >= 5 &&
       this.checkIfValidEmail(this.state.email)
     ) {
+      const timeNow: moment.Moment = moment();
+      console.log('dateTime: ', timeNow)
       this.moveToNextPage();
-      
+      await firebase
+        .database()
+        .ref()
+        .push({
+          email: this.state.email,
+          is_staff_hiring_bias: this.state.rating,
+          dateTime: timeNow.format('hh:mm a, MMMM (dddd) Do, YYYY')
+        });
     }
   };
 
