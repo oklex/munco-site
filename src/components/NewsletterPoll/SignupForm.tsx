@@ -2,113 +2,156 @@ import React from "react";
 import { string } from "prop-types";
 import "./SignupForm.scss";
 
-interface ISignupFormPrompt {
-  title: string;
-  question: string;
-  options: string[];
-}
+// @ts-ignore
+import { SocialIcon } from "react-social-icons";
+
+// interface ISignupFormPrompt {
+//   title: string;
+//   question: string;
+//   options: string[];
+// }
 
 interface ISignupFormState {
   email: string;
-  acceptnewsLetters: boolean;
-  response: string;
+  acceptNewsletters: boolean;
+  rating: number | null;
+  page: number;
 }
 
 class SignupForm extends React.Component<{}, ISignupFormState> {
   state = {
     email: "",
-    acceptnewsLetters: false,
-    response: ""
+    acceptNewsletters: false,
+    rating: null,
+    page: 0
   };
 
-  onEmailChange = (text: string) => {
+  onEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    console.log(e.target.value);
     this.setState({
-      email: text
+      email: e.target.value
     });
   };
 
-  onNewsLettersChange = () => {
+  onNewsLettersChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    console.log(!this.state.acceptNewsletters);
     this.setState((prevState: ISignupFormState) => {
-      return { acceptnewsLetters: !prevState.acceptnewsLetters };
+      return { acceptNewsletters: !prevState.acceptNewsletters };
     });
   };
 
-  onResponseChange = (response: string) => {
+  onResponseChange = (rating: number) => {
+    console.log(rating);
     this.setState({
-      response
+      rating
     });
+  };
+
+  moveToNextPage = () => {
+    const maxPageIndex = 2;
+    if (this.state.page < maxPageIndex) {
+      this.setState((prevState: ISignupFormState) => {
+        console.log("next page");
+        return { page: prevState.page + 1 };
+      });
+    }
   };
 
   showNewsletterForm = () => {
     return (
-      <div id="newsletter-SignupForm">
-        <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-lg-6">
-              <h3>Submit your email to cast your vote</h3>
-
-              <div className="input-area">
-                <div className="input-group">
-                  <div className="input-group-prepend">
-                    <span
-                      className="input-group-text"
-                      id="inputGroup-sizing-sm"
-                    >
-                      email
-                    </span>
-                  </div>
+      <div className="container fadeIn">
+        <div className="row justify-content-center">
+          <div className="col-lg-6">
+            <h3>Submit your email to cast your vote</h3>
+            <div className="input-area">
+              <div className="input-group">
+                <div className="input-group-prepend">
+                  <span className="input-group-text" id="inputGroup-sizing-sm">
+                    email
+                  </span>
+                </div>
+                <input
+                  className="form-control"
+                  type="emali"
+                  name="email"
+                  onChange={this.onEmailChange}
+                  aria-label="email"
+                  aria-describedby="inputGroup-sizing-sm"
+                />
+                <div className="input-group-append">
+                  <button
+                    className="btn btn-outline-secondary"
+                    type="button"
+                    onClick={() => this.onSubmit()}
+                  >
+                    Submit
+                  </button>
+                </div>
+              </div>
+              <div className="checkbox">
+                <label>
                   <input
-                    className="form-control"
-                    type="emali"
-                    name="email"
-                    aria-label="email"
-                    aria-describedby="inputGroup-sizing-sm"
+                    className="largerCheckbox"
+                    type="checkbox"
+                    value="newsletter"
+                    onChange={this.onNewsLettersChange}
                   />
-                    <div className="input-group-append">
-    <button className="btn btn-outline-secondary" type="button">Submit</button>
-  </div>
-                </div>
-                <div className="checkbox">
-                  <label>
-                    <input
-                      className="largerCheckbox"
-                      type="checkbox"
-                      value="newsletter"
-                    />
-                    signup for our newsletter
-                  </label>
-                </div>
+                  signup for our newsletter
+                </label>
               </div>
             </div>
           </div>
         </div>
       </div>
     );
+  };
+
+  onSubmit = () => {
+    console.log("submitting form", this.state);
+    if (
+      this.state.email.length >= 5 &&
+      this.checkIfValidEmail(this.state.email)
+    ) {
+      this.moveToNextPage();
+      
+    }
+  };
+
+  checkIfValidEmail = (email: string) => {
+    return email.includes("@");
   };
 
   showButtom = (desc: string, value: number, styleName: string) => {
     return (
       <span className="btn-container">
-        <button className={"ratingButton" + " " + styleName}>{value}</button>
+        <button
+          className={"ratingButton" + " " + styleName}
+          onClick={() => this.onRatingButtonClick(value)}
+        >
+          {value}
+        </button>
         <p>{desc}</p>
       </span>
     );
   };
 
+  onRatingButtonClick = (n: number) => {
+    this.moveToNextPage();
+    this.onResponseChange(n);
+  };
+
   showPollingQuestion = () => {
     return (
-      <div id="newsletter-SignupForm">
-        <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-lg-8">
-              <h3>Do you agree that staff hiring is bias?</h3>
-              <div className="d-flex justify-content-center rating-container">
-                {this.showButtom("disagree", 1, "red-background")}
-                {this.showButtom("", 2, "orange-background")}
-                {this.showButtom("neutral", 3, "yellow-background")}
-                {this.showButtom("", 4, "lightgreen-background")}
-                {this.showButtom("agree", 5, "green-background")}
-              </div>
+      <div className="container fadeIn">
+        <div className="row justify-content-center">
+          <div className="col-lg-8">
+            <h3>Do you think that staff hiring is bias?</h3>
+            <div className="d-flex justify-content-center rating-container">
+              {this.showButtom("disagree", 1, "red-background")}
+              {this.showButtom("", 2, "orange-background")}
+              {this.showButtom("neutral", 3, "yellow-background")}
+              {this.showButtom("", 4, "lightgreen-background")}
+              {this.showButtom("agree", 5, "green-background")}
             </div>
           </div>
         </div>
@@ -116,19 +159,37 @@ class SignupForm extends React.Component<{}, ISignupFormState> {
     );
   };
 
-  render() {
+  showCompleted = () => {
     return (
-      <div>
-        {this.showPollingQuestion()}
-        {this.showNewsletterForm()}
+      <div className="container fadeIn">
+        <h4>Thank you for submitting</h4>
+        <p>follow and share to see the results of this poll</p>
+        <SocialIcon url="https://www.facebook.com/BCmunco" />
+        <SocialIcon url="https://www.instagram.com/bc.munco/" />
       </div>
     );
+  };
+
+  showNextPage = () => {
+    if (this.state.page === 0) {
+      return this.showPollingQuestion();
+    } else if (this.state.page === 1) {
+      return this.showNewsletterForm();
+    } else if (this.state.page === 2) {
+      return this.showCompleted();
+    } else {
+      return <div></div>;
+    }
+  };
+
+  render() {
+    return <div className="newsletter-SignupForm">{this.showNextPage()}</div>;
   }
 }
 
 export default SignupForm;
 
-// https://www.npmjs.com/package/react-responsive-carousel
+// next: carousel functionality ->
 
 /*
 database:

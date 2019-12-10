@@ -1,9 +1,10 @@
 @import "../../styles/colours.scss";
+@import "../../styles/animations.scss";
 
 $btn-size: 3em;
 $btn-mobile: 2em;
 
-#newsletter-SignupForm {
+.newsletter-SignupForm {
   min-height: 300px;
   padding: 50px;
   background-color: $light-grey;
@@ -28,7 +29,7 @@ $btn-mobile: 2em;
     }
   }
   .input-area {
-    margin-top: 45px;
+    margin-top: 25px;
 
     input.largerCheckbox {
       width: 1.2em;
@@ -70,4 +71,11 @@ $btn-mobile: 2em;
 }
 .red-background {
   background-color: #ec4743;
+}
+
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+  -webkit-animation-duration: 0.5s;
+  animation-name: fadeIn;
+  animation-duration: 0.5s;
 }
