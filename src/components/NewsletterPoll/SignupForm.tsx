@@ -6,6 +6,7 @@ import * as firebase from "firebase";
 // @ts-ignore
 import { SocialIcon } from "react-social-icons";
 import moment from "moment";
+import { hashEmail } from "../../utils/hashEmail";
 
 // interface ISignupFormPrompt {
 //   title: string;
@@ -118,15 +119,21 @@ class SignupForm extends React.Component<{}, ISignupFormState> {
       this.checkIfValidEmail(this.state.email)
     ) {
       const timeNow: moment.Moment = moment();
-      console.log('dateTime: ', timeNow)
+      console.log("dateTime: ", timeNow);
+      console.log("getHash", hashEmail.getHash(this.state.email));
+      const emailId = hashEmail.getHash(this.state.email);
       this.moveToNextPage();
       await firebase
         .database()
-        .ref()
-        .push({
+        .ref("/polls/" + emailId)
+        .set({ newsletters: this.state.acceptNewsletters });
+      await firebase
+        .database()
+        .ref("/polls/" + emailId + "/is_staff_hiring_bias")
+        .set({
           email: this.state.email,
-          is_staff_hiring_bias: this.state.rating,
-          dateTime: timeNow.format('hh:mm a, MMMM (dddd) Do, YYYY')
+          rating: this.state.rating,
+          dateTime: timeNow.format("hh:mm a, MMMM (dddd) Do, YYYY")
         });
     }
   };
