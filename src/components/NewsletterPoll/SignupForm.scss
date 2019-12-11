@@ -79,3 +79,22 @@ $btn-mobile: 2em;
   animation-name: fadeIn;
   animation-duration: 0.5s;
 }
+
+.copy-btn{
+  border-radius: 30px;
+  color:grey;
+  background-color:white;
+  border: black solid 1px;
+  margin-right: 15px;
+  margin-left: 15px;
+  padding: 13px;
+  transition: 0.1s ease-in;
+}
+
+.copy-btn:active {
+  background-color:$light-grey;
+}
+
+.copy-btn:hover {
+  background-color:$light-grey;
+}

@@ -168,7 +168,7 @@ class BlogPost extends React.Component<IBlogPostProps, IBlogPostState> {
         {this.getBlogTitle()}
         {this.getBlogContent()}
         {this.displayQuickButton()}
-        <SignupForm />
+        <SignupForm question='Do you think that staff hiring is bias?' questionKey='is_staff_hiring_bias' endDate={new Date('January 30, 2020')}/>
       </div>
     );
   }

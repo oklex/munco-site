@@ -2,17 +2,18 @@ import React from "react";
 import { string } from "prop-types";
 import "./SignupForm.scss";
 import * as firebase from "firebase";
-
-// @ts-ignore
-import { SocialIcon } from "react-social-icons";
 import moment from "moment";
 import { hashEmail } from "../../utils/hashEmail";
 import { withRouter, RouteComponentProps } from "react-router-dom";
+import CopyUrl from "../CopyUrl/CopyUrl";
 
-interface ISignupFormPrompt extends RouteComponentProps {
-  //   title: string;
-  //   question: string;
-  //   options: string[];
+// @ts-ignore
+import { SocialIcon } from "react-social-icons";
+
+interface ISignupFormPrompt {
+  question: string;
+  questionKey: string;
+  endDate: Date;
 }
 
 interface ISignupFormState {
@@ -132,11 +133,15 @@ class SignupForm extends React.Component<ISignupFormPrompt, ISignupFormState> {
       this.moveToNextPage();
       await firebase
         .database()
-        .ref("/polls/" + emailId)
-        .set({ newsletters: this.state.acceptNewsletters });
+        .ref("/polls/" + emailId + "/newsletters")
+        .set(this.state.acceptNewsletters);
       await firebase
         .database()
-        .ref("/polls/" + emailId + "/is_staff_hiring_bias")
+        .ref("/polls/" + emailId + "/emailRaw")
+        .set(this.state.email);
+      await firebase
+        .database()
+        .ref("/polls/" + emailId + "/" + this.props.questionKey)
         .set({
           rating: this.state.rating,
           dateTime: timeNow.format("hh:mm a, MMMM (dddd) Do, YYYY")
@@ -172,7 +177,7 @@ class SignupForm extends React.Component<ISignupFormPrompt, ISignupFormState> {
       <div className="container fadeIn">
         <div className="row justify-content-center">
           <div className="col-lg-8">
-            <h3>Do you think that staff hiring is bias?</h3>
+            <h3>{this.props.question}</h3>
             <div className="d-flex justify-content-center rating-container">
               {this.showButtom("disagree", 1, "red-background")}
               {this.showButtom("", 2, "orange-background")}
@@ -189,20 +194,16 @@ class SignupForm extends React.Component<ISignupFormPrompt, ISignupFormState> {
   showCompleted = () => {
     return (
       <div className="container fadeIn">
+        {/* <div className="d-flex justify-content-start">
+          <button className='darkText' onClick={() => this.backToFirstPage()}> &#60; go back to poll</button>
+        </div> */}
         <h4>Thank you for submitting</h4>
-        <p>follow and share to see the results of this poll</p>
-        <button onClick={() => this.backToFirstPage()}>back to poll</button>
-        <button className='copy-btn' data-clipboard-text={this.getUrl()}>copy URL</button>
+        <p>could you also help us share this survey?</p>
+        <CopyUrl />
         <SocialIcon url="https://www.facebook.com/BCmunco" />
         <SocialIcon url="https://www.instagram.com/bc.munco/" />
       </div>
     );
-  };
-
-  getUrl = () => {
-    console.log("this URL: ", this.props.location.pathname);
-    const url:string = 'munco.ca' + this.props.location.pathname
-    return url
   };
 
   showNextPage = () => {
@@ -222,4 +223,4 @@ class SignupForm extends React.Component<ISignupFormPrompt, ISignupFormState> {
   }
 }
 
-export default withRouter(SignupForm);
+export default SignupForm;

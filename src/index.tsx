@@ -9,7 +9,7 @@ import ClipboardJS from 'clipboard'
 
 require('dotenv').config()
 
-var firebaseConfig = {
+var firebaseConfig = {    
     apiKey:'AIzaSyAn4bf0wW3_JoqCLlldaUMKeXK2RiV1MeI',
     authDomain:'ci-prototype-6f628.firebaseapp.com',
     databaseURL:'https://ci-prototype-6f628.firebaseio.com',
