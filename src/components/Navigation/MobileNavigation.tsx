@@ -21,7 +21,6 @@ class MobileNavigation extends React.Component<INavigationProps, INavigationStat
   };
 
   openNavigation = () => {
-    //console.log("open nav");
     this.setState({
       show: true
     });
@@ -33,7 +32,6 @@ class MobileNavigation extends React.Component<INavigationProps, INavigationStat
   };
 
   closeNavigation = () => {
-    //console.log("close nav");
     this.setState({
       show: false
     });

@@ -20,7 +20,6 @@ var firebaseConfig = {
   };
   
   firebase.initializeApp(firebaseConfig);
-  console.log(firebaseConfig)
   
   new ClipboardJS('.copy-btn');
 

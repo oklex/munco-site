@@ -27,7 +27,6 @@ class AllApplications extends React.Component<
         selectedId: index
       });
     }
-    //console.log("switching tab to id: ", index);
   };
 
   showTabs = () => {

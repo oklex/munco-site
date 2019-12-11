@@ -32,21 +32,18 @@ class SignupForm extends React.Component<ISignupFormPrompt, ISignupFormState> {
   };
 
   onEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.value);
     this.setState({
       email: e.target.value
     });
   };
 
   onNewsLettersChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(!this.state.acceptNewsletters);
     this.setState((prevState: ISignupFormState) => {
       return { acceptNewsletters: !prevState.acceptNewsletters };
     });
   };
 
   onResponseChange = (rating: number) => {
-    console.log(rating);
     this.setState({
       rating
     });
@@ -56,7 +53,6 @@ class SignupForm extends React.Component<ISignupFormPrompt, ISignupFormState> {
     const maxPageIndex = 2;
     if (this.state.page < maxPageIndex) {
       this.setState((prevState: ISignupFormState) => {
-        console.log("next page");
         return { page: prevState.page + 1 };
       });
     }
@@ -127,8 +123,6 @@ class SignupForm extends React.Component<ISignupFormPrompt, ISignupFormState> {
       this.checkIfValidEmail(this.state.email)
     ) {
       const timeNow: moment.Moment = moment();
-      console.log("dateTime: ", timeNow);
-      console.log("getHash", hashEmail.getHash(this.state.email));
       const emailId = hashEmail.getHash(this.state.email);
       this.moveToNextPage();
       await firebase
@@ -200,7 +194,7 @@ class SignupForm extends React.Component<ISignupFormPrompt, ISignupFormState> {
         <h4>Thank you for submitting</h4>
         <p>could you also help us share this survey?</p>
         <CopyUrl />
-        <SocialIcon url="https://www.facebook.com/BCmunco" />
+        <SocialIcon url="https://www.messenger.com/" />
         <SocialIcon url="https://www.instagram.com/bc.munco/" />
       </div>
     );
