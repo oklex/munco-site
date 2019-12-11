@@ -7,12 +7,13 @@ import * as firebase from "firebase";
 import { SocialIcon } from "react-social-icons";
 import moment from "moment";
 import { hashEmail } from "../../utils/hashEmail";
+import { withRouter, RouteComponentProps } from "react-router-dom";
 
-// interface ISignupFormPrompt {
-//   title: string;
-//   question: string;
-//   options: string[];
-// }
+interface ISignupFormPrompt extends RouteComponentProps {
+  //   title: string;
+  //   question: string;
+  //   options: string[];
+}
 
 interface ISignupFormState {
   email: string;
@@ -21,7 +22,7 @@ interface ISignupFormState {
   page: number;
 }
 
-class SignupForm extends React.Component<{}, ISignupFormState> {
+class SignupForm extends React.Component<ISignupFormPrompt, ISignupFormState> {
   state = {
     email: "",
     acceptNewsletters: false,
@@ -63,8 +64,8 @@ class SignupForm extends React.Component<{}, ISignupFormState> {
   backToFirstPage = () => {
     this.setState({
       page: 0
-    })
-  }
+    });
+  };
 
   showNewsletterForm = () => {
     return (
@@ -191,11 +192,17 @@ class SignupForm extends React.Component<{}, ISignupFormState> {
         <h4>Thank you for submitting</h4>
         <p>follow and share to see the results of this poll</p>
         <button onClick={() => this.backToFirstPage()}>back to poll</button>
-        <button onClick={() => null}>copy URL</button>
+        <button className='copy-btn' data-clipboard-text={this.getUrl()}>copy URL</button>
         <SocialIcon url="https://www.facebook.com/BCmunco" />
         <SocialIcon url="https://www.instagram.com/bc.munco/" />
       </div>
     );
+  };
+
+  getUrl = () => {
+    console.log("this URL: ", this.props.location.pathname);
+    const url:string = 'munco.ca' + this.props.location.pathname
+    return url
   };
 
   showNextPage = () => {
@@ -215,4 +222,4 @@ class SignupForm extends React.Component<{}, ISignupFormState> {
   }
 }
 
-export default SignupForm;
+export default withRouter(SignupForm);

@@ -5,6 +5,7 @@ import * as serviceWorker from './serviceWorker';
 import './styles/index.scss';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import * as firebase from'firebase'
+import ClipboardJS from 'clipboard'
 
 require('dotenv').config()
 
@@ -20,6 +21,8 @@ var firebaseConfig = {
   
   firebase.initializeApp(firebaseConfig);
   console.log(firebaseConfig)
+  
+  new ClipboardJS('.copy-btn');
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
