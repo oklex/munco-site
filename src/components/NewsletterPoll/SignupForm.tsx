@@ -66,7 +66,7 @@ class SignupForm extends React.Component<ISignupFormPrompt, ISignupFormState> {
 
   showNewsletterForm = () => {
     return (
-      <div className="container fadeIn">
+      <div className="">
         <div className="row justify-content-center">
           <div className="col-lg-6">
             <h3>Submit your email to cast your vote</h3>
@@ -168,7 +168,7 @@ class SignupForm extends React.Component<ISignupFormPrompt, ISignupFormState> {
 
   showPollingQuestion = () => {
     return (
-      <div className="container fadeIn">
+      <div className="">
         <div className="row justify-content-center">
           <div className="col-lg-8">
             <h3>{this.props.question}</h3>
@@ -187,14 +187,14 @@ class SignupForm extends React.Component<ISignupFormPrompt, ISignupFormState> {
 
   showCompleted = () => {
     return (
-      <div className="container fadeIn">
+      <div className="">
         {/* <div className="d-flex justify-content-start">
           <button className='darkText' onClick={() => this.backToFirstPage()}> &#60; go back to poll</button>
         </div> */}
         <h4>Thank you for submitting</h4>
         <p>could you also help us share this survey?</p>
         <CopyUrl />
-        <SocialIcon url="https://www.messenger.com/" />
+        <SocialIcon url="https://www.facebook.com/messages" />
         <SocialIcon url="https://www.instagram.com/bc.munco/" />
       </div>
     );
