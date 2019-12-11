@@ -46,7 +46,12 @@ class Home extends React.Component<IHomeProps, IHomeState> {
   };
 
   showBlogPosts = () => {
-    if (this.state.blogPosts.length > 0) {
+    if (this.state.blogPosts.length === 0) {
+      return (
+        <div className="d-flex flex-wrap justify-content-left">
+          <p>Oops :(  there's a problem with our server. <br/>Try again later.</p>
+        </div>)
+    }else if (this.state.blogPosts.length > 0) {
       return this.state.blogPosts.map((post: SingleBlogPost, index: number) => {
         if (post.status === "publish") {
           return (

@@ -1,13 +1,13 @@
 import React from "react";
 import { SingleBlogPost } from "../../models/BlogPost";
 import SingleBlogLink from "../SingleBlogLink/SingleBlogLink";
-import LinkStyle from '../../models/LinkStyle'
+import LinkStyle from "../../models/LinkStyle";
 import { BlogService } from "../../services/BlogService";
-import './BlogList.scss'
+import "./BlogList.scss";
 
 interface BlogListState {
-    blogPosts: SingleBlogPost[];
-  }
+  blogPosts: SingleBlogPost[];
+}
 
 class BlogList extends React.Component<{}, BlogListState> {
   state = {
@@ -22,11 +22,19 @@ class BlogList extends React.Component<{}, BlogListState> {
   };
 
   showAllPosts = () => {
-    return (
-      <div className="d-flex flex-wrap justify-content-left">
-        {this.state.blogPosts.map(this.showSinglePost)}
-      </div>
-    );
+    if (this.state.blogPosts.length === 0) {
+      return (
+        <div className="d-flex flex-wrap justify-content-left">
+          <p>Oops :(  there's a problem with our server. <br/>Try again later.</p>
+        </div>
+      )
+    } else {
+      return (
+        <div className="d-flex flex-wrap justify-content-left">
+          {this.state.blogPosts.map(this.showSinglePost)}
+        </div>
+      );
+    }
   };
 
   showSinglePost = (post: SingleBlogPost) => {
@@ -39,7 +47,7 @@ class BlogList extends React.Component<{}, BlogListState> {
 
   render() {
     return (
-      <div className='blogList'>
+      <div className="blogList">
         <div className="container no-space-top">
           <div className="d-flex">{this.showAllPosts()}</div>
         </div>
