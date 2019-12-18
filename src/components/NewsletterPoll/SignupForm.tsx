@@ -118,12 +118,13 @@ class SignupForm extends React.Component<ISignupFormPrompt, ISignupFormState> {
 
   onSubmit = async () => {
     console.log("submitting form", this.state);
+    var email:string = this.state.email.toLowerCase()
     if (
-      this.state.email.length >= 5 &&
-      this.checkIfValidEmail(this.state.email)
+      email.length >= 5 &&
+      this.checkIfValidEmail(email)
     ) {
       const timeNow: moment.Moment = moment();
-      const emailId = hashEmail.getHash(this.state.email);
+      const emailId = hashEmail.getHash(email);
       this.moveToNextPage();
       await firebase
         .database()
