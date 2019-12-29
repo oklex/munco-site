@@ -30,7 +30,7 @@ class CopyUrl extends React.Component<CopyUrlProps, CopyUrlState> {
       <button className="copy-btn" data-clipboard-text={this.getUrl()} onClick={() => {
           this.setState({ copied: true })
       }}>
-        <img src="https://img.icons8.com/android/24/000000/link.png" /> {this.showText()}
+        <img src="https://img.icons8.com/android/24/000000/link.png" alt="clipboard"/> {this.showText()}
       </button>
     );
   }

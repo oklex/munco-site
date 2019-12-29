@@ -1,5 +1,5 @@
 import CalendarEvent from "../models/CalendarEvent";
-import { conferenceAPI } from "./constants";
+// import { conferenceAPI } from "./constants";
 import moment from "moment";
 
 // error might be caused by the data type of date not transfering as a date object

@@ -1,8 +1,6 @@
 import React from "react";
-import { RouteComponentProps, withRouter, Link } from "react-router-dom";
+import { RouteComponentProps, withRouter } from "react-router-dom";
 import "./BlogPost.scss";
-import FullScreen from "../../components/SplitScreen/FullScreen";
-import SplitScreen from "../../components/SplitScreen/SplitScreen";
 import { SingleBlogPost } from "../../models/BlogPost";
 import { BlogService } from "../../services/BlogService";
 import BlogPostProcessor from "../../utils/BlogPostProcessor";
@@ -12,7 +10,6 @@ import Helmet from "react-helmet";
 // import YoastMeta from "../../models/YoastMeta";
 import ImgWrapper from "../../components/ImgWrapper";
 import SignupForm from "../../components/NewsletterPoll/SignupForm";
-import BlogList from "../../components/BlogList/BlogList";
 
 interface IBlogPostProps extends RouteComponentProps {}
 

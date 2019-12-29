@@ -1,5 +1,5 @@
 import MobileNavigation from "./MobileNavigation";
-import INavigationTypes, { LinkImportance } from "../../models/NavigationLinks";
+import INavigationTypes from "../../models/NavigationLinks";
 import React from "react";
 import DesktopNavigation from "./DesktopNavigation";
 import CheckIfMobile from '../../utils/checkIfMobile'

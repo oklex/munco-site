@@ -1,10 +1,8 @@
 import React from "react";
-import { string } from "prop-types";
 import "./SignupForm.scss";
 import * as firebase from "firebase";
 import moment from "moment";
 import { hashEmail } from "../../utils/hashEmail";
-import { withRouter, RouteComponentProps } from "react-router-dom";
 import CopyUrl from "../CopyUrl/CopyUrl";
 
 // @ts-ignore

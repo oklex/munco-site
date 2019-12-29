@@ -2,14 +2,10 @@ import React from "react";
 import "./About.scss";
 import AllApplications from "../../components/AllApplications/AllApplications";
 import ApplicationDetails from "../../models/ApplicationDetails";
-import { Link } from "react-router-dom";
 import Helmet from "react-helmet";
 import ImgWrapper from "../../components/ImgWrapper";
-// import { RouteComponentProps } from "react-router-dom";
 
-// interface IAboutProps extends RouteComponentProps {}
-
-const Logo: string = "/brand/logo.svg";
+// const Logo: string = "/brand/logo.svg";
 const Quotation: string = "/icons/quotation.svg";
 const AndrewPortraitId: number = 13;
 const AlexPortraitId: number = 15;
