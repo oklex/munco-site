@@ -187,6 +187,20 @@ const AllCalendarData: CalendarEvent[] = [
   //   confirmed: false
   // },
   {
+    conference_id: 16,
+    short_name: "TSMUN 2020",
+    name_prefix: "Tamanawis",
+    venue_name: "Tamanawis Secondary School ",
+    venue_city: "Surrey, BC",
+    start_date: new Date("February 29, 2020"),
+    end_date: new Date("February 29, 2020"),
+    website: "https://www.tamanawismun.com/",
+    running_since: new Date("February 29, 2020"),
+    tags: ["day conference", "new"],
+    cost: null,
+    confirmed: true
+  },
+  {
     conference_id: 10,
     short_name: 'Pacific MUN',
     name_prefix: "Pacific",
