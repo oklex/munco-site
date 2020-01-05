@@ -32,14 +32,16 @@ export interface ConferenceEvent {
 
 export interface ApplicationEvent {
   name: string
+  type: ApplicationType
   start_date: Date
   end_date: Date
   dates_tentative: boolean
-  type: ApplicationType
+  cost:number | null
 }
 
 enum ApplicationType {
   Delegate = "DELEGATE REGISTRATION",
+  School = "SCHOOL REGISTRATION",
   Staff = "STAFF APPLICATION",
   Secretariat = "SECRETARIAT APPLICATION",
   Volunteer = "VOLUNTEER APPLICATION",
