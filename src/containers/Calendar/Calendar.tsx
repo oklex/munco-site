@@ -4,7 +4,7 @@ import SplitScreen from "../../components/SplitScreen/SplitScreen";
 import "./Calendar.scss";
 import CalendarEvent from "../../models/CalendarEvent";
 import SingleEventLink from "../../components/SingleEventLink/SingleEventLink";
-import CalendarService from "../../services/CalendarService";
+import CalendarService from "../../services/CalendarService/v1/V1CalendarService";
 import LinkStyle from "../../models/LinkStyle";
 import Helmet from "react-helmet";
 // @ts-ignore
