@@ -39,7 +39,7 @@ export interface ApplicationEvent {
   cost:number | null
 }
 
-enum ApplicationType {
+export enum ApplicationType {
   Delegate = "DELEGATE REGISTRATION",
   School = "SCHOOL REGISTRATION",
   Staff = "STAFF APPLICATION",
@@ -48,4 +48,4 @@ enum ApplicationType {
   Other = "OTHER"
 }
 
-export default CalendarEvent;
+// export default CalendarEvent;

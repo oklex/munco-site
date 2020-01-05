@@ -1,4 +1,4 @@
-import CalendarEvent from "../../../models/CalendarEvent";
+import {CalendarEvent} from "../../../models/CalendarEvent";
 // import { conferenceAPI } from "./constants";
 import moment from "moment";
 

@@ -1,5 +1,5 @@
 import React from "react";
-import CalendarEvent from "../../models/CalendarEvent";
+import {CalendarEvent} from "../../models/CalendarEvent";
 import CalendarService from "../../services/CalendarService/v1/CalendarService";
 import LinkStyle from "../../models/LinkStyle";
 import SingleEventLink from "../../components/SingleEventLink/SingleEventLink";

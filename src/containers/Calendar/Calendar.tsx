@@ -2,7 +2,7 @@ import React from "react";
 import FullScreen from "../../components/SplitScreen/FullScreen";
 import SplitScreen from "../../components/SplitScreen/SplitScreen";
 import "./Calendar.scss";
-import CalendarEvent from "../../models/CalendarEvent";
+import {CalendarEvent} from "../../models/CalendarEvent";
 import SingleEventLink from "../../components/SingleEventLink/SingleEventLink";
 import CalendarService from "../../services/CalendarService/v1/CalendarService";
 import LinkStyle from "../../models/LinkStyle";
