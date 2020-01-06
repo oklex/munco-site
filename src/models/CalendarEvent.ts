@@ -17,29 +17,45 @@ export interface CalendarEvent {
 }
 
 // CC v2
-export interface ConferenceEvent {
-  short_name: string;
-  full_name: string;
-  venue_name: string;
-  venue_city: string;
-  website: string;
-  start_date: Date | null;
-  end_date: Date | null;
-  running_since: Date | null;
-  tags: string[];
-  events: ApplicationEvent[]
+export interface ICalendarResponse {
+  organization: IConferenceOrganization,
+  event: IConferenceEvent | null,
+  applications: IApplicationEvent[] | null
 }
 
-export interface ApplicationEvent {
+export interface IConferenceOrganization {
+  short_name: string;
+  full_name: string;
+  organization_type: string;
+  website: string;
+  running_since: Date | null
+}
+
+export enum IOrganizationType {
+  nonProfit = "Registered non profit",
+  schoolSponsored = "School Sponsored",
+  studentProject = "Student Project"
+}
+
+export interface IConferenceEvent {
+  venue_name: string;
+  venue_city: string;
+  start_date: Date | null;
+  end_date: Date | null;
+  dates_tentative: boolean
+  tags: string[];
+}
+
+export interface IApplicationEvent {
   name: string
-  type: ApplicationType
+  type: IApplicationType
   start_date: Date
   end_date: Date
   dates_tentative: boolean
   cost:number | null
 }
 
-export enum ApplicationType {
+export enum IApplicationType {
   Delegate = "DELEGATE REGISTRATION",
   School = "SCHOOL REGISTRATION",
   Staff = "STAFF APPLICATION",
