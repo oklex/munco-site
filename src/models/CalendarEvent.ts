@@ -28,7 +28,7 @@ export interface IConferenceOrganization {
   full_name: string;
   organization_type: string;
   website: string;
-  running_since: Date | null
+  running_since: Date
 }
 
 export enum IOrganizationType {
