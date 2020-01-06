@@ -10,6 +10,7 @@ import About from "../About/About";
 import Helmet from "react-helmet";
 import Error404 from "../Error404/Error404";
 import NavigationSuper from "../../components/Navigation/NavigationSuper";
+import CalendarV2 from "../Calendar/v2/Calendar";
 
 const NavLinks: INavigationTypes[] = [
   {
@@ -61,6 +62,9 @@ class App extends React.Component<{}, {}> {
   showCalendar = () => {
     return <Calendar />;
   };
+  showCalendarV2 = () => {
+    return <CalendarV2/>
+  }
   showAbout = () => {
     return <About />;
   };
@@ -86,6 +90,7 @@ class App extends React.Component<{}, {}> {
             <Route exact path="/features/:id" component={this.showFeatureById} />
             <Route exact path="/calendar" component={this.showCalendar} />
             <Route exact path="/about" component={this.showAbout} />
+            <Route exact path='/calendar/v2' component={this.showCalendarV2}/>
             <Route component={this.show404} />
           </Switch>
           <Footer />
