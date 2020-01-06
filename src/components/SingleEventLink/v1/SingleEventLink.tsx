@@ -1,7 +1,7 @@
 import React from "react";
-import {CalendarEvent} from "../../models/CalendarEvent";
+import {CalendarEvent} from "../../../models/CalendarEvent";
 import "./SingleEventLink.scss";
-import LinkStyle from "../../models/LinkStyle";
+import LinkStyle from "../../../models/LinkStyle";
 import moment from 'moment'
 
 interface ISingleEventProps {

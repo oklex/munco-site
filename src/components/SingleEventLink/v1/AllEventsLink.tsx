@@ -1,5 +1,5 @@
 import React from "react";
-import LinkStyle from "../../models/LinkStyle";
+import LinkStyle from "../../../models/LinkStyle";
 import { Link } from "react-router-dom";
 
 interface IAllEventsLinkProps {

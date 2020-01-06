@@ -5,7 +5,7 @@ import Home from "../Home/Home";
 import Footer from "../../components/Footer/Footer";
 import Blog from "../Blog/Blog";
 import BlogPost from "../BlogPost/BlogPost";
-import Calendar from "../Calendar/Calendar";
+import Calendar from "../Calendar/v1/Calendar";
 import About from "../About/About";
 import Helmet from "react-helmet";
 import Error404 from "../Error404/Error404";
