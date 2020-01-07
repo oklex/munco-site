@@ -15,6 +15,7 @@ interface IImgWrapperState {
     alt: string
 }
 
+// this class meant to interface with the wordpress api
 class ImgWrapper extends React.Component<IImgWrapperProps,IImgWrapperState> {
     state: IImgWrapperState = {
         url: '',
