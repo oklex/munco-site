@@ -3,7 +3,7 @@ import "./About.scss";
 import AllApplications from "../../components/AllApplications/AllApplications";
 import ApplicationDetails from "../../models/ApplicationDetails";
 import Helmet from "react-helmet";
-import ImgWrapper from "../../components/ImgWrapper";
+import WpMediaWrapper from "../../components/ImgWrapper";
 
 // const Logo: string = "/brand/logo.svg";
 const Quotation: string = "/icons/quotation.svg";
@@ -52,7 +52,7 @@ class About extends React.Component<{}, IAboutState> {
     if (mediaId) {
       return (
         <div className="portrait-circle">
-          <ImgWrapper
+          <WpMediaWrapper
             mediaId={mediaId}
             height={300}
             className={"portrait-img"}

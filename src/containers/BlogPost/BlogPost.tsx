@@ -8,7 +8,7 @@ import Interweave from "interweave";
 import YoastMetaProcessor from "../../utils/YoastMetaProcessor";
 import Helmet from "react-helmet";
 // import YoastMeta from "../../models/YoastMeta";
-import ImgWrapper from "../../components/ImgWrapper";
+import WpMediaWrapper from "../../components/ImgWrapper";
 import SignupForm from "../../components/NewsletterPoll/SignupForm";
 import Error404 from "../Error404/Error404";
 
@@ -89,7 +89,7 @@ class BlogPost extends React.Component<IBlogPostProps, IBlogPostState> {
     if (mediaId) {
       return (
         <div className="featured-img">
-          <ImgWrapper mediaId={mediaId} height={1000} />
+          <WpMediaWrapper mediaId={mediaId} height={1000} />
         </div>
       );
     }

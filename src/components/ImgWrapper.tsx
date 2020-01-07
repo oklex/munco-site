@@ -16,7 +16,7 @@ interface IImgWrapperState {
 }
 
 // this class meant to interface with the wordpress api
-class ImgWrapper extends React.Component<IImgWrapperProps,IImgWrapperState> {
+class WpMediaWrapper extends React.Component<IImgWrapperProps,IImgWrapperState> {
     state: IImgWrapperState = {
         url: '',
         alt: ''
@@ -63,4 +63,4 @@ class ImgWrapper extends React.Component<IImgWrapperProps,IImgWrapperState> {
     }
 }
 
-export default ImgWrapper
+export default WpMediaWrapper
