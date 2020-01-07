@@ -10,6 +10,7 @@ import Helmet from "react-helmet";
 // import YoastMeta from "../../models/YoastMeta";
 import ImgWrapper from "../../components/ImgWrapper";
 import SignupForm from "../../components/NewsletterPoll/SignupForm";
+import Error404 from "../Error404/Error404";
 
 interface IBlogPostProps extends RouteComponentProps {}
 
@@ -18,6 +19,7 @@ interface IBlogPostState {
   post: SingleBlogPost | null;
   mediaId: number | null;
   metaTags: JSX.Element[];
+  error: boolean | null
 }
 
 /*
@@ -31,28 +33,38 @@ class BlogPost extends React.Component<IBlogPostProps, IBlogPostState> {
     postId: null,
     post: null,
     mediaId: null,
-    metaTags: []
+    metaTags: [],
+    error: null
   };
 
   componentDidMount = async () => {
     document.body.scrollTop = 0;
     let param: any = this.props.match.params;
     // console.log("param", param.id);
-    const postData: any = await BlogService.getPostFromID(param.id);
-    const featuredMedia: any = await BlogPostProcessor.getFeaturedImageId(
-      postData
-    );
-    this.setState({
-      postId: param.id,
-      post: postData,
-      mediaId: featuredMedia
-    });
-    // console.log("State is now: ", this.state);
-    var tags = await YoastMetaProcessor.fromPost(postData);
-    if (tags) {
+    try {
+      const postData: any = await BlogService.getPostFromID(param.id);
+      const featuredMedia: any = await BlogPostProcessor.getFeaturedImageId(
+        postData
+      );
+      console.log("post data on api request: ", postData);
       this.setState({
-        metaTags: tags
+        postId: param.id,
+        post: postData,
+        mediaId: featuredMedia,
+        error: false
       });
+      // console.log("State is now: ", this.state);
+      var tags = await YoastMetaProcessor.fromPost(postData);
+      if (tags) {
+        this.setState({
+          metaTags: tags
+        });
+      }
+    } catch (err) {
+      console.log("error with api call: ", err);
+      this.setState({
+        error: true
+      })
     }
     // console.log('SEO tags: ', tags)
   };
@@ -147,27 +159,29 @@ class BlogPost extends React.Component<IBlogPostProps, IBlogPostState> {
     );
   };
 
+  renderPostIfExists = () => {
+    if (this.state.error) {
+      console.log('show 404...')
+      return <Error404/>
+    } else {
+      return (
+        <div className="blogPost">
+          <Helmet>{this.getPostMeta()}</Helmet>
+          {this.getBlogTitle()}
+          {this.getBlogContent()}
+          {this.displayQuickButton()}
+          <SignupForm
+            question="Do you think that staff hiring is bias?"
+            questionKey="is_staff_hiring_bias"
+            endDate={new Date("January 30, 2020")}
+          />
+        </div>
+      );
+    }
+  }
+
   render() {
-    return (
-      <div className="blogPost">
-        <Helmet>{this.getPostMeta()}</Helmet>
-        {/* <FullScreen hideOnMobile={false}>
-          <SplitScreen hideOnWrap={false}>
-            <div className="fixed-cover">
-              {this.getFeaturedImg()}
-            </div>
-          </SplitScreen>
-          <SplitScreen hideOnWrap={false}>
-            <div>{this.getBlogTitle()}</div>
-          </SplitScreen>
-        </FullScreen> */}
-        {/* {this.getBlogTitle()} */}
-        {this.getBlogTitle()}
-        {this.getBlogContent()}
-        {this.displayQuickButton()}
-        <SignupForm question='Do you think that staff hiring is bias?' questionKey='is_staff_hiring_bias' endDate={new Date('January 30, 2020')}/>
-      </div>
-    );
+    return (this.renderPostIfExists())
   }
 }
 export default withRouter(BlogPost);
