@@ -40,7 +40,7 @@ export enum IOrganizationType {
 export interface IConferenceEvent {
   venue_name: string;
   venue_city: string;
-  start_date: Date | null;
+  start_date: Date;
   end_date: Date | null;
   dates_tentative: boolean
   tags: string[];
