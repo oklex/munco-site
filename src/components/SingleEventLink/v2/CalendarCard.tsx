@@ -28,10 +28,10 @@ export class CalendarCard extends React.Component<ICalendarCardProps, {}> {
       const eventDetails: IConferenceEvent = this.props.CardDetails.event;
       return (
         <div>
-          <h3>
+          {/* <h3>
             {eventDetails.start_date} --
             {eventDetails.end_date ? eventDetails.end_date : ""}
-          </h3>
+          </h3> */}
           <p>
             {eventDetails.venue_name}, {eventDetails.venue_city}
           </p>

@@ -15,19 +15,26 @@ export class CalendarV2 extends React.Component<{}, ICalendarState> {
   };
 
   componentDidMount = async () => {
-    const allCalendarEvents: ICalendarResponse[] =  await CalendarService.getAll()
+    const allCalendarEvents: ICalendarResponse[] = await CalendarService.getAll();
     this.setState({
       allCalendarEvents: allCalendarEvents
     });
   };
 
-  renderAllCards = () => {
-    return (<div>{this.state.allCalendarEvents.map(event => {
-       console.log("rendering card for: ",event); return <p>Hello world</p>})}
-    </div>)
+  showAllCards = () => {
+    if (this.state.allCalendarEvents.length === 0) {
+      return (
+        <div>
+          <h1>LOADING . . . </h1>
+        </div>
+      );
+    } else {
+    return <div>{this.state.allCalendarEvents.map(event => {return <CalendarCard CardDetails={event} />})}</div>;
+    }
   };
+
   render() {
-    return <div>{this.renderAllCards()}</div>;
+    return <div>{this.showAllCards()}</div>;
   }
 }
 
