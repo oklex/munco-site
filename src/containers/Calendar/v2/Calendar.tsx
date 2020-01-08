@@ -2,6 +2,7 @@ import React from "react";
 import CalendarCard from "../../../components/SingleEventLink/v2/CalendarCard";
 import { ICalendarResponse } from "../../../models/CalendarEvent";
 import CalendarService from "../../../services/CalendarService/v2/CalendarService";
+import "./Calendar.scss";
 
 interface ICalendarState {
   allCalendarEvents: ICalendarResponse[];
@@ -29,13 +30,25 @@ export class CalendarV2 extends React.Component<{}, ICalendarState> {
         </div>
       );
     } else {
-    return <div>{this.state.allCalendarEvents.map(event => {return <CalendarCard CardDetails={event} />})}</div>;
+      return this.state.allCalendarEvents.map(event => {
+        return <CalendarCard CardDetails={event} />;
+      });
     }
   };
 
   render() {
-    return <div>{this.showAllCards()}</div>;
+    return (
+      <div className='ConferenceCalendar'>
+        <h1>Conference Calendar</h1>
+        <div className="verticalScroll">{this.showAllCards()}</div>{" "}
+      </div>
+    );
   }
 }
 
 export default CalendarV2;
+
+/* 
+use: npm 
+react-horizontal-scrolling-menu
+*/

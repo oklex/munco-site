@@ -5,6 +5,7 @@ import {
   IApplicationEvent
 } from "../../../models/CalendarEvent";
 import AllApplications from "../../AllApplications/AllApplications";
+import './CalendarCard.scss'
 // import ICalendarResponse from '../../../models/CalendarEvent'
 
 interface ICalendarCardProps {
@@ -16,7 +17,7 @@ interface ICalendarCardProps {
 export class CalendarCard extends React.Component<ICalendarCardProps, {}> {
   renderTitle = () => {
     return (
-      <div>
+      <div className='title'>
         <h1>{this.props.CardDetails.organization.short_name}</h1>
         <h3>{this.props.CardDetails.organization.full_name}</h3>
       </div>
@@ -27,7 +28,7 @@ export class CalendarCard extends React.Component<ICalendarCardProps, {}> {
     if (this.props.CardDetails.event) {
       const eventDetails: IConferenceEvent = this.props.CardDetails.event;
       return (
-        <div>
+        <div className='eventDetails'>
           {/* <h3>
             {eventDetails.start_date} --
             {eventDetails.end_date ? eventDetails.end_date : ""}
@@ -39,27 +40,32 @@ export class CalendarCard extends React.Component<ICalendarCardProps, {}> {
         </div>
       );
     } else {
-      return <div />;
+      return <div/>;
     }
   };
 
   renderApplication = () => {
     if (this.props.CardDetails.applications) {
       const allApps: IApplicationEvent[] = this.props.CardDetails.applications;
-      return (
-        <div>
-          <h2>{allApps[0].type}</h2>
-          <p>{allApps[0].start_date}</p>
-        </div>
-      );
+      return allApps.map(this.renderSingleApplication)
     }
   };
 
+  renderSingleApplication = (app: IApplicationEvent) => {
+    return (
+      <div className='AppDetails'>
+        <h2>{app.type}</h2>
+        <p>{app.start_date}</p>
+      </div>
+    );
+  }
+
   render() {
     return (
-      <div>
+      <div className='CalendarCard'>
         {this.renderTitle()}
         {this.renderEvent()}
+        {/* {this.renderApplication()} */}
       </div>
     );
   }

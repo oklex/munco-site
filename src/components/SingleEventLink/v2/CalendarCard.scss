@@ -1,0 +1,10 @@
+@import '../../../styles/colours.scss';
+
+.CalendarCard {
+    width: 600px;
+    min-width: 400px;
+    height: auto;
+    background-color: $light-grey;
+    padding: 15px;
+    margin: 15px;
+}
