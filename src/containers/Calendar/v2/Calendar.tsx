@@ -2,7 +2,7 @@ import React from "react";
 import CalendarCard from "../../../components/SingleEventLink/v2/CalendarCard";
 import { ICalendarResponse } from "../../../models/CalendarEvent";
 import CalendarService from "../../../services/CalendarService/v2/CalendarService";
-import ScrollMenu from 'react-horizontal-scrolling-menu';
+import ScrollMenu from "react-horizontal-scrolling-menu";
 import "./Calendar.scss";
 
 interface ICalendarState {
@@ -23,7 +23,13 @@ export class CalendarV2 extends React.Component<{}, ICalendarState> {
     });
   };
 
+  renderArrow = (text: string, className: string) => {
+  return <div className={className}>{text}</div>;
+  };
+
   showAllCards = () => {
+    const ArrowLeft = this.renderArrow("<", "arrow-prev");
+    const ArrowRight = this.renderArrow(">", "arrow-next");
     if (this.state.allCalendarEvents.length === 0) {
       return (
         <div>
@@ -31,17 +37,24 @@ export class CalendarV2 extends React.Component<{}, ICalendarState> {
         </div>
       );
     } else {
-      return this.state.allCalendarEvents.map(event => {
-        return <CalendarCard CardDetails={event} />;
-      });
+      return (
+        <ScrollMenu
+          data={this.state.allCalendarEvents.map(event => {
+            return <CalendarCard CardDetails={event} />;
+          })}
+          wheel={true}
+          arrowLeft={ArrowLeft}
+          arrowRight={ArrowRight}
+        />
+      );
     }
   };
 
   render() {
     return (
-      <div className='ConferenceCalendar'>
+      <div className="ConferenceCalendar">
         <h1>Conference Calendar</h1>
-        <div className="verticalScroll">{this.showAllCards()}</div>{" "}
+        <div>{this.showAllCards()}</div>
       </div>
     );
   }
