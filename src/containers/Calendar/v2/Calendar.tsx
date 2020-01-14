@@ -45,6 +45,7 @@ export class CalendarV2 extends React.Component<{}, ICalendarState> {
           wheel={true}
           arrowLeft={ArrowLeft}
           arrowRight={ArrowRight}
+          alignCenter={false}
         />
       );
     }
