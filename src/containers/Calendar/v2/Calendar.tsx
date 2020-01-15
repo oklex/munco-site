@@ -4,6 +4,9 @@ import { ICalendarResponse } from "../../../models/CalendarEvent";
 import CalendarService from "../../../services/CalendarService/v2/CalendarService";
 import ScrollMenu from "react-horizontal-scrolling-menu";
 import "./Calendar.scss";
+import FullScreen from "../../../components/SplitScreen/FullScreen";
+import Helmet from "react-helmet";
+import SplitScreen from "../../../components/SplitScreen/SplitScreen";
 
 interface ICalendarState {
   allCalendarEvents: ICalendarResponse[];
@@ -24,7 +27,7 @@ export class CalendarV2 extends React.Component<{}, ICalendarState> {
   };
 
   renderArrow = (text: string, className: string) => {
-  return <div className={className}>{text}</div>;
+    return <div className={className}>{text}</div>;
   };
 
   showAllCards = () => {
@@ -48,8 +51,8 @@ export class CalendarV2 extends React.Component<{}, ICalendarState> {
         //   alignCenter={false}
         // />
         this.state.allCalendarEvents.map(event => {
-              return <CalendarCard CardDetails={event} />;
-            })
+          return <CalendarCard CardDetails={event} />;
+        })
       );
     }
   };
@@ -57,8 +60,29 @@ export class CalendarV2 extends React.Component<{}, ICalendarState> {
   render() {
     return (
       <div className="ConferenceCalendar">
-        <div className='title'><h1>Conference Calendar</h1></div>
-        <div className='calendar-section'>{this.showAllCards()}</div>
+        <Helmet>
+          <title>Conferences calendar</title>
+          <meta
+            name="description"
+            content="Calendar for Model UN conferences in BC and internationally. See all dates and site links and more."
+          />
+          <link rel="canonical" href="https://wwww.munco.ca/calendar" />
+        </Helmet>
+        <FullScreen hideOnMobile={false}>
+          <SplitScreen hideOnWrap={true}>
+            <div className="fixed-cover">
+              <div className="title">
+                <h1>Conference Calendar</h1>
+                  <p className="menu-button">Do you manage a conference?</p>
+                  <p className="menu-button">Report a problem</p>
+              </div>
+            </div>
+          </SplitScreen>
+
+          <SplitScreen hideOnWrap={false}>
+            <div className="calendar-section">{this.showAllCards()}</div>
+          </SplitScreen>
+        </FullScreen>
       </div>
     );
   }
