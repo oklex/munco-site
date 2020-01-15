@@ -1,5 +1,17 @@
-@import '../../../styles/colours.scss';
+@import "../../../styles/colours.scss";
 
 .ConferenceCalendar {
-    padding-top: 50px;
+  padding-top: 70px;
+  color: $dark-grey;
+//   background-color: $dark-grey;
+  .title {
+    padding-left: 15px;
+    padding-bottom: 30px;
+  }
+  min-height: calc(100vh - 329px);
+  height: auto;
+  .calendar-section {
+      padding-top: auto;
+      padding-bottom: auto;
+  }
 }

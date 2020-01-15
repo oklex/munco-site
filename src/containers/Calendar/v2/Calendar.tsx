@@ -38,15 +38,18 @@ export class CalendarV2 extends React.Component<{}, ICalendarState> {
       );
     } else {
       return (
-        <ScrollMenu
-          data={this.state.allCalendarEvents.map(event => {
-            return <CalendarCard CardDetails={event} />;
-          })}
-          wheel={true}
-          arrowLeft={ArrowLeft}
-          arrowRight={ArrowRight}
-          alignCenter={false}
-        />
+        // <ScrollMenu
+        //   data={this.state.allCalendarEvents.map(event => {
+        //     return <CalendarCard CardDetails={event} />;
+        //   })}
+        //   wheel={true}
+        //   arrowLeft={ArrowLeft}
+        //   arrowRight={ArrowRight}
+        //   alignCenter={false}
+        // />
+        this.state.allCalendarEvents.map(event => {
+              return <CalendarCard CardDetails={event} />;
+            })
       );
     }
   };
@@ -54,8 +57,8 @@ export class CalendarV2 extends React.Component<{}, ICalendarState> {
   render() {
     return (
       <div className="ConferenceCalendar">
-        <h1>Conference Calendar</h1>
-        <div>{this.showAllCards()}</div>
+        <div className='title'><h1>Conference Calendar</h1></div>
+        <div className='calendar-section'>{this.showAllCards()}</div>
       </div>
     );
   }
