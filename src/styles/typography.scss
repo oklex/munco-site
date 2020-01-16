@@ -82,6 +82,11 @@ body {
   .neutralText {
     color: $neutral-grey !important;
   }
+
+  .miniText {
+    font-size: 14px;
+    line-height: 18px;
+  }
 }
 
 code {
