@@ -7,7 +7,7 @@ import {
 import AllApplications from "../../AllApplications/AllApplications";
 import "./CalendarCard.scss";
 import moment from "moment";
-// import ICalendarResponse from '../../../models/CalendarEvent'
+import DatesRemaining from "../../DatesRemaining/DatesRemaining";
 
 interface ICalendarCardProps {
   CardDetails: ICalendarResponse;
@@ -20,7 +20,10 @@ export class CalendarCard extends React.Component<ICalendarCardProps, {}> {
     return (
       <div className="title">
         <h1>{this.props.CardDetails.organization.short_name}</h1>
-        {/* <h3>{this.props.CardDetails.organization.full_name}</h3> */}
+        <p className="blueText miniText">
+          {" "}
+          {this.props.CardDetails.organization.full_name}
+        </p>
       </div>
     );
   };
@@ -28,19 +31,19 @@ export class CalendarCard extends React.Component<ICalendarCardProps, {}> {
   renderEvent = () => {
     if (this.props.CardDetails.event) {
       const eventDetails: IConferenceEvent = this.props.CardDetails.event;
-      const dateMoment: any = moment.utc(eventDetails.start_date)
-      var startDay: string = dateMoment.format('(dddd), MMM Do');
-      var dateYear: string = dateMoment.format(', YYYY');
-      var date: string = startDay + dateYear
+      const dateMoment: any = moment.utc(eventDetails.start_date);
+      var startDay: string = dateMoment.format("(dddd), MMM Do");
+      var dateYear: string = dateMoment.format(", YYYY");
+      var date: string = startDay + dateYear;
       if (eventDetails.end_date) {
-        const endDateMoment: any = moment.utc(eventDetails.end_date)
-        var endDay: string = endDateMoment.format(' - (dddd), MMM Do');
-        date = startDay + endDay + dateYear
+        const endDateMoment: any = moment.utc(eventDetails.end_date);
+        var endDay: string = endDateMoment.format(" - (dddd), MMM Do");
+        date = startDay + endDay + dateYear;
       }
       return (
         <div className="eventDetails">
           <p className="blueText">{date}</p>
-          <p className='miniText'>
+          <p className="miniText">
             {eventDetails.venue_name}, {eventDetails.venue_city}
           </p>
           {this.showEventTags()}
@@ -53,33 +56,41 @@ export class CalendarCard extends React.Component<ICalendarCardProps, {}> {
 
   showEventTags = () => {
     if (this.props.CardDetails.event) {
-      
-    const eventDetails: IConferenceEvent = this.props.CardDetails.event;
-    if (eventDetails.tags.length > 0) {
-      return eventDetails.tags.map((tag: string, index: number) => {
-        const info: string = eventDetails.tags[index];
-        return (
-          <span key={index} className="tag">
-            <p>{info}</p>
-          </span>
-        );
-      });
-    }
+      const eventDetails: IConferenceEvent = this.props.CardDetails.event;
+      if (eventDetails.tags.length > 0) {
+        return eventDetails.tags.map((tag: string, index: number) => {
+          const info: string = eventDetails.tags[index];
+          return (
+            <span key={index} className="tag">
+              <p>{info}</p>
+            </span>
+          );
+        });
+      }
     }
   };
 
-  renderApplication = () => {
+  renderApplications = () => {
     if (this.props.CardDetails.applications) {
       const allApps: IApplicationEvent[] = this.props.CardDetails.applications;
+      console.log(allApps);
       return allApps.map(this.renderSingleApplication);
     }
   };
 
   renderSingleApplication = (app: IApplicationEvent) => {
+    const dateMoment: any = moment.utc(app.start_date);
+    const date: string = dateMoment.format("(dddd), MMM Do");
+    var cost: string = "";
+    if (app.cost) cost = "$" + app.cost.toString();
     return (
       <div className="AppDetails">
-        <h2>{app.type}</h2>
-        <p>{app.start_date}</p>
+        <div className="d-flex justify-content-between">
+          <p className="miniText">{app.type}</p>
+          <p className="miniText">{cost}</p>
+        </div>
+        <DatesRemaining startDate={app.start_date} endDate={app.end_date}/>
+        <p className="miniText">{date}</p>
       </div>
     );
   };
@@ -89,7 +100,7 @@ export class CalendarCard extends React.Component<ICalendarCardProps, {}> {
       <div className="CalendarCard">
         {this.renderTitle()}
         {this.renderEvent()}
-        {/* {this.renderApplication()} */}
+        {this.renderApplications()}
       </div>
     );
   }

@@ -56,12 +56,12 @@ export interface IApplicationEvent {
 }
 
 export enum IApplicationType {
-  Delegate = "DELEGATE REGISTRATION",
-  School = "SCHOOL REGISTRATION",
-  Staff = "STAFF APPLICATION",
-  Secretariat = "SECRETARIAT APPLICATION",
-  Volunteer = "VOLUNTEER APPLICATION",
-  Other = "OTHER"
+  Delegate = "Delegate Registration",
+  School = "School Registration",
+  Staff = "Staff Application",
+  Secretariat = "Secretariat Application",
+  Volunteer = "Volunteer Application",
+  Other = "Other"
 }
 
 // export default CalendarEvent;
