@@ -35,7 +35,7 @@ export const AllCalendarData: ICalendarResponse[] = [
         name: "Late Registration",
         type: IApplicationType.Delegate,
         start_date: new Date("January 1, 2020"),
-        end_date: new Date("January 14, 2020"),
+        end_date: new Date("January 30, 2020"),
         dates_tentative: false,
         cost: 215
       },
@@ -112,7 +112,7 @@ export const AllCalendarData: ICalendarResponse[] = [
       {
         name: "Late Registration",
         type: IApplicationType.Delegate,
-        start_date: new Date("January 19, 2020"),
+        start_date: new Date("January 18, 2020"),
         end_date: new Date("February 10, 2020"),
         dates_tentative: false,
         cost: 215
