@@ -4,6 +4,12 @@ import MediaItem from '../models/MediaItem'
 
 export const BlogService = {
     async getMostRecent(): Promise<SingleBlogPost[]> {
+        const { data } = await wordpressAPI.get('/posts?per_page=3')
+        // //console.log('getMostRecent', data)
+        return data
+    },
+
+    async getAll(): Promise<SingleBlogPost[]> {
         const { data } = await wordpressAPI.get('/posts')
         // //console.log('getMostRecent', data)
         return data

@@ -5,29 +5,43 @@ import LinkStyle from "../../models/LinkStyle";
 import { BlogService } from "../../services/BlogService";
 import "./BlogList.scss";
 
-interface BlogListState {
+interface IBlogListProps {
+  onlyRecent?: boolean;
+}
+
+interface IBlogListState {
   blogPosts: SingleBlogPost[];
 }
 
-class BlogList extends React.Component<{}, BlogListState> {
+class BlogList extends React.Component<IBlogListProps, IBlogListState> {
   state = {
     blogPosts: []
   };
 
   componentDidMount = async () => {
-    const newPosts: SingleBlogPost[] = await BlogService.getMostRecent();
-    this.setState({
-      blogPosts: newPosts
-    });
+    if (this.props.onlyRecent) {
+      const newPosts: SingleBlogPost[] = await BlogService.getMostRecent();
+      this.setState({
+        blogPosts: newPosts
+      });
+    } else {
+      const newPosts: SingleBlogPost[] = await BlogService.getAll();
+      this.setState({
+        blogPosts: newPosts
+      });
+    }
   };
 
   showAllPosts = () => {
     if (this.state.blogPosts.length === 0) {
       return (
         <div className="d-flex flex-wrap justify-content-left">
-          <p>Oops :(  there's a problem with our server. <br/>Try again later.</p>
+          <p>
+            Oops :( there's a problem with our server. <br />
+            Try again later.
+          </p>
         </div>
-      )
+      );
     } else {
       return (
         <div className="d-flex flex-wrap justify-content-left">
