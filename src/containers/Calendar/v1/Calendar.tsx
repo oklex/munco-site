@@ -82,7 +82,7 @@ class Calendar extends React.Component<{}, ICalendarState> {
                 <div className="banner-title">
                   <h1>Conference Calendar</h1>
                   <p>
-                    in-development <br /> alpha v. 0.1
+                    version 1
                   </p>
                 </div>
               </div>
@@ -92,8 +92,8 @@ class Calendar extends React.Component<{}, ICalendarState> {
             <div className="read-content">
               <div className="event-list">
                 <div className="socials">
-                  <h4>Last updated: Nov.25th, 2019</h4>
-                  <p>
+                  <p>Last updated: Jan.18th, 2019</p>
+                  <p className='miniText'>
                     Notice anything out of date? Send us a message!
                     <br />
                     <br/>
