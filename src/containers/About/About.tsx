@@ -140,7 +140,7 @@ class About extends React.Component<{}, IAboutState> {
                   </p>
                 </div>
                 <div className="grey-box">
-                  <div className="status-symbol-yellow" />
+                  <div className="status-symbol-green" />
                   in-progress
                 </div>
               </div>
@@ -155,8 +155,8 @@ class About extends React.Component<{}, IAboutState> {
                   </p>
                 </div>
                 <div className="grey-box">
-                  <div className="status-symbol-grey" />
-                  prototyping
+                  <div className="status-symbol-yellow" />
+                  in-development
                 </div>
               </div>
             </div>
@@ -213,15 +213,15 @@ const Applications: ApplicationDetails[] = [
   {
     title: "Content Creator",
     description:
-      "We're hiring a student who feels passionately about connecting the community to help drive our 'Student Features' project to life. As a part of our team, you would play a critical role in enhancing the quality and efficiency of our editorial process. \nSuccessful applicants will have the opportunity to grow within the role, with unique opportunities for students interested in data-driven business decisions.",
-    applicationLink: 'https://forms.gle/Crvb2N31gTfnJQNJA',
+      "We're hiring a student who feels passionately about connecting the community to help drive our 'Student Features' project to life. As a part of our team, you would play a critical role in enhancing the quality and efficiency of our editorial process. \nSuccessful applicants will have the opportunity to grow within the role, with unique opportunities for students interested in data-driven business decisions. Contact us at contact@munco.ca with any questions.",
+    applicationLink: "https://forms.gle/Crvb2N31gTfnJQNJA"
   },
   {
     title: "Design and Technology",
     description:
-      "Interested in web-design? We're looking to fill a flexible role and train a student to contribute towards our design and development process for ouir 'MUNCO Access' project. Applicants will have an opportunity to experience professional design and development processes and learn as much code as they are comfortable with. \nThis position is great for anyone intersted in pursuing a career in software development and/or professional design.",
-    applicationLink: 'https://forms.gle/Crvb2N31gTfnJQNJA',
-  },
+      "Interested in web-design? We're looking to fill a flexible role and train a student to contribute towards our design and development process for ouir 'MUNCO Access' project. Applicants will have an opportunity to experience professional design and development processes and learn as much code as they are comfortable with. \nThis position is great for anyone intersted in pursuing a career in software development and/or professional design. Contact us at contact@munco.ca with any questions.",
+    applicationLink: "https://forms.gle/Crvb2N31gTfnJQNJA"
+  }
   // {
   //   title: "Community",
   //   description:
