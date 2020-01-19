@@ -5,6 +5,8 @@
     position: sticky;
     top: 0;
     object-fit: cover;
+    padding: 15%;
+    padding-bottom: 0px !important;
     img {
       object-position: center center; // not quite working
       min-width: 200px;
@@ -107,6 +109,13 @@
     h3 {
       font-size: 16px !important;
     }
+  }
+}
+
+@media only screen and (max-width: 844px) {
+  .post-title {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
   }
 }
 

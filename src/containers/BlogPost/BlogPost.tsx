@@ -104,9 +104,9 @@ class BlogPost extends React.Component<IBlogPostProps, IBlogPostState> {
     if (title) {
       return (
         <div className="row">
-          <div className="col-lg-6">{this.getFeaturedImg()}</div>
+          <div className="col-md-6">{this.getFeaturedImg()}</div>
 
-          <div className="col-lg-6">
+          <div className="col-md-6">
             <div className="post-title">
               {/* {this.getFeaturedImg()} */}
               <h5 className="blueText">Presented by MUNCO</h5>
@@ -152,7 +152,7 @@ class BlogPost extends React.Component<IBlogPostProps, IBlogPostState> {
       <div className="other-buttons d-flex justify-content-center">
         <button type="button" className="btn btn-outline-secondary">
           <a href="https://forms.gle/rzHMmwdG7ay9LrCc6" target="_blank">
-            <h3>refer someone</h3>
+            <h4>refer someone</h4>
           </a>
         </button>
       </div>
@@ -173,7 +173,7 @@ class BlogPost extends React.Component<IBlogPostProps, IBlogPostState> {
           <SignupForm
             question="Do you think that staff hiring is bias?"
             questionKey="is_staff_hiring_bias"
-            endDate={new Date("January 30, 2020")}
+            endDate={new Date("January 17, 2020")}
           />
         </div>
       );
