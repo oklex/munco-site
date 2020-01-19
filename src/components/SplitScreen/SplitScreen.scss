@@ -4,6 +4,14 @@ $sm-wrap: calc(720px / 2);
 $md-wrap: calc(1000px / 2);
 $lg-wrap: calc(1920px / 2);
 
+@media only screen and (max-width: 720px) {
+  .hide-on-mobile {
+    visibility: hidden;
+    display: none;
+    height: 0px;
+  }
+}
+
 .full-screen {
   padding: 0px !important;
   margin: 0px !important;

@@ -131,7 +131,7 @@ class Home extends React.Component<IHomeProps, IHomeState> {
           <meta property="og:img" content={logoColour} />
         </Helmet>
           <FullScreen hideOnMobile={false}>
-            <SplitScreen>
+            <SplitScreen hideOnWrap={false}>
               <div className="hero-banner">
                 <img
                   src={vancouverBg}
