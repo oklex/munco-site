@@ -38,12 +38,8 @@ class Footer extends React.Component<{}, {}> {
           <div className="socials">
             <SocialIcon url="https://www.facebook.com/BCmunco"/>
             <SocialIcon url="https://www.instagram.com/bc.munco/"/>
-            {/* <button className="btn btn-outline-light">
-              <a href="https://www.facebook.com/BCmunco">Facebook</a>
-            </button>
-            <button className="btn btn-outline-light">
-              <a href="https://www.instagram.com/bc.munco/">Instagram</a>
-            </button> */}
+            <SocialIcon url="mailto:contact@munco.ca"/>
+            <span className='miniText footer-email'>contact@munco.ca</span>
           </div>
         </div>
       </div>
