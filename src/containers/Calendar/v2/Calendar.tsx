@@ -31,8 +31,6 @@ export class CalendarV2 extends React.Component<{}, ICalendarState> {
   };
 
   showAllCards = () => {
-    const ArrowLeft = this.renderArrow("<", "arrow-prev");
-    const ArrowRight = this.renderArrow(">", "arrow-next");
     if (this.state.allCalendarEvents.length === 0) {
       return (
         <div>
@@ -41,17 +39,8 @@ export class CalendarV2 extends React.Component<{}, ICalendarState> {
       );
     } else {
       return (
-        // <ScrollMenu
-        //   data={this.state.allCalendarEvents.map(event => {
-        //     return <CalendarCard CardDetails={event} />;
-        //   })}
-        //   wheel={true}
-        //   arrowLeft={ArrowLeft}
-        //   arrowRight={ArrowRight}
-        //   alignCenter={false}
-        // />
-        this.state.allCalendarEvents.map(event => {
-          return <CalendarCard CardDetails={event} />;
+        this.state.allCalendarEvents.map((event:ICalendarResponse, key: number) => {
+          return <CalendarCard key={key} CardDetails={event} />;
         })
       );
     }

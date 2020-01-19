@@ -21,7 +21,6 @@ export class CalendarCard extends React.Component<ICalendarCardProps, {}> {
       <div className="title">
         <h1>{this.props.CardDetails.organization.short_name}</h1>
         <p className="blueText miniText">
-          {" "}
           {this.props.CardDetails.organization.full_name}
         </p>
       </div>
@@ -73,24 +72,23 @@ export class CalendarCard extends React.Component<ICalendarCardProps, {}> {
   renderApplications = () => {
     if (this.props.CardDetails.applications) {
       const allApps: IApplicationEvent[] = this.props.CardDetails.applications;
-      console.log(allApps);
       return allApps.map(this.renderSingleApplication);
     }
   };
 
-  renderSingleApplication = (app: IApplicationEvent) => {
-    const dateMoment: any = moment.utc(app.start_date);
-    const date: string = dateMoment.format("(dddd), MMM Do");
+  renderSingleApplication = (app: IApplicationEvent, key: number) => {
+    // const dateMoment: any = moment.utc(app.start_date);
+    // const date: string = dateMoment.format("(dddd), MMM Do");
     var cost: string = "";
     if (app.cost) cost = "$" + app.cost.toString();
     return (
-      <div className="AppDetails">
+      <div className="AppDetails" key={key}>
         <div className="d-flex justify-content-between">
-          <p className="miniText">{app.type}</p>
+          <p className="miniText">{app.name}</p>
           <p className="miniText">{cost}</p>
         </div>
-        <DatesRemaining startDate={app.start_date} endDate={app.end_date}/>
-        <p className="miniText">{date}</p>
+        <DatesRemaining key={key} startDate={app.start_date} endDate={app.end_date}/>
+        {/* <p className="miniText">{date}</p> */}
       </div>
     );
   };
