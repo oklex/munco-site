@@ -110,7 +110,7 @@ class Home extends React.Component<IHomeProps, IHomeState> {
         </div>
         <div className="d-flex justify-content-left">
           <div className="social-media-links">
-            <ul>{this.returnSocialMedia()}</ul>
+            <ul>{this.returnSocialMedia()}<span className='hero-email'>contact@munco.ca</span></ul>
           </div>
         </div>
       </div>

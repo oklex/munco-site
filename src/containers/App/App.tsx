@@ -45,6 +45,11 @@ const SocialMediaLinks: INavigationTypes[] = [
     link: "https://www.instagram.com/bc.munco/",
     title: "instagram",
     type: LinkImportance.external
+  },
+  {
+    link: "mailto:contact@munco.ca",
+    title: "email",
+    type: LinkImportance.external
   }
 ];
 
