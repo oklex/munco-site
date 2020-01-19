@@ -46,14 +46,6 @@ export const AllCalendarData: ICalendarResponse[] = [
         end_date: new Date("April 1, 2020"),
         dates_tentative: true,
         cost: null
-      },
-      {
-        name: "Staff hiring",
-        type: IApplicationType.Staff,
-        start_date: new Date(),
-        end_date: new Date(),
-        dates_tentative: true,
-        cost: null
       }
     ]
   },

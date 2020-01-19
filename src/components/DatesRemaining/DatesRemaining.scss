@@ -1,8 +1,67 @@
 @import '../../styles/colours.scss';
 
+$open_color: $munco-green;
+$waiting_color: $munco-gold;
+$closed_color: $dark-grey;
+
 .date-indicator{
-    background-color: $neutral-grey;
-    height: 4px;
+    // background-color: $neutral-grey;
+    min-height: 4px;
     margin-top: 3px;
     margin-bottom: 3px;
+    color: white;
+    .waiting-full {
+        background-color: $waiting_color;
+        min-height: inherit;
+        margin-top: inherit;
+        margin-bottom: inherit;
+        display: flex;
+    }
+    .waiting {
+        min-height: inherit;
+        margin-top: inherit;
+        margin-bottom: inherit;
+        display: flex;
+    }
+    .open-full {
+        background-color: $open_color;
+        min-height: inherit;
+        margin-top: inherit;
+        margin-bottom: inherit;
+        display: flex;
+    }
+    .open {
+        min-height: inherit;
+        margin-top: inherit;
+        margin-bottom: inherit;
+        display: flex;
+    }
+    .closed-full {
+        background-color: $closed_color;
+        min-height: inherit;
+        margin-top: inherit;
+        margin-bottom: inherit;
+        display: flex;
+    }
+    .closed {
+        min-height: inherit;
+        margin-top: inherit;
+        margin-bottom: inherit;
+        display: flex;
+    }
+    .segment {
+        width: 4%;
+        margin-right: 3px;
+        height: 5px;
+        background-color: black;
+    }
+    .segment-closed {
+        background-color: $closed_color;
+    }
+    .segment-waiting {
+        background-color: $waiting_color;
+    }
+    .segment-open {
+        background-color: $open_color;
+    }
 }
