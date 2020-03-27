@@ -52,11 +52,12 @@ $standardSpacing: 15px;
     button {
       margin-bottom: 5px;
     .applyBtn {
+      font-size: 12px;
       border: solid 1px $dark-grey;
       border-radius: 15px;
-      padding: 3px 10px 3px 10px;
+      padding: 0px 10px 3px 10px;
       color:$dark-grey;
-      font-weight: 600;
+      // font-weight: 300;
     }
     }
   }

@@ -40,7 +40,10 @@ export class CalendarV2 extends React.Component<{}, ICalendarState> {
     } else {
       return this.state.allCalendarEvents.map(
         (event: ICalendarResponse, key: number) => {
-          if (!event.applications || (event.applications && event.applications.length == 0)) {
+          if (
+            !event.applications ||
+            (event.applications && event.applications.length == 0)
+          ) {
             return <div key={key}></div>; // omit no applications
           } else {
             return <CalendarCard key={key} CardDetails={event} />;
@@ -61,21 +64,32 @@ export class CalendarV2 extends React.Component<{}, ICalendarState> {
           />
           <link rel="canonical" href="https://wwww.munco.ca/calendar" />
         </Helmet>
-        <FullScreen hideOnMobile={false}>
-          <SplitScreen hideOnWrap={true}>
+        {/* <FullScreen hideOnMobile={false}>
+          <SplitScreen hideOnWrap={true}> */}
+        <div className="row">
+          <div className="col-sm-6 colapseOnMobile">
             <div className="fixed-cover">
               <div className="title">
                 <h1>Conference Applications</h1>
-                <p className="menu-button">Do you manage a conference?</p>
-                <p className="menu-button">Report a problem</p>
+                <div className="menu-button">
+                  Do you manage a conference?
+                  <p className="tooltiptext">Tell us what dates you're planning!</p>
+                </div>
+                <div className="menu-button">
+                  Report a problem
+                  <p className="tooltiptext">PM us on Facebook or Instagram!</p>
+                </div>
               </div>
             </div>
-          </SplitScreen>
-
-          <SplitScreen hideOnWrap={false}>
+            {/* </SplitScreen> */}
+          </div>
+          <div className="col-md-6">
+            {/* <SplitScreen hideOnWrap={false}> */}
             <div className="calendar-section">{this.showAllCards()}</div>
-          </SplitScreen>
-        </FullScreen>
+            {/* </SplitScreen> */}
+            {/* </FullScreen> */}
+          </div>
+        </div>
       </div>
     );
   }

@@ -1,4 +1,5 @@
 @import "../../../styles/colours.scss";
+@import "../../../styles/animations.scss";
 
 .ConferenceCalendar {
   color: $dark-grey;
@@ -10,7 +11,7 @@
     position: absolute;
     width: 100%;
     height: 90vh;
-    z-index: -99999;
+    // z-index: -99999;
     position: sticky;
     top: 0;
     .title {
@@ -23,6 +24,7 @@
         margin-bottom: 30px;
       }
       .menu-button {
+        position: relative;
         padding: 3px;
         padding-left: 10px;
         padding-right: 10px;
@@ -31,11 +33,57 @@
         background-color: $light-grey;
         width: fit-content;
         margin-bottom: 5px;
+        .tooltiptext {
+          font-size: 14px;
+          visibility: hidden;
+          height: auto;
+          width: 100px;
+          margin: 0px;
+          position: absolute;
+          margin-left: 100%;
+          padding: 5px;
+          top: 0;
+          background-color: white;
+          border: solid 1px $light-grey;
+          border-radius: 15px;
+        }
+      }
+      .menu-button:hover {
+        .tooltiptext {
+          visibility: visible;
+          // height: auto;
+          // width: 100%;
+          /* Chrome, Safari, Opera */
+          -webkit-animation-name: fadeIn;
+          -webkit-animation-duration: 0.2s;
+          /* Standard syntax */
+          animation-name: fadeIn;
+          animation-duration: 0.2s;
+        }
       }
     }
   }
   .calendar-section {
     padding-top: 30vh;
     padding-bottom: auto;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .colapseOnMobile {
+    visibility: hidden;
+    width: 0px;
+    height: 0px;
+  }
+  .fixed-cover {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    z-index: -99999;
+    position: sticky;
+    top: 0;
+  }
+  .calendar-section {
+    padding-top: 60px !important;
   }
 }
