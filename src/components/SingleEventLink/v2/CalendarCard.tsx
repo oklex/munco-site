@@ -85,9 +85,24 @@ export class CalendarCard extends React.Component<ICalendarCardProps, {}> {
       <div className="AppDetails" key={key}>
         <div className="d-flex justify-content-between">
           <p className="miniText">{app.name}</p>
-          <p className="miniText">{cost}</p>
+          <span>
+            <p className="miniText">{cost}</p>{" "}
+            <button>
+              <a
+                className="applyBtn"
+                href={app.applicationLink}
+                target="_blank"
+              >
+                Apply
+              </a>
+            </button>
+          </span>
         </div>
-        <DatesRemaining key={key} startDate={app.start_date} endDate={app.end_date}/>
+        <DatesRemaining
+          key={key}
+          startDate={app.start_date}
+          endDate={app.end_date}
+        />
         {/* <p className="miniText">{date}</p> */}
       </div>
     );

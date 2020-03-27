@@ -49,5 +49,15 @@ $standardSpacing: 15px;
   }
   .AppDetails {
     margin-bottom: $standardSpacing;
+    button {
+      margin-bottom: 5px;
+    .applyBtn {
+      border: solid 1px $munco-green;
+      border-radius: 15px;
+      padding: 3px 10px 3px 10px;
+      color:$munco-green;
+      font-weight: 600;
+    }
+    }
   }
 }

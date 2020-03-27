@@ -52,6 +52,7 @@ export interface IApplicationEvent {
   start_date: Date
   end_date: Date
   dates_tentative: boolean
+  applicationLink: string
   cost:number | null
 }
 
