@@ -38,10 +38,14 @@ export class CalendarV2 extends React.Component<{}, ICalendarState> {
         </div>
       );
     } else {
-      return (
-        this.state.allCalendarEvents.map((event:ICalendarResponse, key: number) => {
-          return <CalendarCard key={key} CardDetails={event} />;
-        })
+      return this.state.allCalendarEvents.map(
+        (event: ICalendarResponse, key: number) => {
+          if (!event.applications || (event.applications && event.applications.length == 0)) {
+            return <div key={key}></div>; // omit no applications
+          } else {
+            return <CalendarCard key={key} CardDetails={event} />;
+          }
+        }
       );
     }
   };
@@ -50,7 +54,7 @@ export class CalendarV2 extends React.Component<{}, ICalendarState> {
     return (
       <div className="ConferenceCalendar">
         <Helmet>
-          <title>Conferences calendar</title>
+          <title>Conference Applications</title>
           <meta
             name="description"
             content="Calendar for Model UN conferences in BC and internationally. See all dates and site links and more."
@@ -61,9 +65,9 @@ export class CalendarV2 extends React.Component<{}, ICalendarState> {
           <SplitScreen hideOnWrap={true}>
             <div className="fixed-cover">
               <div className="title">
-                <h1>Conference Calendar</h1>
-                  <p className="menu-button">Do you manage a conference?</p>
-                  <p className="menu-button">Report a problem</p>
+                <h1>Conference Applications</h1>
+                <p className="menu-button">Do you manage a conference?</p>
+                <p className="menu-button">Report a problem</p>
               </div>
             </div>
           </SplitScreen>

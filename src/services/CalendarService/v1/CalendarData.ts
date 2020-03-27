@@ -101,7 +101,6 @@ export const AllCalendarData: CalendarEvent[] = [
     confirmed: true
   },
   {
-
     conference_id: 8,
     short_name: "CAHSMUN Horizons",
     name_prefix: "Horizons",

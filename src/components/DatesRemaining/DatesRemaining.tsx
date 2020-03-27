@@ -11,6 +11,7 @@ interface IDatesRemainingProps {
 
 interface IDatesRemainingState {
   currentDate: Date;
+  oneWeekFromNow: Date;
   startMoment: any;
   endMoment: any;
   startDate: string;
@@ -32,10 +33,13 @@ class DatesRemaining extends React.Component<
 > {
   state: IDatesRemainingState = {
     currentDate: this.props.currentDate ? this.props.currentDate : new Date(),
-    startMoment: moment.utc(this.props.startDate),
-    endMoment: moment.utc(this.props.endDate),
-    startDate: moment.utc(this.props.startDate).format("(dddd), MMM Do"),
-    endDate: moment.utc(this.props.endDate).format("(dddd), MMM Do"),
+    startMoment: moment(this.props.startDate),
+    endMoment: moment(this.props.endDate),
+    startDate: moment(this.props.startDate).format("(dddd), MMM Do"),
+    endDate: moment(this.props.endDate).format("(dddd), MMM Do"),
+    oneWeekFromNow: moment(new Date())
+      .add(7, "days")
+      .toDate(),
     timerBarClass: null,
     timerDisplayDate: null,
     timerDescription: null
@@ -52,32 +56,74 @@ class DatesRemaining extends React.Component<
     );
     /* 
     cases:
-    - it's already ended -> closed. (endDate < currentDate)
-    - it's not yet started -> starting on (startDate > currentDate)
-    - it's already stated but not over yet -> closing on (start <= currentDate)
+      - it's open
+        - it's due today
+        - it's due within the week
+        - it's not due anytime soon
+      - it's not yet open
     */
     if (this.props.endDate < this.state.currentDate) {
-      console.log("ended on: ", this.state.endDate);
+      console.log("ended on: ", this.state.currentDate, this.state.endDate);
       this.setState({
         timerBarClass: TimerBarClass.CLOSED,
         timerDisplayDate: this.props.endDate,
         timerDescription: "closed on " + this.state.endDate
       });
+    } else if (this.props.startDate < this.state.currentDate) {
+      // has started
+      if (this.props.endDate.getDay() == this.state.currentDate.getDay()) {
+        console.log('closing today', this.props.endDate, this.state.currentDate)
+        this.setState({
+          timerBarClass: TimerBarClass.OPEN,
+          timerDisplayDate: this.props.endDate,
+          timerDescription: "closing today! " + this.state.endDate
+        });
+      } else if (this.props.endDate < this.state.oneWeekFromNow) {
+        console.log('closing soon', this.props.endDate, this.state.currentDate)
+        this.setState({
+          timerBarClass: TimerBarClass.OPEN,
+          timerDisplayDate: this.props.endDate,
+          timerDescription: "closing soon; on " + this.state.endDate
+        });
+      } else {
+        console.log('closing later')
+        this.setState({
+          timerBarClass: TimerBarClass.OPEN,
+          timerDisplayDate: this.props.endDate,
+          timerDescription: "started; closing on " + this.state.endDate
+        });
+      }
     } else if (this.props.startDate > this.state.currentDate) {
-      console.log("start on: ", this.state.startDate);
+      // has not yet started
       this.setState({
         timerBarClass: TimerBarClass.WAITING,
         timerDisplayDate: this.props.startDate,
-        timerDescription: "starting on " + this.state.startDate
+        timerDescription: "opens on " + this.state.startDate
       });
-    } else if (this.props.startDate <= this.state.currentDate) {
-      console.log("closing on: ", this.state.endDate);
-      this.setState({
-        timerBarClass: TimerBarClass.OPEN,
-        timerDisplayDate: this.props.endDate,
-        timerDescription: "started; closing on " + this.state.endDate
-      });
-    } else {
+    }
+
+    // else if (this.props.startDate > this.state.currentDate) {
+    //   console.log("start on: ", this.state.startDate);
+    //   this.setState({
+    //     timerBarClass: TimerBarClass.WAITING,
+    //     timerDisplayDate: this.props.startDate,
+    //     timerDescription: "opens on " + this.state.startDate
+    //   });
+    // } else if (this.props.startDate < this.state.currentDate && this.props.endDate < this.state.oneWeekFromNow) {
+    //   console.log("start on: ", this.state.startDate);
+    //   this.setState({
+    //     timerBarClass: TimerBarClass.OPEN,
+    //     timerDisplayDate: this.props.endDate,
+    //     timerDescription: "closing soon; on " + this.state.endDate
+    //   });
+    // } else if (this.props.startDate <= this.state.currentDate) {
+    //   console.log("closing on: ", this.state.endDate);
+    //   this.setState({
+    //     timerBarClass: TimerBarClass.OPEN,
+    //     timerDisplayDate: this.props.endDate,
+    //     timerDescription: "started; closing on " + this.state.endDate
+    //   });
+    else {
       throw Error;
     }
   };
@@ -91,14 +137,11 @@ class DatesRemaining extends React.Component<
       const comingDate: Date = this.state.timerDisplayDate;
       const segmentLimit: number = 22;
       const segments: number = this.getDaysUntil(comingDate);
-      if (segments > segmentLimit || segments <= 0) {
+      if (segments > segmentLimit) {
         // return a solid bar
-        return (
-          <div className={this.state.timerBarClass + '-full'}>
-          </div>
-        );
+        return <div className={this.state.timerBarClass + "-full"}></div>;
       } else {
-        console.log(segments)
+        console.log(segments);
         return (
           <div className={this.state.timerBarClass}>
             {/* <p className="miniText">segmented bar for {segments} days</p> */}
@@ -112,18 +155,32 @@ class DatesRemaining extends React.Component<
   };
 
   renderSegments = (n: number) => {
-    let returnJSX: JSX.Element[] = []
+    let returnJSX: JSX.Element[] = [];
 
     for (var i: number = 0; i < n; i++) {
-      returnJSX.push(<div key={i} className={'s-' + i + ' ' + 'segment' + ' ' + 'segment-' + this.state.timerBarClass}></div>)
+      returnJSX.push(
+        <div
+          key={i}
+          className={
+            "s-" +
+            i +
+            " " +
+            "segment" +
+            " " +
+            "segment-" +
+            this.state.timerBarClass
+          }
+        ></div>
+      );
     }
-    return returnJSX
-  }
+    return returnJSX;
+  };
 
   getDaysUntil = (comingDate: Date) => {
     var millisecondsPerDay = 1000 * 60 * 60 * 24;
     var millisBetween = comingDate.getTime() - this.state.currentDate.getTime();
     var days = millisBetween / millisecondsPerDay;
+    console.log("days until: ", comingDate, Math.ceil(days));
     return Math.ceil(days);
   };
 

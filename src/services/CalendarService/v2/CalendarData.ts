@@ -28,7 +28,7 @@ export const AllCalendarData: ICalendarResponse[] = [
         name: "VMUN Secretariat Applications",
         type: IApplicationType.Secretariat,
         start_date: new Date("February 20, 2020"),
-        end_date: new Date("March 29, 2020"),
+        end_date: new Date("March 29, 2020, 23:59:59"),
         dates_tentative: false,
         applicationLink: "https://vmun.com/apply/",
         cost: null
@@ -49,7 +49,7 @@ export const AllCalendarData: ICalendarResponse[] = [
         name: "CAHSMUN Secretariat Applications",
         type: IApplicationType.Secretariat,
         start_date: new Date("February 20, 2020"),
-        end_date: new Date("April 12, 2020"),
+        end_date: new Date("April 12, 2020, 23:59:59"),
         applicationLink: "https://cahsmun.org/apply",
         dates_tentative: false,
         cost: null
@@ -70,7 +70,7 @@ export const AllCalendarData: ICalendarResponse[] = [
         name: "Horizons Secretariat Applications",
         type: IApplicationType.Secretariat,
         start_date: new Date("February 20, 2020"),
-        end_date: new Date("April 12, 2020"),
+        end_date: new Date("April 12, 2020, 23:59:59"),
         applicationLink: "https://cahsmun.org/apply",
         dates_tentative: false,
         cost: null
@@ -95,6 +95,15 @@ export const AllCalendarData: ICalendarResponse[] = [
       //   applicationLink: "https://cahsmun.org/apply",
       //   dates_tentative: true,
       //   cost: null
+      // },
+      // {
+      //   name: "TEST Secretariat Applications",
+      //   type: IApplicationType.Secretariat,
+      //   start_date: new Date("March 15, 2020"),
+      //   end_date: new Date("March 26, 2020, 23:59:59"),
+      //   applicationLink: "https://cahsmun.org/apply",
+      //   dates_tentative: false,
+      //   cost: null
       // }
     ]
   },
@@ -118,8 +127,63 @@ export const AllCalendarData: ICalendarResponse[] = [
       //   cost: null
       // }
     ]
-  }
+  },
+  {
+    organization: {
+      short_name: "RichMUN",
+      full_name: "Richmond Model United Nations",
+      organization_type: IOrganizationType.studentProject,
+      website: "https://richmun.ca/",
+      running_since: new Date("April, 2014")
+    },
+    event: null,
+    applications: []
+  },
+  {
+    organization: {
+      short_name: "VYMUN",
+      full_name: "Vancouver Youth Model United Nations",
+      organization_type: IOrganizationType.studentProject,
+      website: "https://www.vymun.com",
+      running_since: new Date("October, 2005")
+    },
+    event: null,
+    applications: []
+  },
+  {
+    organization: {
+      short_name: "VMUN",
+      full_name: "Vancouver Model United Nations",
+      organization_type: IOrganizationType.schoolSponsored,
+      website: "https://vmun.com/",
+      running_since: new Date("January, 2002")
+    },
+    event: null,
+    applications: []
+  },
+  {
+    organization: {
+      short_name: "PacificMUN",
+      full_name: "Pacific Model United Nations",
+      organization_type: IOrganizationType.studentProject,
+      website: "https://www.pacificmun.org",
+      running_since: new Date("January, 2016")
+    },
+    event: null,
+    applications: []
+  },
 
+  {
+    organization: {
+      short_name: "NorthMUN",
+      full_name: "North Model United Nations",
+      organization_type: IOrganizationType.studentProject,
+      website: "https://www.northmun.com",
+      running_since: new Date("January, 2019")
+    },
+    event: null,
+    applications: []
+  }
 ];
 
 export default AllCalendarData;
