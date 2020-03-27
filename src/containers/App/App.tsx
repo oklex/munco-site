@@ -93,8 +93,9 @@ class App extends React.Component<{}, {}> {
             <Route exact path="/" component={this.showHome} />
             <Route exact path="/features" component={this.showFeatures} />
             <Route exact path="/features/:id" component={this.showFeatureById} />
-            <Route exact path="/calendar" component={this.showCalendar} />
+            <Route exact path="/calendar" component={this.showCalendarV2} />
             <Route exact path="/about" component={this.showAbout} />
+            <Route exact path='/calendar/v1' component={this.showCalendar}/>
             <Route exact path='/calendar/v2' component={this.showCalendarV2}/>
             <Route component={this.show404} />
           </Switch>
