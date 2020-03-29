@@ -1,7 +1,7 @@
 import React from "react";
 import CalendarCard from "../../../components/SingleEventLink/v2/CalendarCard";
 import { ICalendarResponse } from "../../../models/CalendarEvent";
-import CalendarService from "../../../services/CalendarService/v2/CalendarService";
+import CalendarService, { sortBy } from "../../../services/CalendarService/v2/CalendarService";
 import ScrollMenu from "react-horizontal-scrolling-menu";
 import "./Calendar.scss";
 import FullScreen from "../../../components/SplitScreen/FullScreen";
@@ -20,7 +20,7 @@ export class CalendarV2 extends React.Component<{}, ICalendarState> {
   };
 
   componentDidMount = async () => {
-    const allCalendarEvents: ICalendarResponse[] = await CalendarService.getAll();
+    const allCalendarEvents: ICalendarResponse[] = await CalendarService.getAll(sortBy.application);
     this.setState({
       allCalendarEvents: allCalendarEvents
     });
