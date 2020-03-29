@@ -204,6 +204,26 @@ export const AllCalendarData: ICalendarResponse[] = [
         cost: null
       }
     ]
+  },{
+    organization: {
+      short_name: "VYMUN",
+      full_name: "Vancouver Youth Model United Nations",
+      organization_type: IOrganizationType.schoolSponsored,
+      website: "https://www.vymun.com/",
+      running_since: new Date("October, 2012")
+    },
+    event: null,
+    applications: [
+      {
+        name: "VYMUN External Staff Applications",
+        type: IApplicationType.Staff,
+        start_date: new Date("March 28, 2018"),
+        end_date: new Date("April 14, 2020"),
+        applicationLink: "https://form.jotform.com/200377118618253",
+        dates_tentative: false,
+        cost: null
+      }
+    ]
   }
 ];
 
