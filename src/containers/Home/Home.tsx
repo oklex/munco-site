@@ -12,6 +12,7 @@ import Helmet from "react-helmet";
 import UpcomingConferences from "./UpcomingConferences";
 // @ts-ignore
 import { SocialIcon } from "react-social-icons";
+import UpcomingApplications from "./UpcomingApplications";
 
 const vancouverBg: string = "/img/cambie.jpg";
 const logoWhite: string = "/brand/white-logo.png";
@@ -46,9 +47,13 @@ class Home extends React.Component<IHomeProps, IHomeState> {
     if (this.state.blogPosts.length === 0) {
       return (
         <div className="d-flex flex-wrap justify-content-left">
-          <p>Oops :(  there's a problem with our server. <br/>Try again later.</p>
-        </div>)
-    }else if (this.state.blogPosts.length > 0) {
+          <p>
+            Oops :( there's a problem with our server. <br />
+            Try again later.
+          </p>
+        </div>
+      );
+    } else if (this.state.blogPosts.length > 0) {
       return this.state.blogPosts.map((post: SingleBlogPost, index: number) => {
         if (post.status === "publish") {
           return (
@@ -110,7 +115,10 @@ class Home extends React.Component<IHomeProps, IHomeState> {
         </div>
         <div className="d-flex justify-content-left">
           <div className="social-media-links">
-            <ul>{this.returnSocialMedia()}<span className='hero-email'>contact@munco.ca</span></ul>
+            <ul>
+              {this.returnSocialMedia()}
+              <span className="hero-email">contact@munco.ca</span>
+            </ul>
           </div>
         </div>
       </div>
@@ -130,31 +138,32 @@ class Home extends React.Component<IHomeProps, IHomeState> {
           <link rel="canonical" href="https://wwww.munco.ca/" />
           <meta property="og:img" content={logoColour} />
         </Helmet>
-          <FullScreen hideOnMobile={false}>
-            <SplitScreen hideOnWrap={false}>
-              <div className="hero-banner">
+        <FullScreen hideOnMobile={false}>
+          <SplitScreen hideOnWrap={false}>
+            <div className="hero-banner">
+              <img
+                src={vancouverBg}
+                alt="street-view-of-cambie-and-14th-avn"
+                className="bg-image"
+              />
+              <div className="overlay">
                 <img
-                  src={vancouverBg}
-                  alt="street-view-of-cambie-and-14th-avn"
-                  className="bg-image"
+                  src={logoWhite}
+                  alt="white-munco-logo"
+                  className="banner-logo"
                 />
-                <div className="overlay">
-                  <img
-                    src={logoWhite}
-                    alt="white-munco-logo"
-                    className="banner-logo"
-                  />
-                  <div className="banner-title lightText">
-                    <h1>Community Starts here</h1>
-                  </div>
+                <div className="banner-title lightText">
+                  <h1>Community Starts here</h1>
                 </div>
               </div>
-            </SplitScreen>
-            <SplitScreen hideOnWrap={true}>
-              <div className="side-nav">{this.showNavigation()}</div>
-            </SplitScreen>
-          </FullScreen>
-        <div className="conferenceSection">
+            </div>
+          </SplitScreen>
+          <SplitScreen hideOnWrap={true}>
+            <div className="side-nav">{this.showNavigation()}</div>
+          </SplitScreen>
+        </FullScreen>
+
+        {/* <div className="conferenceSection">
           <div className="container">
             <div className="section-title">
               <h2>Upcoming conferences</h2>
@@ -166,7 +175,22 @@ class Home extends React.Component<IHomeProps, IHomeState> {
             </div>
             <UpcomingConferences />
           </div>
+        </div> */}
+
+        <div className="conferenceSection">
+          <div className="container">
+            <div className="section-title">
+              <h2>Upcoming Applications</h2>
+              <div className="blueText">
+                <Link to="/calendar">
+                  <p>see all applications &gt;</p>
+                </Link>
+              </div>
+            </div>
+            <UpcomingApplications />
+          </div>
         </div>
+
         <div className="featureSection">
           <div className="container">
             <div className="section-title">

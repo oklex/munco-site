@@ -16,7 +16,7 @@ class UpcomingConferences extends React.Component<{}, IUpcomingState> {
   };
 
   componentDidMount = async () => {
-    var upcomingConferences: CalendarEvent[] = await CalendarService.getUpcoming();
+    let upcomingConferences: CalendarEvent[] = await CalendarService.getUpcoming();
     if (upcomingConferences) {
       this.setState({
         upcomingConferences: upcomingConferences,

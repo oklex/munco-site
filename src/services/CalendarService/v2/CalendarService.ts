@@ -22,22 +22,22 @@ export const CalendarService = {
       return [];
     }
   },
-  async getUpcoming(sortType: sortBy): Promise<ICalendarResponse[]> {
+  async getUpcoming(): Promise<ICalendarResponse[]> {
     try {
       const weekFromNow: Date = moment(new Date())
         .add(7, "days")
         .toDate()
       const returnData: ICalendarResponse[] = []
       const data: ICalendarResponse[] = AllCalendarData;
-      if (sortType == sortBy.application) {
-        data.sort((alpha, beta) => {
-          let alphaAppDate: Date = findLargestAppEndDate(alpha)
-          let betaAppDate: Date = findLargestAppEndDate(beta)
-          if (alphaAppDate < betaAppDate) return -1
-          else if (alphaAppDate > betaAppDate) return 1
-          else return 0
-        })
-      }
+      
+      data.sort((alpha, beta) => {
+        let alphaAppDate: Date = findLargestAppEndDate(alpha)
+        let betaAppDate: Date = findLargestAppEndDate(beta)
+        if (alphaAppDate < betaAppDate) return -1
+        else if (alphaAppDate > betaAppDate) return 1
+        else return 0
+      })
+
       data.forEach(obj => {
         if (obj.applications) {
           let objEndDate: Date = findLargestAppEndDate(obj);
