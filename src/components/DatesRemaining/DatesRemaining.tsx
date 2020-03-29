@@ -71,7 +71,7 @@ class DatesRemaining extends React.Component<
       });
     } else if (this.props.startDate < this.state.currentDate) {
       // has started
-      if (this.props.endDate.getDay() == this.state.currentDate.getDay()) {
+      if (this.props.endDate.getDate() == this.state.currentDate.getDate() && this.props.endDate.getMonth() == this.state.currentDate.getMonth()){
         console.log('closing today', this.props.endDate, this.state.currentDate)
         this.setState({
           timerBarClass: TimerBarClass.OPEN,
