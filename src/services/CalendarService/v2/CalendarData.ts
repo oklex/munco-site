@@ -183,6 +183,27 @@ export const AllCalendarData: ICalendarResponse[] = [
     },
     event: null,
     applications: []
+  },
+  {
+    organization: {
+      short_name: "SPAMUN",
+      full_name: "Southpointe Academy Model United Nations",
+      organization_type: IOrganizationType.schoolSponsored,
+      website: "https://spamun.org/",
+      running_since: new Date("April, 2019")
+    },
+    event: null,
+    applications: [
+      {
+        name: "SPAMUN Secretariat Applications",
+        type: IApplicationType.Secretariat,
+        start_date: new Date("February 20, 2020"),
+        end_date: new Date("April 8, 2020, 23:59:59"),
+        applicationLink: "https://form.jotform.com/200615497979066",
+        dates_tentative: false,
+        cost: null
+      }
+    ]
   }
 ];
 
