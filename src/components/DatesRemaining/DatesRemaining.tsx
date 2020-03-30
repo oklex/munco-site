@@ -46,14 +46,14 @@ class DatesRemaining extends React.Component<
   };
 
   componentDidMount = () => {
-    console.log(
-      "from: ",
-      this.state.startDate,
-      " - to - ",
-      this.state.endDate,
-      "// current date: ",
-      this.state.currentDate
-    );
+    // console.log(
+    //   "from: ",
+    //   this.state.startDate,
+    //   " - to - ",
+    //   this.state.endDate,
+    //   "// current date: ",
+    //   this.state.currentDate
+    // );
     /* 
     cases:
       - it's open
@@ -63,7 +63,7 @@ class DatesRemaining extends React.Component<
       - it's not yet open
     */
     if (this.props.endDate < this.state.currentDate) {
-      console.log("ended on: ", this.state.currentDate, this.state.endDate);
+      console.log("ended on: ", this.props.endDate, "it is currently",this.state.currentDate, this.state.endDate);
       this.setState({
         timerBarClass: TimerBarClass.CLOSED,
         timerDisplayDate: this.props.endDate,
@@ -72,21 +72,21 @@ class DatesRemaining extends React.Component<
     } else if (this.props.startDate < this.state.currentDate) {
       // has started
       if (this.props.endDate.getDate() == this.state.currentDate.getDate() && this.props.endDate.getMonth() == this.state.currentDate.getMonth()){
-        console.log('closing today', this.props.endDate, this.state.currentDate)
+        // console.log('closing today', this.props.endDate, this.state.currentDate)
         this.setState({
           timerBarClass: TimerBarClass.OPEN,
           timerDisplayDate: this.props.endDate,
           timerDescription: "closing today! " + this.state.endDate
         });
       } else if (this.props.endDate < this.state.oneWeekFromNow) {
-        console.log('closing soon', this.props.endDate, this.state.currentDate)
+        // console.log('closing soon', this.props.endDate, this.state.currentDate)
         this.setState({
           timerBarClass: TimerBarClass.OPEN,
           timerDisplayDate: this.props.endDate,
           timerDescription: "closing soon; on " + this.state.endDate
         });
       } else {
-        console.log('closing later')
+        // console.log('closing later')
         this.setState({
           timerBarClass: TimerBarClass.OPEN,
           timerDisplayDate: this.props.endDate,

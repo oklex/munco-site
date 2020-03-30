@@ -6,8 +6,20 @@ import moment from "moment";
 export const CalendarService = {
   async getAll(sortType?: sortBy): Promise<ICalendarResponse[]> {
     try {
+      let currentDate: Date = new Date()
       const data: ICalendarResponse[] = AllCalendarData;
       if (sortType == sortBy.application) {
+        data.forEach(obj => {
+          if (obj.applications) {
+            obj.applications = obj.applications.filter(app => {
+              if (app.end_date < currentDate) {
+                console.log("closed!", app.end_date)
+                return false // remove this element
+              } else return true
+            })
+            console.log("filtered: ", obj.applications)
+          }
+        })
         data.sort((alpha, beta) => {
           let alphaAppDate: Date = findLargestAppEndDate(alpha)
           let betaAppDate: Date = findLargestAppEndDate(beta)
@@ -29,7 +41,7 @@ export const CalendarService = {
         .toDate()
       const returnData: ICalendarResponse[] = []
       const data: ICalendarResponse[] = AllCalendarData;
-      
+
       data.sort((alpha, beta) => {
         let alphaAppDate: Date = findLargestAppEndDate(alpha)
         let betaAppDate: Date = findLargestAppEndDate(beta)
@@ -67,7 +79,7 @@ function findLargestAppEndDate(alpha: ICalendarResponse) {
       }
     })
   }
-  console.log("findLargestAppEndDate", alphaAppDate)
+  // console.log("findLargestAppEndDate", alphaAppDate)
   return alphaAppDate
 }
 
