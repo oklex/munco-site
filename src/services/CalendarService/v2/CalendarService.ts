@@ -17,7 +17,7 @@ export const CalendarService = {
                 return false // remove this element
               } else return true
             })
-            console.log("filtered: ", obj.applications)
+            // console.log("filtered: ", obj.applications)
           }
         })
         data.sort((alpha, beta) => {
@@ -36,11 +36,23 @@ export const CalendarService = {
   },
   async getUpcoming(): Promise<ICalendarResponse[]> {
     try {
+      let currentDate: Date = new Date()
       const weekFromNow: Date = moment(new Date())
         .add(7, "days")
         .toDate()
       const returnData: ICalendarResponse[] = []
       const data: ICalendarResponse[] = AllCalendarData;
+      data.forEach(obj => {
+        if (obj.applications) {
+          obj.applications = obj.applications.filter(app => {
+            if (app.end_date < currentDate) {
+              console.log("closed!", app.end_date)
+              return false // remove this element
+            } else return true
+          })
+          // console.log("filtered: ", obj.applications)
+        }
+      })
 
       data.sort((alpha, beta) => {
         let alphaAppDate: Date = findLargestAppEndDate(alpha)
