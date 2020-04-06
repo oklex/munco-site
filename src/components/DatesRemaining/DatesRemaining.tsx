@@ -46,24 +46,8 @@ class DatesRemaining extends React.Component<
   };
 
   componentDidMount = () => {
-    // console.log(
-    //   "from: ",
-    //   this.state.startDate,
-    //   " - to - ",
-    //   this.state.endDate,
-    //   "// current date: ",
-    //   this.state.currentDate
-    // );
-    /* 
-    cases:
-      - it's open
-        - it's due today
-        - it's due within the week
-        - it's not due anytime soon
-      - it's not yet open
-    */
     if (this.props.endDate < this.state.currentDate) {
-      console.log("ended on: ", this.props.endDate, "it is currently",this.state.currentDate, this.state.endDate);
+      // console.log("ended on: ", this.props.endDate, "it is currently",this.state.currentDate, this.state.endDate);
       this.setState({
         timerBarClass: TimerBarClass.CLOSED,
         timerDisplayDate: this.props.endDate,
@@ -101,28 +85,6 @@ class DatesRemaining extends React.Component<
         timerDescription: "opens on " + this.state.startDate
       });
     }
-
-    // else if (this.props.startDate > this.state.currentDate) {
-    //   console.log("start on: ", this.state.startDate);
-    //   this.setState({
-    //     timerBarClass: TimerBarClass.WAITING,
-    //     timerDisplayDate: this.props.startDate,
-    //     timerDescription: "opens on " + this.state.startDate
-    //   });
-    // } else if (this.props.startDate < this.state.currentDate && this.props.endDate < this.state.oneWeekFromNow) {
-    //   console.log("start on: ", this.state.startDate);
-    //   this.setState({
-    //     timerBarClass: TimerBarClass.OPEN,
-    //     timerDisplayDate: this.props.endDate,
-    //     timerDescription: "closing soon; on " + this.state.endDate
-    //   });
-    // } else if (this.props.startDate <= this.state.currentDate) {
-    //   console.log("closing on: ", this.state.endDate);
-    //   this.setState({
-    //     timerBarClass: TimerBarClass.OPEN,
-    //     timerDisplayDate: this.props.endDate,
-    //     timerDescription: "started; closing on " + this.state.endDate
-    //   });
     else {
       throw Error;
     }
@@ -135,7 +97,7 @@ class DatesRemaining extends React.Component<
   renderTimerBar = () => {
     if (this.state.timerBarClass && this.state.timerDisplayDate) {
       const comingDate: Date = this.state.timerDisplayDate;
-      const segmentLimit: number = 22;
+      const segmentLimit: number = 21;
       const segments: number = this.getDaysUntil(comingDate);
       if (segments > segmentLimit) {
         // return a solid bar
@@ -144,7 +106,6 @@ class DatesRemaining extends React.Component<
         console.log(segments);
         return (
           <div className={this.state.timerBarClass}>
-            {/* <p className="miniText">segmented bar for {segments} days</p> */}
             {this.renderSegments(segments)}
           </div>
         );
