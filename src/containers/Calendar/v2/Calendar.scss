@@ -7,10 +7,11 @@
   .split-screen {
     height: auto !important;
   }
+
   .fixed-cover {
     position: absolute;
     width: 100%;
-    height: 90vh;
+    min-height: 90vh;
     // z-index: -99999;
     position: sticky;
     top: 0;
@@ -19,33 +20,67 @@
       color: $dark-grey;
       padding-left: calc(1em + 5vw);
       padding-top: 40vh;
-      h1 {
-        font-size: 30px;
-        margin-bottom: 30px;
+      .filterBar {
+        padding-top: 10px;
+        .selection {
+          margin: 0px 10px 5px 10px;
+          padding: 0px 10px 5px 10px;
+          border-bottom: solid 2px grey;
+          max-width: 500px;
+          .selectionText {
+            color: $munco-green;
+            margin: 0px;
+            padding: 0px;
+          }
+        }
+        ul {
+          li {
+            font-size: 14px;
+            color: $neutral-grey;
+            display: inline-block;
+            padding: 0px 15px 5px 0px;
+            // margin: 5px;
+          }
+          li:hover {
+            color: black;
+          }
+        }
       }
-      .menu-button {
-        position: relative;
-        padding: 3px;
-        padding-left: 10px;
-        padding-right: 10px;
-        border-radius: 10px;
-        color: $neutral-grey;
-        background-color: $light-grey;
-        width: fit-content;
+      h1 {
+        font-size: 35px;
         margin-bottom: 5px;
-        .tooltiptext {
-          font-size: 14px;
-          visibility: hidden;
-          height: auto;
-          width: 100px;
-          margin: 0px;
-          position: absolute;
-          margin-left: 100%;
-          padding: 5px;
-          top: 0;
-          background-color: white;
-          border: solid 1px $light-grey;
-          border-radius: 15px;
+      }
+      h2 {
+        font-size: 20px;
+        line-height: 25px;
+      }
+      .menu-tools {
+        margin-top: calc(25em);
+        padding-bottom: 20px;
+        .menu-tag {
+          position: relative;
+          padding: 3px;
+          padding-left: 10px;
+          padding-right: 10px;
+          border-radius: 10px;
+          color: $neutral-grey;
+          background-color: $light-grey;
+          width: fit-content;
+          margin-bottom: 5px;
+          .tooltiptext {
+            font-size: 14px;
+            visibility: hidden;
+            height: auto;
+            width: 100px;
+            margin: 0px;
+            position: absolute;
+            margin-left: 100%;
+            padding: 5px;
+            top: 0;
+            background-color: white;
+            border: solid 1px $light-grey;
+            border-radius: 15px;
+          }
         }
       }
       .menu-button:hover {

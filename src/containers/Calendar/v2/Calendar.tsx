@@ -1,7 +1,9 @@
 import React from "react";
 import CalendarCard from "../../../components/SingleEventLink/v2/CalendarCard";
 import { ICalendarResponse } from "../../../models/CalendarEvent";
-import CalendarService, { sortBy } from "../../../services/CalendarService/v2/CalendarService";
+import CalendarService, {
+  sortBy,
+} from "../../../services/CalendarService/v2/CalendarService";
 import ScrollMenu from "react-horizontal-scrolling-menu";
 import "./Calendar.scss";
 import FullScreen from "../../../components/SplitScreen/FullScreen";
@@ -12,17 +14,25 @@ interface ICalendarState {
   allCalendarEvents: ICalendarResponse[];
 }
 
+enum CalendarFilterTypes {
+  staffApps = "Staff Applications",
+  secretariatApps = "Secretariat Applications",
+  delegateRegistration = "Delegate Registration",
+  volunteer = "Volunteer Opportunities"
+}
 // this contains the page
 // which contains search selection & carousel that contains Calendar cards
 export class CalendarV2 extends React.Component<{}, ICalendarState> {
   state = {
-    allCalendarEvents: []
+    allCalendarEvents: [],
   };
 
   componentDidMount = async () => {
-    const allCalendarEvents: ICalendarResponse[] = await CalendarService.getAll(sortBy.application);
+    const allCalendarEvents: ICalendarResponse[] = await CalendarService.getAll(
+      sortBy.application
+    );
     this.setState({
-      allCalendarEvents: allCalendarEvents
+      allCalendarEvents: allCalendarEvents,
     });
   };
 
@@ -53,6 +63,27 @@ export class CalendarV2 extends React.Component<{}, ICalendarState> {
     }
   };
 
+  selectFilter = () => {
+    return (
+      <div className="filterBar">
+        <div className="d-flex">
+          <div>
+            <h2>Filter by: </h2>
+          </div>
+          <div className='flex-grow-1 selection'>
+            <p className='selectionText'>Applications</p>
+          </div>
+        </div>
+        <ul>
+    {/* <li>{CalendarFilterTypes.secretariatApps}</li>
+    <li>{CalendarFilterTypes.staffApps}</li>
+    <li>{CalendarFilterTypes.delegateRegistration}</li>
+    <li>{CalendarFilterTypes.volunteer}</li> */}
+        </ul>
+      </div>
+    );
+  };
+
   render() {
     return (
       <div className="ConferenceCalendar">
@@ -70,14 +101,21 @@ export class CalendarV2 extends React.Component<{}, ICalendarState> {
           <div className="col-sm-6 colapseOnMobile">
             <div className="fixed-cover">
               <div className="title">
-                <h1>Conference Applications</h1>
-                <div className="menu-button">
-                  Do you manage a conference?
-                  <p className="tooltiptext">Tell us what dates you're planning!</p>
-                </div>
-                <div className="menu-button">
-                  Report a problem
-                  <p className="tooltiptext">PM us on Facebook or Instagram!</p>
+                <h1>Conference Calendar</h1>
+                {this.selectFilter()}
+                <div className="menu-tools">
+                  <div className="menu-tag">
+                    Do you manage a conference?
+                    <p className="tooltiptext">
+                      Tell us what dates you're planning!
+                    </p>
+                  </div>
+                  <div className="menu-tag">
+                    Report a problem
+                    <p className="tooltiptext">
+                      PM us on Facebook or Instagram!
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
