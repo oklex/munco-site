@@ -87,15 +87,15 @@ export const AllCalendarData: ICalendarResponse[] = [
     },
     event: null,
     applications: [
-      // {
-      //   name: "CAIMUN Secretariat Applications",
-      //   type: IApplicationType.Secretariat,
-      //   start_date: new Date("April 15, 2020"),
-      //   end_date: new Date("April 30, 2020"),
-      //   applicationLink: "https://cahsmun.org/apply",
-      //   dates_tentative: true,
-      //   cost: null
-      // },
+      {
+        name: "CAIMUN Secretariat Applications",
+        type: IApplicationType.Secretariat,
+        start_date: new Date("April 5, 2020"),
+        end_date: new Date("April 28, 2020"),
+        applicationLink: "https://www.caimun.ca/apply.html",
+        dates_tentative: false,
+        cost: null
+      },
       // {
       //   name: "TEST Secretariat Applications",
       //   type: IApplicationType.Secretariat,
