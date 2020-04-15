@@ -42,6 +42,7 @@ export const CalendarService = {
         .toDate()
       const returnData: ICalendarResponse[] = []
       const data: ICalendarResponse[] = AllCalendarData;
+
       data.forEach(obj => {
         if (obj.applications) {
           obj.applications = obj.applications.filter(app => {
@@ -63,7 +64,7 @@ export const CalendarService = {
       })
 
       data.forEach(obj => {
-        if (obj.applications) {
+        if (obj.applications && obj.applications.length != 0) {
           let objEndDate: Date = findLargestAppEndDate(obj);
           if (objEndDate < weekFromNow || returnData.length < 4) {
             returnData.push(obj);
