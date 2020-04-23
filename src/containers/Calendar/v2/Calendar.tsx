@@ -26,14 +26,13 @@ enum CalendarFilterTypes {
 export class CalendarV2 extends React.Component<{}, ICalendarState> {
   state = {
     allCalendarEvents: [],
-    loading: true
+    loading: false
   };
 
   componentDidMount = async () => {
     const allCalendarEvents: ICalendarResponse[] = await CalendarService.getAll();
     this.setState({
-      allCalendarEvents: allCalendarEvents,
-      loading: false
+      allCalendarEvents: allCalendarEvents
     });
   };
 
@@ -43,9 +42,9 @@ export class CalendarV2 extends React.Component<{}, ICalendarState> {
 
   showAllCards = () => {
     if (this.state.loading == true) {
-      <div className='errorMessage'>
+      return (<div className='errorMessage'>
         <h3>Loading...</h3>
-      </div>
+      </div>)
     } else if (this.state.allCalendarEvents.length === 0) {
       return (
         <div className='errorMessage'>

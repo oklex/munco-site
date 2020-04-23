@@ -1,7 +1,7 @@
 import React from "react";
 import {
   ICalendarResponse,
-  IApplicationEvent
+  IApplicationEvent,
 } from "../../models/CalendarEvent";
 import CalendarService from "../../services/CalendarService/v2/CalendarService";
 import CalendarCard from "../../components/SingleEventLink/v2/CalendarCard";
@@ -17,22 +17,29 @@ class UpcomingApplications extends React.Component<
 > {
   state: IUpcomingApplicationsState = {
     upcomingApplications: [],
-    loading: true
+    loading: false,
   };
 
   componentDidMount = async () => {
     let upcoming = await CalendarService.getUpcoming();
-    if (upcoming.length != 0) {
-      this.setState({
-        upcomingApplications: upcoming,
-        loading: false
-      });
-    }
+    this.setState({
+      upcomingApplications: upcoming
+    });
   };
 
   showUpcomingApps = () => {
     if (this.state.loading) {
       return <p> Loading . . .</p>;
+    } else if (this.state.upcomingApplications == []) {
+      return (
+        <div>
+          <h1>oops &#128552;</h1>
+          <p>
+            looks like there's nothing here <br />
+            check back later!
+          </p>
+        </div>
+      );
     } else {
       return this.state.upcomingApplications.map(
         (conference: ICalendarResponse, index: number) => {
@@ -47,11 +54,7 @@ class UpcomingApplications extends React.Component<
   };
 
   render() {
-    return (
-      <div className='row'>
-          {this.showUpcomingApps()}
-      </div>
-    );
+    return <div className="row">{this.showUpcomingApps()}</div>;
   }
 }
 
