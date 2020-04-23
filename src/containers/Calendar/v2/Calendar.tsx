@@ -28,9 +28,7 @@ export class CalendarV2 extends React.Component<{}, ICalendarState> {
   };
 
   componentDidMount = async () => {
-    const allCalendarEvents: ICalendarResponse[] = await CalendarService.getAll(
-      sortBy.application
-    );
+    const allCalendarEvents: ICalendarResponse[] = await CalendarService.getAll();
     this.setState({
       allCalendarEvents: allCalendarEvents,
     });
@@ -43,8 +41,9 @@ export class CalendarV2 extends React.Component<{}, ICalendarState> {
   showAllCards = () => {
     if (this.state.allCalendarEvents.length === 0) {
       return (
-        <div>
-          <h1>LOADING . . . </h1>
+        <div className='errorMessage'>
+          <h1>oops &#128552;</h1>
+          <p>looks like there's nothing here <br/>check back later!</p>
         </div>
       );
     } else {

@@ -101,6 +101,11 @@
   .calendar-section {
     padding-top: 30vh;
     padding-bottom: auto;
+    .errorMessage {
+      padding-top: 5em;
+      padding-bottom: 5em;
+      padding-left: 1em;
+    }
   }
 }
 
