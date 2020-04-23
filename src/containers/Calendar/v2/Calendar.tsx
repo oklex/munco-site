@@ -12,6 +12,7 @@ import SplitScreen from "../../../components/SplitScreen/SplitScreen";
 
 interface ICalendarState {
   allCalendarEvents: ICalendarResponse[];
+  loading: boolean,
 }
 
 enum CalendarFilterTypes {
@@ -25,12 +26,14 @@ enum CalendarFilterTypes {
 export class CalendarV2 extends React.Component<{}, ICalendarState> {
   state = {
     allCalendarEvents: [],
+    loading: true
   };
 
   componentDidMount = async () => {
     const allCalendarEvents: ICalendarResponse[] = await CalendarService.getAll();
     this.setState({
       allCalendarEvents: allCalendarEvents,
+      loading: false
     });
   };
 
@@ -39,7 +42,11 @@ export class CalendarV2 extends React.Component<{}, ICalendarState> {
   };
 
   showAllCards = () => {
-    if (this.state.allCalendarEvents.length === 0) {
+    if (this.state.loading == true) {
+      <div className='errorMessage'>
+        <h3>Loading...</h3>
+      </div>
+    } else if (this.state.allCalendarEvents.length === 0) {
       return (
         <div className='errorMessage'>
           <h1>oops &#128552;</h1>
