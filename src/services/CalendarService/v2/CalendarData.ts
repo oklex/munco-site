@@ -9,7 +9,7 @@ import {
 /* 
 testing types:
 - search for: all -> full card
-- search for: registration -> card with event & application (type: delegateRegistration)
+- search for: registration -> card with events & application (type: delegateRegistration)
 - search for: applications -> card with applications
 */
 
@@ -22,7 +22,7 @@ export const AllCalendarData: ICalendarResponse[] = [
       website: "https://vmun.com/",
       running_since: new Date("January, 2002")
     },
-    event: null,
+    events: null,
     applications: [
       {
         name: "VMUN Secretariat Applications",
@@ -43,7 +43,7 @@ export const AllCalendarData: ICalendarResponse[] = [
       website: "https://cahsmun.org/",
       running_since: new Date("April, 2004")
     },
-    event: null,
+    events: null,
     applications: [
       {
         name: "CAHSMUN Secretariat Applications",
@@ -64,7 +64,7 @@ export const AllCalendarData: ICalendarResponse[] = [
       website: "https://www.horizons.cahsmun.org/",
       running_since: new Date("Nov, 2019")
     },
-    event: null,
+    events: null,
     applications: [
       {
         name: "Horizons Secretariat Applications",
@@ -85,7 +85,7 @@ export const AllCalendarData: ICalendarResponse[] = [
       website: "https://www.caimun.ca/",
       running_since: new Date("April, 2009")
     },
-    event: null,
+    events: null,
     applications: [
       {
         name: "CAIMUN Secretariat Applications",
@@ -115,7 +115,7 @@ export const AllCalendarData: ICalendarResponse[] = [
       website: "http://cydcmun.org/",
       running_since: new Date("April, 2019")
     },
-    event: null,
+    events: null,
     applications: [
       // {
       //   name: "CAIMUN Secretariat Applications",
@@ -136,7 +136,7 @@ export const AllCalendarData: ICalendarResponse[] = [
       website: "https://richmun.ca/",
       running_since: new Date("April, 2014")
     },
-    event: null,
+    events: null,
     applications: []
   },
   {
@@ -147,7 +147,7 @@ export const AllCalendarData: ICalendarResponse[] = [
       website: "https://www.vymun.com",
       running_since: new Date("October, 2005")
     },
-    event: null,
+    events: null,
     applications: []
   },
   {
@@ -158,7 +158,7 @@ export const AllCalendarData: ICalendarResponse[] = [
       website: "https://vmun.com/",
       running_since: new Date("January, 2002")
     },
-    event: null,
+    events: null,
     applications: []
   },
   {
@@ -169,7 +169,7 @@ export const AllCalendarData: ICalendarResponse[] = [
       website: "https://www.pacificmun.org",
       running_since: new Date("January, 2016")
     },
-    event: null,
+    events: null,
     applications: []
   },
 
@@ -181,7 +181,7 @@ export const AllCalendarData: ICalendarResponse[] = [
       website: "https://www.northmun.com",
       running_since: new Date("January, 2019")
     },
-    event: null,
+    events: null,
     applications: []
   },
   {
@@ -192,7 +192,7 @@ export const AllCalendarData: ICalendarResponse[] = [
       website: "https://spamun.org/",
       running_since: new Date("April, 2019")
     },
-    event: null,
+    events: null,
     applications: [
       {
         name: "SPAMUN Secretariat Applications",
@@ -212,7 +212,7 @@ export const AllCalendarData: ICalendarResponse[] = [
       website: "https://www.vymun.com/",
       running_since: new Date("October, 2012")
     },
-    event: null,
+    events: null,
     applications: [
       {
         name: "VYMUN External Staff Applications",

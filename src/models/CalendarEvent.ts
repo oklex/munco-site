@@ -19,7 +19,7 @@ export interface CalendarEvent {
 // CC v2
 export interface ICalendarResponse {
   organization: IConferenceOrganization,
-  event: IConferenceEvent | null,
+  events: IConferenceEvent[] | null,
   applications: IApplicationEvent[] | null
 }
 
