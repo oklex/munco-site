@@ -49,7 +49,7 @@ export class CalendarV2 extends React.Component<{}, ICalendarState> {
     } else if (this.state.allCalendarEvents.length === 0) {
       return (
         <div className='errorMessage'>
-          <h1>oops &#128552;</h1>
+          <h1>huh &#128552;</h1>
           <p>looks like there's nothing here <br/>check back later!</p>
         </div>
       );
