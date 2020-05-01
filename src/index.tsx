@@ -4,7 +4,7 @@ import App from './containers/App/App'
 import * as serviceWorker from './serviceWorker';
 import './styles/index.scss';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
-import * as firebase from'firebase'
+// import * as firebase from'firebase'
 import ClipboardJS from 'clipboard'
 
 require('dotenv').config()

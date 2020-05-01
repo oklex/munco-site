@@ -47,7 +47,7 @@ class SingleEventLink extends React.Component<ISingleEventProps, {}> {
     if (this.props.linkStyle === LinkStyle.vertical) styling = "more-margin";
     return (
       <div className={styling}>
-        <a href={this.props.eventDetails.website} target="_blank">
+        <a href={this.props.eventDetails.website} target="_blank" rel="noopener noreferrer">
           <div className="event-info">
             {this.getDateIfExists()}
             <h3>{event.short_name}</h3>

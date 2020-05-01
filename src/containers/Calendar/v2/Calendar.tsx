@@ -10,12 +10,13 @@ interface ICalendarState {
   loading: boolean,
 }
 
-enum CalendarFilterTypes {
-  staffApps = "Staff Applications",
-  secretariatApps = "Secretariat Applications",
-  delegateRegistration = "Delegate Registration",
-  volunteer = "Volunteer Opportunities"
-}
+// enum CalendarFilterTypes {
+//   staffApps = "Staff Applications",
+//   secretariatApps = "Secretariat Applications",
+//   delegateRegistration = "Delegate Registration",
+//   volunteer = "Volunteer Opportunities"
+// }
+
 // this contains the page
 // which contains search selection & carousel that contains Calendar cards
 export class CalendarV2 extends React.Component<{}, ICalendarState> {

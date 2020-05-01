@@ -147,10 +147,11 @@ class SignupForm extends React.Component<ISignupFormPrompt, ISignupFormState> {
   };
 
   showButtom = (desc: string, value: number, styleName: string) => {
+    let btnName: string = "ratingButton " + styleName
     return (
       <span className="btn-container">
         <button
-          className={"ratingButton" + " " + styleName}
+          className={btnName}
           onClick={() => this.onRatingButtonClick(value)}
         >
           {value}
