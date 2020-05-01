@@ -71,19 +71,21 @@
             font-size: 14px;
             visibility: hidden;
             height: auto;
-            width: 100px;
+            width: 150px;
             margin: 0px;
             position: absolute;
             margin-left: 100%;
-            padding: 5px;
+            padding: 5px 10px 5px 10px;
             top: 0;
             background-color: white;
             border: solid 1px $light-grey;
             border-radius: 15px;
+            transition: ease-in-out;
           }
         }
       }
-      .menu-button:hover {
+      .menu-tag:hover {
+        // visibility: hidden;
         .tooltiptext {
           visibility: visible;
           // height: auto;
