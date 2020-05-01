@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const wpApiEndpoint = 'https://munco.xyz/wp-json/wp/v2/'
-const eventApiEndpoint = 'http://node-express-env.eba-rphvydtz.us-west-2.elasticbeanstalk.com/'
+const eventApiEndpoint = 'https://calendar.munco.ca/'
 let wordpressAPI = wpCreateWordpressAxiosInstance() 
 let conferenceAPI = eventCreateAxiosInstance()
 
