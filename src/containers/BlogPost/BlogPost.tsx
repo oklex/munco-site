@@ -151,7 +151,7 @@ class BlogPost extends React.Component<IBlogPostProps, IBlogPostState> {
     return (
       <div className="other-buttons d-flex justify-content-center">
         <button type="button" className="btn btn-outline-secondary">
-          <a href="https://forms.gle/rzHMmwdG7ay9LrCc6" target="_blank">
+          <a href="https://forms.gle/rzHMmwdG7ay9LrCc6" target="_blank" rel="noopener noreferrer">
             <h4>refer someone</h4>
           </a>
         </button>

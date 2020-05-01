@@ -38,7 +38,7 @@ class Blog extends React.Component<{}, {}> {
           <h3>This is our MUN community</h3>
           
           <div className="referral-btn blueText">
-              <a href="https://forms.gle/rzHMmwdG7ay9LrCc6" target="_blank">
+              <a href="https://forms.gle/rzHMmwdG7ay9LrCc6" target="_blank" rel="noopener noreferrer">
                 <p>refer someone you know &gt;</p>
               </a>
             </div>
@@ -47,7 +47,7 @@ class Blog extends React.Component<{}, {}> {
         <div className="container">
           <div className="d-flex flex-row-reverse referral-btn">
             <div className="referral-btn blueText">
-              <a href="https://forms.gle/rzHMmwdG7ay9LrCc6" target="_blank">
+              <a href="https://forms.gle/rzHMmwdG7ay9LrCc6" target="_blank" rel="noopener noreferrer">
                 <p>refer someone you know &gt;</p>
               </a>
             </div>

@@ -9,7 +9,6 @@ import { BlogService } from "../../services/BlogService";
 import SingleBlogLink from "../../components/SingleBlogLink/SingleBlogLink";
 import LinkStyle from "../../models/LinkStyle";
 import Helmet from "react-helmet";
-import UpcomingConferences from "./UpcomingConferences";
 // @ts-ignore
 import { SocialIcon } from "react-social-icons";
 import UpcomingApplications from "./UpcomingApplications";

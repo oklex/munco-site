@@ -4,7 +4,6 @@ import {
 	IConferenceEvent,
 	IApplicationEvent,
 } from "../../../models/CalendarEvent";
-import AllApplications from "../../AllApplications/AllApplications";
 import "./CalendarCard.scss";
 import moment from "moment";
 import DatesRemaining from "../../DatesRemaining/DatesRemaining";
@@ -93,6 +92,7 @@ export class CalendarCard extends React.Component<ICalendarCardProps, {}> {
 								className="applyBtn"
 								href={app.applicationLink}
 								target="_blank"
+								rel="noopener noreferrer"
 							>
 								Apply
 							</a>

@@ -1,7 +1,4 @@
-import { ICalendarResponse, IApplicationEvent } from "../../../models/CalendarEvent";
-import { AllCalendarData } from "./CalendarData";
-// import { conferenceAPI } from "./constants";
-import moment from "moment";
+import { ICalendarResponse } from "../../../models/CalendarEvent";
 import { conferenceAPI } from "../../constants";
 
 export const CalendarService = {

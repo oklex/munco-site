@@ -1,8 +1,5 @@
 import React from "react";
-import {
-  ICalendarResponse,
-  IApplicationEvent,
-} from "../../models/CalendarEvent";
+import { ICalendarResponse } from "../../models/CalendarEvent";
 import CalendarService from "../../services/CalendarService/v2/CalendarService";
 import CalendarCard from "../../components/SingleEventLink/v2/CalendarCard";
 
@@ -23,14 +20,14 @@ class UpcomingApplications extends React.Component<
   componentDidMount = async () => {
     let upcoming = await CalendarService.getUpcoming();
     this.setState({
-      upcomingApplications: upcoming
+      upcomingApplications: upcoming,
     });
   };
 
   showUpcomingApps = () => {
     if (this.state.loading) {
       return <p> Loading . . .</p>;
-    } else if (this.state.upcomingApplications == []) {
+    } else if (this.state.upcomingApplications === []) {
       return (
         <div>
           <h1>oops &#128552;</h1>

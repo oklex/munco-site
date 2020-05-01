@@ -1,5 +1,5 @@
 import {CalendarEvent} from "../../../models/CalendarEvent";
-import moment from "moment";
+// import moment from "moment";
 
 export const AllCalendarData: CalendarEvent[] = [
   {

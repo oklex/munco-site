@@ -1,7 +1,6 @@
 import React from "react";
 import "./DatesRemaining.scss";
 import moment, { Moment } from "moment";
-import { app } from "firebase";
 
 interface IDatesRemainingProps {
   startDate: Date;

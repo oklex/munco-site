@@ -1,14 +1,9 @@
 import React from "react";
 import CalendarCard from "../../../components/SingleEventLink/v2/CalendarCard";
 import { ICalendarResponse } from "../../../models/CalendarEvent";
-import CalendarService, {
-  sortBy,
-} from "../../../services/CalendarService/v2/CalendarService";
-import ScrollMenu from "react-horizontal-scrolling-menu";
+import CalendarService from "../../../services/CalendarService/v2/CalendarService";
 import "./Calendar.scss";
-import FullScreen from "../../../components/SplitScreen/FullScreen";
 import Helmet from "react-helmet";
-import SplitScreen from "../../../components/SplitScreen/SplitScreen";
 
 interface ICalendarState {
   allCalendarEvents: ICalendarResponse[];
@@ -42,7 +37,7 @@ export class CalendarV2 extends React.Component<{}, ICalendarState> {
   };
 
   showAllCards = () => {
-    if (this.state.loading == true) {
+    if (this.state.loading === true) {
       return (<div className='errorMessage'>
         <h3>Loading...</h3>
       </div>)
@@ -58,7 +53,7 @@ export class CalendarV2 extends React.Component<{}, ICalendarState> {
         (event: ICalendarResponse, key: number) => {
           if (
             !event.applications ||
-            (event.applications && event.applications.length == 0)
+            (event.applications && event.applications.length === 0)
           ) {
             return <div key={key}></div>; // omit no applications
           } else {

@@ -212,7 +212,7 @@ class SignupForm extends React.Component<ISignupFormPrompt, ISignupFormState> {
   };
 
   showIfNotExpired = () => {
-    if (this.props.endDate <= new Date) {
+    if (this.props.endDate <= new Date()) {
       return <div></div>
     } else {
       return <div className="newsletter-SignupForm">{this.showNextPage()}</div>
