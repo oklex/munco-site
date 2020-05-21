@@ -75,7 +75,7 @@ class DatesRemaining extends React.Component<
           timerDescription: "closing today! " + this.state.endDateText,
         });
       } else if (
-        this.state.startMoment.isBefore(this.state.oneWeekFromNow)
+        this.state.endMoment.isBefore(this.state.oneWeekFromNow) 
       ) {
         console.log("closing soon", this.props.endDate, this.state.currentDate);
         this.setState({
