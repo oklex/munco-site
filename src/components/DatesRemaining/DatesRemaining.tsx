@@ -32,8 +32,8 @@ class DatesRemaining extends React.Component<
 > {
   state: IDatesRemainingState = {
     currentDate: this.props.currentDate ? this.props.currentDate : new Date(),
-    startMoment: moment(this.props.startDate),
-    endMoment: moment(this.props.endDate),
+    startMoment: moment(this.props.startDate).startOf('day'),
+    endMoment: moment(this.props.endDate).endOf('day'),
     startDateText: moment(this.props.startDate).format("(dddd), MMM Do"),
     endDateText: moment(this.props.endDate).format("(dddd), MMM Do"),
     oneWeekFromNow: moment(new Date()).add(7, "days"),
@@ -61,8 +61,8 @@ class DatesRemaining extends React.Component<
     } else if (this.state.startMoment.isBefore()) {
       // has started
       if (
-        this.state.startMoment.isSame(moment(), "day") &&
-        this.state.startMoment.isSame(moment(), "month")
+        this.state.endMoment.isSame(moment(), "day") &&
+        this.state.endMoment.isSame(moment(), "month")
       ) {
         console.log(
           "closing today",
