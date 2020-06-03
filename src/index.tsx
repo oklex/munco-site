@@ -19,7 +19,6 @@ require('dotenv').config()
 //     appId: '1:209284948223:web:9f451a8ee50dfd47a36cca'
 //   };
   
-  console.log('env test', process.env.TEST)
   // firebase.initializeApp(firebaseConfig);
   
   new ClipboardJS('.copy-btn');
