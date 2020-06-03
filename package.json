@@ -1,6 +1,6 @@
 {
   "name": "munco-site",
-  "version": "0.1.0",
+  "version": "1.1.0",
   "private": true,
   "dependencies": {
     "@types/bootstrap": "^4.3.1",
