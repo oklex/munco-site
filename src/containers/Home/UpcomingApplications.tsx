@@ -23,6 +23,11 @@ class UpcomingApplications extends React.Component<
 				upcomingApplications: res,
 				loading: false,
 			});
+		}).catch(() => {
+			this.setState({
+				upcomingApplications: [],
+				loading: false,
+			});
 		});
 	};
 
