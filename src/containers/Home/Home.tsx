@@ -178,14 +178,6 @@ class Home extends React.Component<IHomeProps, IHomeState> {
 
         <div className="conferenceSection">
           <div className="container">
-            <div className="section-title">
-              <h2>Upcoming Applications</h2>
-              <div className="blueText">
-                <Link to="/calendar">
-                  <p>see all applications &gt;</p>
-                </Link>
-              </div>
-            </div>
             <UpcomingApplications />
           </div>
         </div>

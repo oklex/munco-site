@@ -83,7 +83,7 @@ export class CalendarCard extends React.Component<ICalendarCardProps, {}> {
 		return (
 			<div className="AppDetails" key={key}>
 				<div className="d-flex justify-content-between">
-					<p className="miniText">
+					<p className=" appName">
 						{app.name} {cost}
 					</p>
 					<span>

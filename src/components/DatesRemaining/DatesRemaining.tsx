@@ -128,6 +128,15 @@ class DatesRemaining extends React.Component<
     }
   };
 
+  shouldRenderTimerBar = () => {
+    if (this.state.endMoment.isAfter()) {
+      return <div className="date-indicator">
+        {this.renderTimerBar()}
+      </div>
+    
+    } else return <div></div>
+  }
+
   renderSegments = (n: number) => {
     let returnJSX: JSX.Element[] = [];
 
@@ -162,8 +171,7 @@ class DatesRemaining extends React.Component<
 
   render() {
     return (
-      <div>
-        <div className="date-indicator">{this.renderTimerBar()}</div>
+      <div>{this.shouldRenderTimerBar()}
         {this.renderDateDescription()}
       </div>
     );
