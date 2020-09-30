@@ -20,7 +20,7 @@ export interface CalendarEvent {
 export interface ICalendarResponse {
   organization: IConferenceOrganization,
   events: IConferenceEvent[] | null,
-  applications: IApplicationEvent[] | null
+  applications: IApplicationEvent[]
 }
 
 export interface IConferenceOrganization {

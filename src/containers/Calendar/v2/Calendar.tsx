@@ -4,6 +4,7 @@ import { ICalendarResponse } from "../../../models/CalendarEvent";
 import CalendarService from "../../../services/CalendarService/v2/CalendarService";
 import "./Calendar.scss";
 import Helmet from "react-helmet";
+import { sortResponseByEndDate } from "../../../utils/SortApplications";
 
 interface ICalendarState {
   allCalendarEvents: ICalendarResponse[];
@@ -28,7 +29,7 @@ export class CalendarV2 extends React.Component<{}, ICalendarState> {
   componentDidMount = async () => {
     const allCalendarEvents: ICalendarResponse[] = await CalendarService.getAll();
     this.setState({
-      allCalendarEvents: allCalendarEvents,
+      allCalendarEvents: sortResponseByEndDate(allCalendarEvents),
       loading: false
     });
   };
