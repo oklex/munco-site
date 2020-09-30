@@ -3,6 +3,7 @@ import { ICalendarResponse } from "../../models/CalendarEvent";
 import CalendarService from "../../services/CalendarService/v2/CalendarService";
 import CalendarCard from "../../components/SingleEventLink/v2/CalendarCard";
 import { Link } from "react-router-dom";
+import { sortResponseByEndDate } from "../../utils/SortApplications";
 
 interface IUpcomingApplicationsState {
   upcomingApplications: ICalendarResponse[];
@@ -22,7 +23,7 @@ class UpcomingApplications extends React.Component<
     await CalendarService.getUpcoming()
       .then((res) => {
         this.setState({
-          upcomingApplications: res,
+          upcomingApplications: sortResponseByEndDate(res),
           loading: false,
         });
       })
