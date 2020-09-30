@@ -11,7 +11,7 @@ class Application extends React.Component<IApplicationProps, {}> {
     if (this.props.app.applicationLink) {
       return (
         <div>
-          <a href={this.props.app.applicationLink}>Apply now></a>
+          <a href={this.props.app.applicationLink}>Apply now</a>
         </div>
       );
     }
